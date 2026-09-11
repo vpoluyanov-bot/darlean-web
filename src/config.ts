@@ -26,6 +26,19 @@ export function signupHref(cta: string): string {
   return url.toString();
 }
 
+/* ---- analytics ---------------------------------------------------------- */
+
+/**
+ * Measurement IDs. They live here rather than in the markup so there is one
+ * place to look, and each can be overridden per environment without a code
+ * change — set PUBLIC_GA4_ID or PUBLIC_GTM_ID in the environment (see
+ * .env.example) and a staging build reports somewhere else.
+ *
+ * Set either to an empty string to leave that tag out of the build entirely.
+ */
+export const GA4_ID = import.meta.env.PUBLIC_GA4_ID ?? 'G-P04TEGPQQ1';
+export const GTM_ID = import.meta.env.PUBLIC_GTM_ID ?? 'GTM-5L6MW4QX';
+
 /** Where enquiries go when a button opens a mail client instead of the app. */
 export const CONTACT_EMAIL = 'info@darlean.com';
 

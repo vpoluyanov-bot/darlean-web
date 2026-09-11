@@ -47,6 +47,13 @@ URLs in `data-src` until an IntersectionObserver in `src/scripts/homepage.js`
 moves them onto the element, two screens ahead of arrival. Adding a video means
 adding `data-lazy-video` and `data-src`, not a bare `src`.
 
+**Analytics is declared once, in the layout.** GA4 and Tag Manager are rendered
+by `BaseLayout.astro`, so every page gets them and no page can be missed. The
+measurement IDs live in `src/config.ts` with a `PUBLIC_GA4_ID` / `PUBLIC_GTM_ID`
+environment override; setting either to an empty string drops that tag from the
+build. The snippets are `is:inline` on purpose — Astro must not bundle them, or
+they stop being the code Google publishes.
+
 **The signup address lives in `src/config.ts` and nowhere else.** Components ask
 for a link with `signupHref('<page>_<block>')`; the `cta` value names the page
 and the block that was clicked, lowercase and underscored. `src/scripts/

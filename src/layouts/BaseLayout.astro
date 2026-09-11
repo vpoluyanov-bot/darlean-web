@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { GA4_ID, GTM_ID } from '../config';
 import { t, defaultLocale, type Locale } from '../i18n';
 
 interface Props {
@@ -10,12 +11,52 @@ interface Props {
 
 const { title, description, locale = defaultLocale } = Astro.props;
 const copy = t(locale);
+
+/* Every page renders through this layout, so the tags below land on all of
+   them. Both are skipped when their ID is blank — see src/config.ts. */
 ---
 
 <html lang={copy.site.lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {
+      /* Tag Manager goes as high in the head as it can, which is what Google
+         asks for: it loads its own container asynchronously, so anything it
+         injects starts earlier. `is:inline` keeps Astro from bundling it —
+         the snippet has to stay exactly as Google publishes it. */
+    }
+    {
+      GTM_ID && (
+        <script is:inline set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');`} />
+      )
+    }
+
+    {
+      /* GA4. The loader carries `async`, so neither script blocks the parser
+         or the first paint. */
+    }
+    {
+      GA4_ID && (
+        <Fragment>
+          <script
+            is:inline
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
+          />
+          <script is:inline set:html={`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA4_ID}');`} />
+        </Fragment>
+      )
+    }
+
     <title>{title}</title>
     <meta name="description" content={description ?? copy.site.description} />
 
@@ -30,6 +71,19 @@ const copy = t(locale);
   </head>
 
   <body class="bg-page text-primary font-sans antialiased">
+    {
+      /* Tag Manager's fallback for browsers running without JavaScript. It has
+         to be the first thing inside <body>. */
+    }
+    {
+      GTM_ID && (
+        <noscript
+          set:html={`<iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}"
+height="0" width="0" style="display:none;visibility:hidden"></iframe>`}
+        />
+      )
+    }
+
     <slot />
 
     <script>
