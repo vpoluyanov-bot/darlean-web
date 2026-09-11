@@ -1,6 +1,6 @@
 ---
 import Button from './Button.astro';
-import { signupHref } from '../config';
+import { contactHref } from '../config';
 import { t, defaultLocale, type Locale } from '../i18n';
 
 interface Props {
@@ -55,7 +55,9 @@ const copy = t(locale).onboarding;
     </ol>
 
     <div class="mt-12 flex flex-wrap items-center gap-6">
-      <Button href={signupHref('home_final')} class="px-8 py-4 font-semibold">{copy.cta}</Button>
+      <Button href={contactHref(copy.emailSubject)} class="px-8 py-4 font-semibold">
+        {copy.cta}
+      </Button>
       <span class="text-[15px] leading-[1.5] text-tertiary">{copy.note}</span>
     </div>
   </div>

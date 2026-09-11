@@ -413,7 +413,8 @@
       }
     ],
     "cta": "Schedule your launch",
-    "note": "The free plan takes 10 minutes to set up — no help needed"
+    "note": "The free plan takes 10 minutes to set up — no help needed",
+    "emailSubject": "Darlean — scheduling a launch (from the homepage)"
   },
   "objections": {
     "eyebrow": "Peace of mind for your data and money",
@@ -617,8 +618,8 @@
         "title": "Need more?",
         "textBefore": "Custom limits, SSO and onboarding for larger teams — ",
         "linkLabel": "talk to us",
-        "linkHref": "/#start",
-        "textAfter": "."
+        "textAfter": ".",
+        "emailSubject": "Darlean — plans enquiry (from the pricing page)"
       }
     ]
   }

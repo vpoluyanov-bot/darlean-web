@@ -1,4 +1,5 @@
 ---
+import { contactHref } from '../config';
 import { t, defaultLocale, type Locale } from '../i18n';
 
 interface Props {
@@ -22,7 +23,7 @@ const notes = t(locale).pricing.notes;
             {/* Kept on one line: a line break here would render as a space
                 between the link and the full stop that follows it. */}
             {note.text ?? (
-              <Fragment>{note.textBefore}<a href={note.linkHref} class="text-accent transition-colors duration-fast ease-brand hover:text-accent-light">{note.linkLabel}</a>{note.textAfter}</Fragment>
+              <Fragment>{note.textBefore}<a href={contactHref(note.emailSubject)} class="text-accent transition-colors duration-fast ease-brand hover:text-accent-light">{note.linkLabel}</a>{note.textAfter}</Fragment>
             )}
           </p>
         </li>
