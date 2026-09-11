@@ -42,10 +42,6 @@
 /* Plan prices are set larger than any heading step in the design system. */
 --text-price-size:44px;
 
-/* Device frames in the hero. */
---radius-frame:22px;
---radius-phone:36px;
---radius-phone-inner:28px;
 --radius-tile:11px;
 --radius-field:16px;
 

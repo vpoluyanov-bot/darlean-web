@@ -123,53 +123,20 @@ for (const video of document.querySelectorAll(
   playWhenVisible.observe(video);
 }
 
-/* -- Hero: laptop video plays, then the phone slides in ------------------- */
+/* -- Hero ---------------------------------------------------------------- */
 
+/**
+ * The hero clip autoplays from markup, so it runs without JavaScript at all.
+ * The only thing left to do here is honour a request for less motion.
+ */
 function initHero() {
-  const main = document.querySelector('[data-hero-main]');
-  const phone = document.querySelector('[data-hero-phone-video]');
-  const frame = document.querySelector('[data-hero-frame]');
-  const phoneWrap = document.querySelector('[data-hero-phone]');
-  if (!main || !phone || REDUCED) return;
+  if (!REDUCED) return;
 
-  main.muted = true;
-  phone.muted = true;
+  const hero = document.querySelector('[data-hero-video]');
+  if (!hero) return;
 
-  let revealed = false;
-
-  const reveal = () => {
-    if (revealed) return;
-    revealed = true;
-
-    if (frame) frame.style.transform = 'translateX(-28px)';
-    if (phoneWrap) {
-      phoneWrap.style.opacity = '1';
-      phoneWrap.style.transform = 'none';
-    }
-
-    phone.currentTime = 0;
-    phone.play().catch(() => {});
-  };
-
-  const restart = () => {
-    revealed = false;
-
-    if (phoneWrap) {
-      phoneWrap.style.opacity = '0';
-      phoneWrap.style.transform = 'translateY(16px)';
-    }
-    if (frame) frame.style.transform = 'none';
-
-    main.currentTime = 0;
-    main.play().catch(() => {});
-  };
-
-  main.addEventListener('ended', reveal);
-  // Fallback for browsers that never fire `ended`.
-  main.addEventListener('play', () => setTimeout(() => reveal(), 9000), { once: true });
-  phone.addEventListener('ended', () => setTimeout(restart, 4000));
-
-  main.play().catch(() => {});
+  hero.autoplay = false;
+  hero.pause();
 }
 
 /* -- By role: vertical scroll drives a horizontal track ------------------- */

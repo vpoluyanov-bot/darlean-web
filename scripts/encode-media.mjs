@@ -2,11 +2,15 @@
  * Rebuilds public/media from the original Claude Design export.
  *
  *   node scripts/encode-media.mjs "/path/to/Darvis export"
- *   node scripts/encode-media.mjs "/path/to/Darvis export" --from "/path/to/new clips"
+ *   node scripts/encode-media.mjs "/path/to/export" --only hero-agent
+ *   node scripts/encode-media.mjs "/path/to/export" --only agent-task,agent-report \
+ *       --from "/path/to/new clips"
  *
- * With --from, only the clips that directory actually contains are rebuilt,
- * using the same settings as everything else. That is how a replacement round
- * of footage lands without touching the files nobody changed.
+ * --only names the clips to rebuild, leaving every other file untouched.
+ * --from points at a directory holding replacement footage named after those
+ * clips. --from requires --only: without it, a directory that happens to hold
+ * a file named like another clip would quietly rebuild that clip too, from
+ * whatever version it contains.
  *
  * Requires ffmpeg and cwebp (brew install ffmpeg webp). Homebrew's ffmpeg is
  * built without the libwebp encoder, so WebP goes through cwebp instead.
@@ -35,15 +39,30 @@ if (!SRC) {
   process.exit(1);
 }
 
-const fromIndex = process.argv.indexOf('--from');
-const OVERRIDE = fromIndex > -1 ? process.argv[fromIndex + 1] : null;
+const flag = (name) => {
+  const i = process.argv.indexOf(name);
+  return i > -1 ? process.argv[i + 1] : null;
+};
+
+const OVERRIDE = flag('--from');
+const ONLY = flag('--only')?.split(',').map((s) => s.trim()).filter(Boolean) ?? null;
+
+if (OVERRIDE && !ONLY) {
+  console.error('--from requires --only, so a stray file cannot rebuild a clip you did not name');
+  process.exit(1);
+}
+
+/** True when this clip is part of the current run. */
+const selected = (name) => !ONLY || ONLY.includes(name);
 
 const OUT = 'public/media';
 
 /** displayed: CSS px the element occupies at 1440px wide, so target = 2x that. */
 const CLIPS = [
-  { out: 'hero-main',           src: 'assets/hero-main-v2.mp4',                  width: 1920, displayed: 1000 },
-  { out: 'hero-notifications',  src: 'assets/hero-notifications-v2.mp4',         width: 1080, displayed: 491 },
+  // The hero clip fills its column, so the column width is what it has to
+  // cover: 608px at 1440. Twice that is more than the source holds, so it
+  // ships at its native 1080.
+  { out: 'hero-agent',          src: 'assets/hero-agent.mp4',                    width: 1080, displayed: 608 },
   { out: 'feature-projects',    src: 'uploads/Раскрытие проекта (1).mp4',        width: 1152, displayed: 558 },
   { out: 'feature-requests',    src: 'uploads/Процесс заявки (1).mp4',           width: 1152, displayed: 558 },
   { out: 'feature-org-chart',   src: 'uploads/Оргструктура анимация (1).mp4',    width: 1152, displayed: 558 },
@@ -79,6 +98,7 @@ const ff = (args) => run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', 
 
 /** Where a clip's source actually lives once --from is taken into account. */
 async function resolveSource(clip) {
+  if (!selected(clip.out)) return null;
   if (!OVERRIDE) return path.join(SRC, clip.src);
 
   const replacement = path.join(OVERRIDE, `${clip.out}.mp4`);
@@ -86,7 +106,7 @@ async function resolveSource(clip) {
     await stat(replacement);
     return replacement;
   } catch {
-    return null; // Not part of this round.
+    return null;
   }
 }
 const scale = (w) => `scale=${w}:-2:flags=lanczos`;
@@ -164,7 +184,7 @@ for (const clip of CLIPS) {
   console.log(`${clip.out} done`);
 }
 
-for (const still of OVERRIDE ? [] : STILLS) {
+for (const still of ONLY ? [] : STILLS) {
   const input = path.join(SRC, still.src);
   const before = await size(input);
 
@@ -185,7 +205,7 @@ for (const still of OVERRIDE ? [] : STILLS) {
 
 /* ---- the sphere ------------------------------------------------------ */
 
-if (!OVERRIDE) {
+if (!ONLY) {
   const input = path.join(SRC, SPHERE.src);
   const before = await size(input);
   const frames = `${OUT}/.sphere-frames`;

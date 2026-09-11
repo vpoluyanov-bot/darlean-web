@@ -61,54 +61,26 @@ const copy = t(locale).hero;
       </div>
     </div>
 
-    <div
-      class="hero-in relative"
-      id="hero-media"
-      style="animation-delay:200ms"
-      data-hero-media
-    >
-      <div
-        data-hero-frame
-        class="rounded-frame border border-hairline bg-elevated p-3 transition-transform duration-slow ease-brand md:[margin-right:calc(50%_-_50vw_-_140px)] md:[max-width:calc((100vh_-_260px)*1.6)]"
+    <!--
+      One clip, no device frames around it. The mockups are drawn inside the
+      video and it sits on black, so the page background runs straight into it
+      and only the corners need rounding.
+    -->
+    <div class="hero-in" style="animation-delay:200ms">
+      <video
+        data-hero-video
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster="/media/hero-agent-poster.webp"
+        aria-label={copy.videoLabel}
+        class="block w-full rounded-panel"
       >
-        <video
-          data-hero-main
-          muted
-          playsinline
-          preload="auto"
-          poster="/media/hero-main-poster.webp"
-          aria-label={copy.mainVideoLabel}
-          class="block w-full rounded-input bg-card"
-          style="aspect-ratio:16/10"
-        >
-          <source src="/media/hero-main.webm" type="video/webm" />
-          <source src="/media/hero-main.mp4" type="video/mp4" />
-        </video>
-      </div>
-
-      <div
-        data-hero-phone
-        class="absolute right-0 box-border rounded-phone border border-control bg-elevated p-2 opacity-0 transition-[opacity,transform] duration-slow ease-brand md:-right-4"
-        style="bottom:-9%;height:min(82%,440px);aspect-ratio:435/935;transform:translateY(16px)"
-      >
-        <div
-          class="relative h-full w-full overflow-hidden rounded-phone-inner bg-card"
-        >
-          <video
-            data-hero-phone-video
-            muted
-            playsinline
-            preload="auto"
-            poster="/media/hero-notifications-poster.webp"
-            aria-label={copy.phoneVideoLabel}
-            class="absolute block"
-            style="width:260.2%;left:-80.7%;top:-9.3%"
-          >
-            <source src="/media/hero-notifications.webm" type="video/webm" />
-            <source src="/media/hero-notifications.mp4" type="video/mp4" />
-          </video>
-        </div>
-      </div>
+        <source src="/media/hero-agent.webm" type="video/webm" />
+        <source src="/media/hero-agent.mp4" type="video/mp4" />
+      </video>
     </div>
   </div>
 </section>

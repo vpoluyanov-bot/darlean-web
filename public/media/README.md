@@ -29,8 +29,7 @@ None of it carries an audio track; the sources had none either.
 
 | Clip | Source | AV1 | H.264 |
 |---|---|---|---|
-| `hero-main` | 3.63M | 0.44M | 0.79M |
-| `hero-notifications` | 1.77M | 0.28M | 0.42M |
+| `hero-agent` | 4.66M | 0.94M | 1.28M |
 | `feature-projects` | 3.45M | 0.36M | 0.67M |
 | `feature-requests` | 1.21M | 0.15M | 0.28M |
 | `feature-org-chart` | 0.85M | 0.10M | 0.20M |
@@ -49,8 +48,7 @@ downloads one encoding, so about 4.2M on AV1 or 9.4M on H.264 — and only
 
 | Output | Source in the design export |
 |---|---|
-| `hero-main` | `assets/hero-main-v2.mp4` |
-| `hero-notifications` | `assets/hero-notifications-v2.mp4` |
+| `hero-agent` | `assets/hero-agent.mp4` |
 | `feature-projects` | `uploads/Раскрытие проекта (1).mp4` |
 | `feature-requests` | `uploads/Процесс заявки (1).mp4` |
 | `feature-org-chart` | `uploads/Оргструктура анимация (1).mp4` |
