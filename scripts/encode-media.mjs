@@ -7,10 +7,11 @@
  *       --from "/path/to/new clips"
  *
  * --only names the clips to rebuild, leaving every other file untouched.
- * --from points at a directory holding replacement footage named after those
- * clips. --from requires --only: without it, a directory that happens to hold
- * a file named like another clip would quietly rebuild that clip too, from
- * whatever version it contains.
+ * --from points at a directory holding replacement material named after those
+ * clips — `<name>.mp4` for a clip, `<name>.png` for a portrait. --from requires
+ * --only: without it, a directory that happens to hold a file named like
+ * another asset would quietly rebuild that one too, from whatever version it
+ * contains.
  *
  * Requires ffmpeg and cwebp (brew install ffmpeg webp). Homebrew's ffmpeg is
  * built without the libwebp encoder, so WebP goes through cwebp instead.
@@ -97,11 +98,11 @@ const SPHERE = { out: 'ai-sphere', src: 'assets/ai-sphere.json', size: 160, fps:
 const ff = (args) => run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', ...args]);
 
 /** Where a clip's source actually lives once --from is taken into account. */
-async function resolveSource(clip) {
-  if (!selected(clip.out)) return null;
-  if (!OVERRIDE) return path.join(SRC, clip.src);
+async function resolveSource(asset, extension) {
+  if (!selected(asset.out)) return null;
+  if (!OVERRIDE) return path.join(SRC, asset.src);
 
-  const replacement = path.join(OVERRIDE, `${clip.out}.mp4`);
+  const replacement = path.join(OVERRIDE, `${asset.out}.${extension}`);
   try {
     await stat(replacement);
     return replacement;
@@ -132,7 +133,7 @@ await mkdir(OUT, { recursive: true });
 const report = [];
 
 for (const clip of CLIPS) {
-  const input = await resolveSource(clip);
+  const input = await resolveSource(clip, 'mp4');
   if (!input) continue;
 
   const before = await size(input);
@@ -184,8 +185,10 @@ for (const clip of CLIPS) {
   console.log(`${clip.out} done`);
 }
 
-for (const still of ONLY ? [] : STILLS) {
-  const input = path.join(SRC, still.src);
+for (const still of STILLS) {
+  const input = await resolveSource(still, 'png');
+  if (!input) continue;
+
   const before = await size(input);
 
   // The PNG fallback is kept, but no larger than it needs to be.
