@@ -1,0 +1,22 @@
+/* Design-system tokens. Copied verbatim from the Darlean Dark DS —
+   edit them upstream, never here. Everything else derives from these. */
+@import './tokens/fonts.css';
+@import './tokens/colors.css';
+@import './tokens/typography.css';
+@import './tokens/spacing.css';
+@import './tokens/radii.css';
+@import './tokens/motion.css';
+@import './tokens/base.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Tailwind's preflight loads after the token files above and resets these
+     two, so the DS base rules are re-asserted here. Same tokens, no new values. */
+  body {
+    font-size: var(--text-body-size);
+    line-height: var(--text-body-lh);
+  }
+}

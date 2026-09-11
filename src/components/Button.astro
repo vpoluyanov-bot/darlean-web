@@ -1,0 +1,130 @@
+---
+/**
+ * Button — the site's primary call to action.
+ *
+ * The `primary` variant is a deliberate, documented exception to the design
+ * system's "no shadows anywhere" rule: the project brief specifies an
+ * animated gradient with a glow pulse and a sweeping highlight. Keeping it
+ * in one component is what stops that exception from spreading.
+ *
+ * Colours here are the brief's literal gradient stops, which sit outside the
+ * token set (#015C93 has no token). Everything else uses tokens.
+ */
+interface Props {
+  href: string;
+  variant?: 'primary' | 'secondary';
+  class?: string;
+}
+
+const { href, variant = 'primary', class: className = '' } = Astro.props;
+
+const base =
+  'inline-flex items-center justify-center rounded-pill px-6 py-3 text-body font-medium ' +
+  'transition duration-base ease-brand';
+
+const variants = {
+  primary: 'text-white',
+  secondary:
+    'border border-control text-primary hover:bg-elevated active:opacity-80',
+};
+---
+
+<a
+  href={href}
+  class:list={[base, variants[variant], className]}
+  data-grad={variant === 'primary' ? '' : undefined}
+>
+  <slot />
+</a>
+
+<style is:global>
+  @keyframes gradFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes glowPulse {
+    0%, 100% {
+      box-shadow:
+        0 6px 36px -8px rgba(3, 155, 230, 0.55),
+        0 0 0 1px rgba(142, 212, 246, 0.18) inset;
+    }
+    50% {
+      box-shadow:
+        0 12px 72px -6px rgba(3, 155, 230, 0.95),
+        0 0 28px -4px rgba(142, 212, 246, 0.45),
+        0 0 0 1px rgba(195, 232, 251, 0.35) inset;
+    }
+  }
+
+  @keyframes shineSweep {
+    0%, 55% { transform: translateX(-160%) skewX(-18deg); }
+    85%, 100% { transform: translateX(240%) skewX(-18deg); }
+  }
+
+  [data-grad] {
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(
+      110deg,
+      #015C93,
+      #0387C9 28%,
+      #039BE6 42%,
+      #8ED4F6 55%,
+      #039BE6 68%,
+      #0387C9 82%,
+      #015C93
+    );
+    background-size: 280% 100%;
+    animation:
+      gradFlow 4s cubic-bezier(0.45, 0, 0.55, 1) infinite,
+      glowPulse 3s ease-in-out infinite;
+    transition:
+      transform var(--duration-base) var(--ease),
+      filter var(--duration-base) var(--ease);
+  }
+
+  [data-grad]::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 38%;
+    background: linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.32) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    animation: shineSweep 3.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    pointer-events: none;
+  }
+
+  /* Keeps the label above the sweeping highlight. */
+  [data-grad] > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  [data-grad]:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.12) saturate(1.15);
+  }
+
+  [data-grad]:active {
+    transform: scale(0.97);
+  }
+
+  [data-grad]:hover {
+    color: var(--text-display);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-grad],
+    [data-grad]::after {
+      animation: none !important;
+    }
+  }
+</style>

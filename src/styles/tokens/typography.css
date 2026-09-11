@@ -1,0 +1,14 @@
+:root{
+--font-sans:'Inter','SF Pro Display',-apple-system,'Helvetica Neue',sans-serif;
+--weight-regular:400;
+--weight-medium:500;
+--weight-semibold:600;
+--text-display-size:80px;--text-display-lh:1.04;--text-display-track:-0.035em;
+--text-h1-size:56px;--text-h1-lh:1.07;--text-h1-track:-0.03em;
+--text-h2-size:40px;--text-h2-lh:1.1;--text-h2-track:-0.025em;
+--text-h3-size:28px;--text-h3-lh:1.14;--text-h3-track:-0.02em;
+--text-lead-size:21px;--text-lead-lh:1.52;
+--text-body-size:17px;--text-body-lh:1.52;
+--text-caption-size:14px;--text-caption-lh:1.43;
+--measure-body:66ch;
+}

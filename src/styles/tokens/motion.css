@@ -1,0 +1,9 @@
+:root{
+--duration-fast:150ms;
+--duration-base:250ms;
+--duration-slow:400ms;
+--ease:cubic-bezier(0.25,0.1,0.25,1);
+}
+@media (prefers-reduced-motion:reduce){
+:root{--duration-fast:0ms;--duration-base:0ms;--duration-slow:0ms;}
+}

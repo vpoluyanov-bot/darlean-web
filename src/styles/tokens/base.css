@@ -1,0 +1,5 @@
+body{margin:0;background:var(--surface-page);color:var(--text-primary);font-family:var(--font-sans);font-size:var(--text-body-size);line-height:var(--text-body-lh);-webkit-font-smoothing:antialiased}
+a{color:var(--text-primary);text-decoration:none}
+a:hover{color:var(--accent-light)}
+::selection{background:var(--accent-deep);color:#fff}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
