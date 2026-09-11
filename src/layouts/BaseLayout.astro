@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { GA4_ID, GTM_ID } from '../config';
 import { canonical } from '../lib/routes';
+import { graph, organisation, website, softwareApplication } from '../lib/structured-data';
 import { t, defaultLocale, type Locale } from '../i18n';
 
 interface Props {
@@ -10,14 +11,34 @@ interface Props {
   locale?: Locale;
   /** Internal pages ask not to be indexed even if a crawler finds them. */
   noindex?: boolean;
+  /** Page-specific JSON-LD nodes, added to the site-wide ones. */
+  schema?: object[];
 }
 
-const { title, description, locale = defaultLocale, noindex = false } = Astro.props;
+const {
+  title,
+  description,
+  locale = defaultLocale,
+  noindex = false,
+  schema = [],
+} = Astro.props;
+
 const copy = t(locale);
+const pageDescription = description ?? copy.site.description;
 
 /* One address per page, built from the canonical host in astro.config.mjs, so
    the bare domain and the www one can never both be indexed. */
 const canonicalUrl = canonical(Astro.url.pathname, Astro.site);
+const ogImage = new URL('/og.png', canonicalUrl).href;
+
+/* Who we are, what the site is and what the product is hold on every page;
+   a page adds whatever else describes it. */
+const structuredData = graph([
+  organisation(Astro.site),
+  website(Astro.site, copy.site.description),
+  softwareApplication(Astro.site, copy.site.description, copy.pricing.plans),
+  ...schema,
+]);
 
 /* Every page renders through this layout, so the tags below land on all of
    them. Both are skipped when their ID is blank — see src/config.ts. */
@@ -65,9 +86,31 @@ gtag('config', '${GA4_ID}');`} />
     }
 
     <title>{title}</title>
-    <meta name="description" content={description ?? copy.site.description} />
+    <meta name="description" content={pageDescription} />
     <link rel="canonical" href={canonicalUrl} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Darlean" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={copy.site.ogAlt} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={copy.site.ogAlt} />
+
+    <script type="application/ld+json" is:inline set:html={structuredData} />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <!-- Latin covers the visible copy on first paint; cyrillic loads on demand. -->
     <link

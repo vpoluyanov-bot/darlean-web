@@ -35,11 +35,11 @@ const copy = t(locale).pricing;
           <p class="m-0 mt-[18px] flex items-baseline gap-2">
             <span class="text-price font-semibold text-white">{plan.price}</span>
             {plan.showPeriod && (
-              <span class="text-caption text-tertiary">{copy.perUser}</span>
+              <span class="text-caption text-secondary">{copy.perUser}</span>
             )}
           </p>
 
-          <p class="m-0 mt-2 text-caption text-tertiary">{plan.note}</p>
+          <p class="m-0 mt-2 text-caption text-secondary">{plan.note}</p>
 
           <Button
             href={signupHref(`pricing_${plan.id}`)}

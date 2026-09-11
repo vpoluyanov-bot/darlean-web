@@ -2,8 +2,11 @@
   "site": {
     "name": "Darlean",
     "lang": "en",
-    "title": "Darlean — GPT for business. Only with tools",
-    "description": "Run tasks, projects, people and documents with AI that does the work, not just answers."
+    "title": "Darlean — AI for tasks, projects, people and documents",
+    "description": "Run tasks, projects, people and documents in one place, with AI agents that do the work — not just answer. Free plan, no credit card.",
+    "ogAlt": "Darlean — AI that runs tasks, projects, people and documents",
+    "styleguideTitle": "Styleguide — Darlean design tokens",
+    "styleguideDescription": "Internal reference: every colour, type, spacing, radius and motion token the Darlean site is built from."
   },
   "nav": {
     "logoAlt": "Darlean",
@@ -205,7 +208,8 @@
           "I remind owners about due dates",
           "I escalate overdue tasks",
           "I collect statuses without extra meetings"
-        ]
+        ],
+        "portraitAlt": "Task agent — illustrated portrait"
       },
       {
         "id": "report",
@@ -218,7 +222,8 @@
           "I explain numbers in plain language",
           "I answer questions about metrics",
           "I prepare the weekly summary"
-        ]
+        ],
+        "portraitAlt": "Report agent — illustrated portrait"
       },
       {
         "id": "expense",
@@ -231,7 +236,8 @@
           "I read receipts and assign categories",
           "I clarify expense details with employees",
           "I show expenses per employee"
-        ]
+        ],
+        "portraitAlt": "Expense agent — illustrated portrait"
       },
       {
         "id": "secretary",
@@ -244,7 +250,8 @@
           "I write summaries and minutes",
           "I create tasks from agreements",
           "I send outcomes to participants"
-        ]
+        ],
+        "portraitAlt": "AI Secretary — illustrated portrait"
       }
     ]
   },
@@ -391,7 +398,8 @@
           "Time tracking"
         ]
       }
-    ]
+    ],
+    "coverLogoAlt": ""
   },
   "onboarding": {
     "eyebrow": "Onboarding is our job, not yours",
@@ -498,8 +506,8 @@
     "rights": "All rights reserved."
   },
   "pricing": {
-    "title": "Plans — Darlean",
-    "description": "One subscription instead of 5–6 separate tools. Start free, upgrade when the team grows.",
+    "title": "Darlean pricing — one subscription, not 5–6 tools",
+    "description": "Freemium free forever, paid plans at a flat price per user per month. Compare Freemium, Basic and Pro — upgrade in one click, downgrade anytime.",
     "hero": {
       "titleLine1": "One subscription.",
       "titleLine2": "Instead of 5–6 separate tools.",

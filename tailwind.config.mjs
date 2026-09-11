@@ -28,6 +28,7 @@ export default {
           DEFAULT: 'var(--accent)',
           light: 'var(--accent-light)',
           deep: 'var(--accent-deep)',
+          'on-light': 'var(--accent-on-light)',
         },
 
         hairline: 'var(--border-hairline)',

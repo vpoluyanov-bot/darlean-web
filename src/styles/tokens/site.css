@@ -17,6 +17,10 @@
 --text-on-light-body:#1D1D1F;
 --text-on-light-secondary:#515154;
 
+/* Accent-deep reads at 4.48:1 on the light card — just under AA for text.
+   This is the same blue, dark enough for small type on both light panels. */
+--accent-on-light:#01689E;
+
 /* Accent washes used behind icons and inside pills. */
 --accent-wash:rgba(3,155,230,0.10);
 --accent-wash-strong:rgba(3,155,230,0.12);

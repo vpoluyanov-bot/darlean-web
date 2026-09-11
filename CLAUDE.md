@@ -117,7 +117,23 @@ file's `INTERNAL` list, which keeps them out of the sitemap and disallows them
 in `robots.txt`; give them `noindex` on the layout too, the way `/styleguide`
 does.
 
-Open Graph tags are still missing.
+Open Graph and Twitter Card tags are rendered by the layout from the same
+title and description each page already declares. The card image is generated,
+not drawn: `node scripts/make-og.mjs` renders `public/og.png` at 1200x630 from
+the token files and the self-hosted Inter, so it follows the design system.
+
+Structured data lives in `src/lib/structured-data.ts` and is built from the
+copy file, never retyped — prices in the JSON-LD come from the same plans the
+pricing page renders, so the markup cannot describe a product the page does
+not. Organization, WebSite and SoftwareApplication are on every page; the
+homepage adds FAQPage, pricing adds Product.
+
+`/llms.txt` is generated the same way, from the copy and the route list.
+
+**Measure on a build, never on the dev server.** A stray `astro dev` on the
+same port once made Lighthouse report Performance 56 with an 8.9s first paint;
+the same commit measured 100 through `astro preview`. The dev server ships
+unminified modules and the Astro toolbar, so its numbers mean nothing.
 
 ## Commands
 

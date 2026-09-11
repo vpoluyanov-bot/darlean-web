@@ -2,9 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
 import { readTokens, tokenMap, contrast, aa } from '../lib/tokens';
+import { t, defaultLocale } from '../i18n';
 
 /* Internal reference page. Its labels stay inline on purpose — this is a
    developer tool, not a page that ships in English and Russian. */
+
+const meta = t(defaultLocale).site;
 
 const colors = readTokens('colors.css');
 const type = tokenMap('typography.css');
@@ -60,7 +63,7 @@ const radiusClass: Record<string, string> = {
 };
 ---
 
-<BaseLayout title="Styleguide — Darlean" noindex>
+<BaseLayout title={meta.styleguideTitle} description={meta.styleguideDescription} noindex>
   <main class="mx-auto max-w-content px-6 py-24">
     <header class="mb-24">
       <h1 class="text-h1 font-semibold text-white">Styleguide</h1>

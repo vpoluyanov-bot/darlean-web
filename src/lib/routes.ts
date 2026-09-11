@@ -34,6 +34,15 @@ export function publicRoutes(): string[] {
   return [...new Set(routes)].sort((a, b) => a.length - b.length || a.localeCompare(b));
 }
 
+/** The organisation behind the site, used by canonical tags and JSON-LD. */
+export const ORG = {
+  name: 'Darlean',
+  legalName: 'DAR TECH CY',
+  parent: 'DAR Solutions',
+  email: 'info@darlean.com',
+  linkedin: 'https://www.linkedin.com/company/darlean',
+} as const;
+
 /** The absolute, canonical form of a route. No trailing slash except the root. */
 export function canonical(route: string, site: URL | undefined): string {
   const clean = route !== '/' ? route.replace(/\/$/, '') : '/';

@@ -17,6 +17,7 @@
     "tailwindcss": "^3.4.19"
   },
   "devDependencies": {
+    "lighthouse": "^13.4.1",
     "playwright": "^1.63.0"
   }
 }

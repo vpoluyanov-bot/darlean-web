@@ -23,7 +23,7 @@ const notes = t(locale).pricing.notes;
             {/* Kept on one line: a line break here would render as a space
                 between the link and the full stop that follows it. */}
             {note.text ?? (
-              <Fragment>{note.textBefore}<a href={contactHref(note.emailSubject)} class="text-accent transition-colors duration-fast ease-brand hover:text-accent-light">{note.linkLabel}</a>{note.textAfter}</Fragment>
+              <Fragment>{note.textBefore}<a href={contactHref(note.emailSubject)} class="text-accent underline decoration-accent/40 underline-offset-2 transition-colors duration-fast ease-brand hover:text-accent-light hover:decoration-accent-light">{note.linkLabel}</a>{note.textAfter}</Fragment>
             )}
           </p>
         </li>
