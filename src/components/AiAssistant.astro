@@ -10,9 +10,15 @@ interface Props {
 const { locale = defaultLocale } = Astro.props;
 const copy = t(locale).ai;
 
-/* The section pins its contents and lets scroll position play the sequence.
-   Its height is the sum of the steps in src/lib/ai-timeline.js, which the
-   script reads too — so the pacing and the height can never drift apart. */
+/* On a wide screen this section pins its contents and lets scroll position
+   play the sequence; its height is the sum of the steps in
+   src/lib/ai-timeline.js, which the script reads too, so pacing and height
+   cannot drift apart.
+
+   Below md there is no pinning and no sequence. A phone screen cannot hold a
+   staged reveal without hiding most of it, and hijacking a touch scroll to
+   play an animation is worse than simply showing the content — so the same
+   material is laid out as a plain vertical story. */
 
 const agentTheme = {
   task: {
@@ -43,35 +49,53 @@ const agentTheme = {
 ---
 
 <section
-  class="bg-light"
-  style={`height:${SECTION_VH}vh`}
+  class="bg-light md:h-[var(--ai-section-height)]"
+  style={`--ai-section-height:${SECTION_VH}vh`}
   data-ai-section
   aria-label="The AI assistant"
 >
-  <div class="sticky top-0 box-border h-screen overflow-hidden px-6">
-    <!-- Lottie sphere. Its JSON is not in the repo — see public/media/README.md. -->
+  <div
+    class="px-6 py-24 md:sticky md:top-0 md:box-border md:h-screen md:overflow-hidden md:py-0"
+  >
+    <!--
+      The sphere. It ships as a ten-second video rather than the Lottie file it
+      was drawn as: the Lottie is 300 base64 PNG frames, 3.1 MB gzipped, for a
+      160px decoration. Hidden on phones, where it would sit behind the text
+      with nowhere to breathe.
+    -->
     <div
       data-ai-sphere
-      class="pointer-events-none absolute left-1/2 top-1/2 aspect-square w-[clamp(260px,34vw,440px)] -translate-x-1/2 -translate-y-1/2"
+      class="pointer-events-none absolute left-1/2 top-1/2 hidden aspect-square w-[clamp(260px,34vw,440px)] -translate-x-1/2 -translate-y-1/2 md:block"
     >
+      <video
+        data-lazy-video
+        data-poster="/media/ai-sphere-poster.webp"
+        muted
+        loop
+        playsinline
+        preload="none"
+        aria-hidden="true"
+        class="h-full w-full object-contain"
+      >
+        <source data-src="/media/ai-sphere.webm" type="video/webm" />
+        <source data-src="/media/ai-sphere.mp4" type="video/mp4" />
+      </video>
     </div>
 
     <div
       data-ai-intro
-      class="absolute inset-0 flex flex-col items-center justify-center gap-7 px-6"
+      class="flex flex-col items-center gap-7 md:absolute md:inset-0 md:justify-center md:px-6"
     >
       <h2
         data-ai-reveal
-        class="m-0 max-w-[18em] text-balance text-center text-[clamp(32px,3.5vw,52px)] font-semibold leading-[1.08] tracking-[-0.03em] text-on-light opacity-0"
-        style="transform:translateY(28px)"
+        class="m-0 max-w-[18em] text-balance text-center text-[clamp(32px,3.5vw,52px)] font-semibold leading-[1.08] tracking-[-0.03em] text-on-light md:opacity-0 md:[transform:translateY(28px)]"
       >
         {copy.title}
       </h2>
 
       <p
         data-ai-reveal
-        class="m-0 max-w-[34em] text-balance text-center font-rounded text-[clamp(17px,1.4vw,21px)] leading-[1.55] text-on-light-secondary opacity-0"
-        style="transform:translateY(28px)"
+        class="m-0 max-w-[34em] text-balance text-center font-rounded text-[clamp(17px,1.4vw,21px)] leading-[1.55] text-on-light-secondary md:opacity-0 md:[transform:translateY(28px)]"
       >
         {copy.lead}
       </p>
@@ -83,8 +107,7 @@ const agentTheme = {
           copy.cards.map((card) => (
             <li
               data-ai-reveal
-              class="rounded-card bg-light-card p-7 opacity-0"
-              style="transform:translateY(48px)"
+              class="rounded-card bg-light-card p-7 md:opacity-0 md:[transform:translateY(48px)]"
             >
               <span class="flex h-9 w-9 items-center justify-center rounded-tile bg-wash text-accent-deep">
                 <Icon name={card.icon} size={18} />
@@ -100,14 +123,16 @@ const agentTheme = {
 
     <h2
       data-ai-agents-title
-      class="pointer-events-none absolute inset-0 m-0 flex items-center justify-center text-balance px-6 text-center text-[clamp(36px,4.6vw,68px)] font-semibold leading-[1.08] tracking-[-0.03em] text-on-light opacity-0"
+      class="pointer-events-none m-0 mt-24 text-balance text-center text-[clamp(30px,8vw,40px)] font-semibold leading-[1.08] tracking-[-0.03em] text-on-light md:absolute md:inset-0 md:mt-0 md:flex md:items-center md:justify-center md:px-6 md:text-[clamp(36px,4.6vw,68px)] md:opacity-0"
     >
       {copy.agentsTitle}
     </h2>
 
-    <div class="pointer-events-none absolute inset-0">
+    <div class="md:pointer-events-none md:absolute md:inset-0">
+      <!-- The chips are only ever the shrink target of a card, so a phone,
+           which never plays that step, has no use for them. -->
       <ul
-        class="absolute left-0 right-0 top-[13vh] flex list-none flex-wrap justify-center gap-4 p-0 px-6"
+        class="absolute left-0 right-0 top-[13vh] hidden list-none flex-wrap justify-center gap-4 p-0 px-6 md:flex"
       >
         {
           copy.agents.map((agent, i) => (
@@ -144,15 +169,15 @@ const agentTheme = {
       </ul>
 
       <div
-        class="absolute left-1/2 top-1/2 h-[min(66vh,580px)] w-[min(1120px,94%)] -translate-x-1/2 -translate-y-1/2"
+        class="mt-10 flex flex-col gap-6 md:absolute md:left-1/2 md:top-1/2 md:mt-0 md:block md:h-[min(66vh,580px)] md:w-[min(1120px,94%)] md:-translate-x-1/2 md:-translate-y-1/2"
       >
         {
           copy.agents.map((agent, i) => (
             <article
               data-agent-card={i}
-              class="agent-card absolute inset-0 box-border grid items-center gap-[clamp(20px,2vw,32px)] overflow-hidden rounded-panel bg-light opacity-0 grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]"
+              class="agent-card grid grid-cols-1 overflow-hidden rounded-panel bg-light md:absolute md:inset-0 md:box-border md:items-center md:gap-[clamp(20px,2vw,32px)] md:opacity-0 md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]"
             >
-              <div class="relative flex h-full items-center justify-center">
+              <div class="relative flex aspect-square items-center justify-center md:aspect-auto md:h-full">
                 <video
                   data-agent-video
                   data-lazy-video
@@ -169,7 +194,7 @@ const agentTheme = {
                 </video>
               </div>
 
-              <div class="flex flex-col justify-center py-[clamp(24px,3vw,48px)] pr-[clamp(24px,3vw,48px)]">
+              <div class="flex flex-col justify-center px-6 pb-8 md:px-0 md:py-[clamp(24px,3vw,48px)] md:pr-[clamp(24px,3vw,48px)] md:pb-[clamp(24px,3vw,48px)]">
                 <h3
                   class:list={[
                     'm-0 text-balance text-[clamp(24px,2.4vw,34px)] font-semibold leading-[1.12] tracking-[-0.02em]',

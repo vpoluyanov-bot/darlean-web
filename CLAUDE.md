@@ -68,11 +68,18 @@ can never drift apart. The steps are laid end to end, which is what keeps the
 scroll free of stretches where nothing moves. `BEAT_VH` is the knob: raise it to
 slow the whole sequence evenly, never by editing a single step's numbers.
 
-**The Lottie sphere is the open question.** `ai-sphere.json` is 3.1 MB gzipped —
-more than every other clip on the page combined — because it is 300 base64 PNG
-frames, not vector art. It is lazy-loaded so it costs nothing up front, but as a
-160x160 looping video it would be about 84 KB. Raised with the team; not changed
-without a decision.
+**The sphere is a video, not a Lottie.** The file it was drawn as is 300 base64
+PNG frames — 3.1 MB gzipped for a 160px decoration — so it is re-encoded as the
+ten-second loop it actually is (84 KB) by `npm run media`. No player is
+vendored. Do not reintroduce the JSON.
+
+**The two pinned sequences are desktop-only.** Above `md` the AI section and the
+by-role deck pin their contents and let scroll position play them. Below it
+there is no pinning: the AI section is a plain vertical story and the deck is a
+native snap carousel swiped by finger. The markup carries the mobile layout
+unprefixed and restores the pinned one under `md:`, and `src/scripts/homepage.js`
+checks the same breakpoint before touching anything — a stale inline style from
+a wider window would otherwise hide content that is meant to be simply visible.
 
 **Mobile is checked, not guessed.** `npm run audit:mobile` walks every page at
 375, 390 and 430px, reports elements that push the page sideways or spill out of

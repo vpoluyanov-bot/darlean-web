@@ -63,15 +63,20 @@ downloads one encoding, so about 4.2M on AV1 or 9.4M on H.264 — and only
 | `agent-report.png/.webp` | `assets/_report_frame.png` |
 | `agent-expense.png/.webp` | `assets/_expense_frame.png` |
 | `agent-secretary.png/.webp` | `assets/_secretary_frame.png` |
-| `ai-sphere.json` | `assets/ai-sphere.json` (copied as-is) |
+| `ai-sphere` | `assets/ai-sphere.json` (300 frames, re-encoded as video) |
 
-## The Lottie sphere
+## The sphere
 
-`ai-sphere.json` drives the sphere behind the AI headline, played by the
-vendored `public/vendor/lottie_light.min.js`. Both are fetched only when that
-section comes within a screen, so neither touches first paint.
+The sphere behind the AI headline shipped from Claude Design as
+`ai-sphere.json`, a Lottie file — but it is not vector art. It is 300 PNG
+frames at 160x160 encoded as base64 inside the JSON: 4.2 MB on disk, 3.1 MB
+gzipped, more than every other clip on the page put together, for a decoration
+smaller than a thumbnail.
 
-It is still the heaviest thing on the page by a wide margin: **3.1 MB gzipped**,
-against 4.2 MB for every other clip on the page put together. The file is not
-really vector art — it is 300 PNG frames at 160x160 encoded as base64 inside
-the JSON, which is why it compresses so badly. See the note in CLAUDE.md.
+It is now encoded as what it is, a ten-second loop: **84 KB** as AV1, 111 KB as
+H.264. The frames carry transparency, but the section behind them is white, so
+they are flattened onto white and need no alpha channel. The Lottie player is
+gone with it — nothing is vendored any more.
+
+The JSON stays in the design export as the source; `npm run media` regenerates
+the video from it.

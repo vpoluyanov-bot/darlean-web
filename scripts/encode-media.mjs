@@ -19,7 +19,7 @@
  */
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
-import { mkdir, stat, rm } from 'node:fs/promises';
+import { mkdir, stat, rm, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const run = promisify(execFile);
@@ -55,6 +55,17 @@ const STILLS = [
   { out: 'agent-secretary', src: 'assets/_secretary_frame.png' },
 ];
 const STILL_WIDTH = 512;
+
+/**
+ * The sphere behind the AI headline arrives as a Lottie file, but it is not
+ * vector art: it is 300 PNG frames at 160x160 encoded as base64 inside the
+ * JSON, which is why it weighs 3.1 MB gzipped and compresses so badly. Encoded
+ * as what it actually is — a ten-second loop — it is under a hundred kilobytes.
+ *
+ * The frames carry transparency, but the section behind them is white, so they
+ * are flattened onto white and need no alpha channel.
+ */
+const SPHERE = { out: 'ai-sphere', src: 'assets/ai-sphere.json', size: 160, fps: 29.9464874267578 };
 
 const ff = (args) => run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', ...args]);
 const scale = (w) => `scale=${w}:-2:flags=lanczos`;
@@ -147,6 +158,58 @@ for (const still of STILLS) {
   });
 
   console.log(`${still.out} still done`);
+}
+
+/* ---- the sphere ------------------------------------------------------ */
+
+{
+  const input = path.join(SRC, SPHERE.src);
+  const before = await size(input);
+  const frames = `${OUT}/.sphere-frames`;
+
+  await rm(frames, { recursive: true, force: true });
+  await mkdir(frames, { recursive: true });
+
+  const lottie = JSON.parse(await readFile(input, 'utf8'));
+  const sequence = lottie.assets.filter((asset) => asset.t === 'seq');
+
+  for (const [i, asset] of sequence.entries()) {
+    const base64 = asset.p.slice(asset.p.indexOf(',') + 1);
+    await writeFile(`${frames}/f${String(i).padStart(4, '0')}.png`, Buffer.from(base64, 'base64'));
+  }
+
+  const onWhite = [
+    '-filter_complex',
+    `color=white:s=${SPHERE.size}x${SPHERE.size}[bg];[bg][0:v]overlay=shortest=1,format=yuv420p`,
+  ];
+
+  await ff([
+    '-framerate', String(SPHERE.fps), '-i', `${frames}/f%04d.png`,
+    ...onWhite, '-an', '-c:v', 'libsvtav1', '-crf', '38', '-preset', '4',
+    `${OUT}/${SPHERE.out}.webm`,
+  ]);
+
+  await ff([
+    '-framerate', String(SPHERE.fps), '-i', `${frames}/f%04d.png`,
+    ...onWhite, '-an', '-c:v', 'libx264', '-crf', '26', '-preset', 'slow',
+    '-movflags', '+faststart', `${OUT}/${SPHERE.out}.mp4`,
+  ]);
+
+  const posterTmp = `${OUT}/${SPHERE.out}-poster.png`;
+  await ff(['-framerate', String(SPHERE.fps), '-i', `${frames}/f%04d.png`, ...onWhite, '-frames:v', '1', posterTmp]);
+  await webp(posterTmp, `${OUT}/${SPHERE.out}-poster.webp`, 80);
+
+  await rm(frames, { recursive: true, force: true });
+
+  report.push({
+    name: 'ai-sphere',
+    before,
+    webm: await size(`${OUT}/${SPHERE.out}.webm`),
+    mp4: await size(`${OUT}/${SPHERE.out}.mp4`),
+    poster: await size(`${OUT}/${SPHERE.out}-poster.webp`),
+  });
+
+  console.log(`${SPHERE.out} done (${sequence.length} frames)`);
 }
 
 console.log(`\n${'asset'.padEnd(24)} ${'source'.padStart(8)} ${'av1/webp'.padStart(9)} ${'h264/png'.padStart(9)} ${'poster'.padStart(8)}`);

@@ -12,18 +12,29 @@ const copy = t(locale).byRole;
 const bars = [34, 58, 42, 76, 100];
 ---
 
+<!--
+  Two readings of the same deck.
+
+  On a wide screen it is a pinned track: vertical scroll drives it sideways.
+  That trick reads as a gimmick on a phone, where the finger already swipes
+  sideways naturally — so below md the section is an ordinary block and the
+  deck is a native snap carousel, with no scroll hijacking and no 520vh of
+  height to fall through.
+-->
 <section
-  class="h-[520vh] bg-page"
+  class="bg-page md:h-[520vh]"
   data-roles-section
   aria-label="Darlean by role"
 >
-  <div class="sticky top-0 flex h-screen items-center overflow-hidden">
+  <div
+    class="roles-rail flex snap-x snap-mandatory items-stretch overflow-x-auto overscroll-x-contain py-16 md:sticky md:top-0 md:h-screen md:snap-none md:items-center md:overflow-hidden md:py-0"
+  >
     <div
       data-roles-track
-      class="flex gap-6 px-[clamp(24px,6vw,120px)] will-change-transform"
+      class="flex gap-6 px-6 md:px-[clamp(24px,6vw,120px)] md:will-change-transform"
     >
       <div
-        class="flex h-[min(72vh,640px)] w-[min(600px,80vw)] flex-none flex-col justify-between rounded-panel bg-role p-[clamp(32px,3.5vw,56px)]"
+        class="flex h-[min(72vh,640px)] w-[min(600px,84vw)] flex-none snap-center flex-col justify-between rounded-panel bg-role p-[clamp(32px,3.5vw,56px)]"
       >
         <img
           src="/assets/logo-mark.svg"
@@ -41,7 +52,7 @@ const bars = [34, 58, 42, 76, 100];
 
       {
         copy.roles.map((role) => (
-          <article class="flex h-[min(72vh,640px)] w-[min(560px,78vw)] flex-none flex-col rounded-panel border border-hairline bg-card p-[clamp(28px,3vw,44px)]">
+          <article class="flex h-[min(72vh,640px)] w-[min(560px,84vw)] flex-none snap-center flex-col rounded-panel border border-hairline bg-card p-[clamp(28px,3vw,44px)]">
             <h3 class="m-0 text-balance text-[clamp(26px,2.4vw,34px)] font-semibold leading-[1.15] tracking-[-0.025em] text-white">
               {role.title}
             </h3>
@@ -92,3 +103,14 @@ const bars = [34, 58, 42, 76, 100];
     </div>
   </div>
 </section>
+
+<style>
+  /* The carousel is swiped, not dragged by a scrollbar. */
+  .roles-rail {
+    scrollbar-width: none;
+  }
+
+  .roles-rail::-webkit-scrollbar {
+    display: none;
+  }
+</style>

@@ -16,6 +16,14 @@ import { cue, cardIn, cardOut } from '../lib/ai-timeline.js';
 
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+/**
+ * The two pinned sequences exist only on wide screens. Below this width the
+ * markup lays the same content out as ordinary blocks, and the script must
+ * keep its hands off — an inline style left over from a wider window would
+ * otherwise hide content that is meant to be simply visible.
+ */
+const DESKTOP = window.matchMedia('(min-width: 768px)');
+
 /** Maps `value` onto [0, 1] across a [start, end] cue from the timeline. */
 const ease = (value, [from, to]) => Math.min(1, Math.max(0, (value - from) / (to - from)));
 
@@ -79,10 +87,20 @@ function initPlayback(video) {
   );
 }
 
+/**
+ * The agent clips belong to the pinned sequence on a wide screen — it decides
+ * when each one starts. With no sequence to run, they play like any other clip
+ * that comes into view.
+ */
+function ownedByTheSequence(video) {
+  return video.matches('[data-agent-video]') && DESKTOP.matches;
+}
+
 const playWhenVisible = new IntersectionObserver(
   (entries) => {
     for (const entry of entries) {
       const video = entry.target;
+      if (ownedByTheSequence(video)) continue;
 
       if (entry.isIntersecting) {
         video.dataset.onScreen = '1';
@@ -99,7 +117,9 @@ const playWhenVisible = new IntersectionObserver(
   { threshold: 0.5 }
 );
 
-for (const video of document.querySelectorAll('[id^="stack-media-"] video')) {
+for (const video of document.querySelectorAll(
+  '[id^="stack-media-"] video, [data-ai-sphere] video, [data-agent-video]'
+)) {
   playWhenVisible.observe(video);
 }
 
@@ -152,52 +172,20 @@ function initHero() {
   main.play().catch(() => {});
 }
 
-/* -- The sphere behind the AI headline ----------------------------------- */
-
-function initSphere() {
-  const mount = document.querySelector('[data-ai-sphere]');
-  const section = document.querySelector('[data-ai-section]');
-  if (!mount || !section || REDUCED) return;
-
-  let started = false;
-
-  const load = new IntersectionObserver(
-    async (entries) => {
-      if (!entries.some((e) => e.isIntersecting) || started) return;
-      started = true;
-      load.disconnect();
-
-      // The player is vendored in public/vendor — nothing comes from a CDN.
-      await new Promise((resolve, reject) => {
-        const script = document.createElement('script');
-        script.src = '/vendor/lottie_light.min.js';
-        script.onload = resolve;
-        script.onerror = reject;
-        document.head.append(script);
-      }).catch(() => {});
-
-      if (!window.lottie) return;
-
-      window.lottie.loadAnimation({
-        container: mount,
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: '/media/ai-sphere.json',
-      });
-    },
-    { rootMargin: '100% 0px' }
-  );
-
-  load.observe(section);
-}
-
 /* -- By role: vertical scroll drives a horizontal track ------------------- */
 
 function updateRoles() {
-  const section = document.querySelector('[data-roles-section]');
   const track = document.querySelector('[data-roles-track]');
-  if (!section || !track) return;
+  if (!track) return;
+
+  if (!DESKTOP.matches) {
+    // The deck is a native swipe carousel here; drop any leftover offset.
+    track.style.transform = '';
+    return;
+  }
+
+  const section = document.querySelector('[data-roles-section]');
+  if (!section) return;
 
   const box = section.getBoundingClientRect();
   const progress = Math.min(1, Math.max(0, -box.top / (box.height - window.innerHeight)));
@@ -210,9 +198,35 @@ function updateRoles() {
 
 let introShown = false;
 
+/** Hands every element the sequence touches back to the stylesheet. */
+function releaseAi() {
+  const touched = [
+    ...document.querySelectorAll('[data-ai-reveal], [data-agent-card], [data-agent-chip]'),
+    document.querySelector('[data-ai-intro]'),
+    document.querySelector('[data-ai-agents-title]'),
+    document.querySelector('[data-ai-sphere]'),
+  ];
+
+  for (const el of touched) {
+    if (!el) continue;
+    el.style.removeProperty('opacity');
+    el.style.removeProperty('transform');
+    el.style.removeProperty('transition');
+    el.style.removeProperty('filter');
+    el.style.removeProperty('pointer-events');
+  }
+
+  introShown = false;
+}
+
 function updateAi() {
   const section = document.querySelector('[data-ai-section]');
   if (!section) return;
+
+  if (!DESKTOP.matches) {
+    if (introShown) releaseAi();
+    return;
+  }
 
   const box = section.getBoundingClientRect();
   const progress = Math.min(1, Math.max(0, -box.top / (box.height - window.innerHeight)));
@@ -310,8 +324,18 @@ function onScroll() {
 }
 
 initHero();
-initSphere();
 onScroll();
 
 window.addEventListener('scroll', onScroll, { passive: true });
 window.addEventListener('resize', onScroll, { passive: true });
+
+// Crossing the breakpoint changes who owns these styles, so re-evaluate.
+DESKTOP.addEventListener('change', () => {
+  releaseAi();
+  // Ownership of the agent clips changes with the breakpoint.
+  for (const video of document.querySelectorAll('[data-agent-video]')) {
+    if (DESKTOP.matches) video.pause();
+    else tryPlay(video);
+  }
+  onScroll();
+});
