@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import PricingHero from '../components/PricingHero.astro';
+import PricingPlans from '../components/PricingPlans.astro';
+import PricingNotes from '../components/PricingNotes.astro';
+import Footer from '../components/Footer.astro';
+import { t, defaultLocale } from '../i18n';
+
+const copy = t(defaultLocale).pricing;
+---
+
+<BaseLayout title={copy.title} description={copy.description}>
+  <Nav />
+  <main>
+    <PricingHero />
+    <PricingPlans />
+    <PricingNotes />
+  </main>
+  <Footer />
+</BaseLayout>

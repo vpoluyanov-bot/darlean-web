@@ -15,6 +15,31 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  /* The one orchestrated reveal the design system allows, used by the hero on
+     each page. Shared here because two components need the same keyframes. */
+  @keyframes heroIn {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .hero-in {
+    animation: heroIn var(--duration-slow) cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-in {
+      animation: none;
+    }
+  }
+}
+
 @layer base {
   /* Tailwind's preflight loads after the token files above and resets these
      two, so the DS base rules are re-asserted here. Same tokens, no new values. */

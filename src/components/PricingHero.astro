@@ -1,0 +1,30 @@
+---
+import { t, defaultLocale, type Locale } from '../i18n';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = defaultLocale } = Astro.props;
+const copy = t(locale).pricing.hero;
+---
+
+<section class="px-6 pb-16 pt-24 text-center" aria-label="Plans">
+  <div class="mx-auto max-w-prose">
+    <h1
+      class="hero-in m-0 text-balance text-[clamp(36px,4.2vw,56px)] font-semibold leading-[1.06] tracking-[-0.03em] text-white"
+    >
+      {copy.titleLine1}
+      <span class="block bg-headline bg-clip-text text-transparent">
+        {copy.titleLine2}
+      </span>
+    </h1>
+
+    <p
+      class="hero-in mx-auto mt-6 max-w-[32em] text-balance font-rounded text-[clamp(17px,1.4vw,21px)] leading-[1.55] text-secondary"
+      style="animation-delay:120ms"
+    >
+      {copy.lead}
+    </p>
+  </div>
+</section>

@@ -5,37 +5,64 @@
     "title": "Darlean — GPT for business. Only with tools",
     "description": "Run tasks, projects, people and documents with AI that does the work, not just answers."
   },
-
   "nav": {
     "logoAlt": "Darlean",
     "cta": "Start for free"
   },
-
   "hero": {
     "titleLine1": "GPT for business.",
     "titleLine2": "Only with tools",
     "lead": "Run tasks, projects, people and documents — with AI that does the work, not just answers.",
-    "chips": ["AI", "Tasks", "Projects", "People", "Documents", "Workflows"],
+    "chips": [
+      "AI",
+      "Tasks",
+      "Projects",
+      "People",
+      "Documents",
+      "Workflows"
+    ],
     "cta": "Start for free",
     "noteBefore": "No credit card",
     "noteAfter": "Free plan with no time limit",
     "mainVideoLabel": "Darlean on a laptop",
     "phoneVideoLabel": "Darlean notifications on a phone"
   },
-
   "customers": {
     "logos": [
-      { "name": "Northwind", "style": "tight" },
-      { "name": "ATLAS", "style": "wide" },
-      { "name": "Meridian", "style": "tight" },
-      { "name": "Crestline", "style": "normal" },
-      { "name": "OMNI", "style": "wide" },
-      { "name": "HALCYON", "style": "normal" },
-      { "name": "Bluepeak", "style": "tight" },
-      { "name": "Fairmont", "style": "normal" }
+      {
+        "name": "Northwind",
+        "style": "tight"
+      },
+      {
+        "name": "ATLAS",
+        "style": "wide"
+      },
+      {
+        "name": "Meridian",
+        "style": "tight"
+      },
+      {
+        "name": "Crestline",
+        "style": "normal"
+      },
+      {
+        "name": "OMNI",
+        "style": "wide"
+      },
+      {
+        "name": "HALCYON",
+        "style": "normal"
+      },
+      {
+        "name": "Bluepeak",
+        "style": "tight"
+      },
+      {
+        "name": "Fairmont",
+        "style": "normal"
+      }
     ]
   },
-
   "featureStack": [
     {
       "eyebrow": "Work management",
@@ -46,9 +73,21 @@
       "video": "feature-projects",
       "videoLabel": "A project opening in Darlean",
       "items": [
-        { "icon": "checklist", "title": "Tasks", "text": "Assignments, deadlines and ownership in one place." },
-        { "icon": "gantt", "title": "Projects", "text": "Plan project stages, allocate resources and keep deadlines on track." },
-        { "icon": "clock", "title": "Time tracking", "text": "Track time and team workload." }
+        {
+          "icon": "checklist",
+          "title": "Tasks",
+          "text": "Assignments, deadlines and ownership in one place."
+        },
+        {
+          "icon": "gantt",
+          "title": "Projects",
+          "text": "Plan project stages, allocate resources and keep deadlines on track."
+        },
+        {
+          "icon": "clock",
+          "title": "Time tracking",
+          "text": "Track time and team workload."
+        }
       ]
     },
     {
@@ -60,9 +99,21 @@
       "video": "feature-requests",
       "videoLabel": "A request moving through its approval route",
       "items": [
-        { "icon": "workflow", "title": "Workflows", "text": "Visual workflow builder: branching, parallel steps, SLAs" },
-        { "icon": "inbox", "title": "Requests", "text": "Create, approve and track internal requests." },
-        { "icon": "document", "title": "Document workflow", "text": "Sign documents with your own drawn signature — right in Darlean." }
+        {
+          "icon": "workflow",
+          "title": "Workflows",
+          "text": "Visual workflow builder: branching, parallel steps, SLAs"
+        },
+        {
+          "icon": "inbox",
+          "title": "Requests",
+          "text": "Create, approve and track internal requests."
+        },
+        {
+          "icon": "document",
+          "title": "Document workflow",
+          "text": "Sign documents with your own drawn signature — right in Darlean."
+        }
       ]
     },
     {
@@ -74,9 +125,21 @@
       "video": "feature-org-chart",
       "videoLabel": "An org chart building itself",
       "items": [
-        { "icon": "people", "title": "Org chart", "text": "Who works where and who owns what, at a glance" },
-        { "icon": "clock", "title": "Timesheets", "text": "Work-hour tracking — automatic, not in Excel" },
-        { "icon": "check-circle", "title": "Delegates", "text": "Automatic delegate assignment during vacation or sick leave" }
+        {
+          "icon": "people",
+          "title": "Org chart",
+          "text": "Who works where and who owns what, at a glance"
+        },
+        {
+          "icon": "clock",
+          "title": "Timesheets",
+          "text": "Work-hour tracking — automatic, not in Excel"
+        },
+        {
+          "icon": "check-circle",
+          "title": "Delegates",
+          "text": "Automatic delegate assignment during vacation or sick leave"
+        }
       ]
     },
     {
@@ -89,21 +152,45 @@
       "video": "feature-meetings",
       "videoLabel": "A meeting flow in Darlean",
       "items": [
-        { "icon": "calendar", "title": "Calendar", "text": "Two-way Google and Outlook sync, meeting links" },
-        { "icon": "video", "title": "Video meetings", "text": "The AI Secretary records, summarizes and creates tasks" },
-        { "icon": "chat", "title": "Chats and notes", "text": "Talk with your team and keep what matters in one place." },
-        { "icon": "folder", "title": "Drive", "text": "Store, organize and share files in one place." }
+        {
+          "icon": "calendar",
+          "title": "Calendar",
+          "text": "Two-way Google and Outlook sync, meeting links"
+        },
+        {
+          "icon": "video",
+          "title": "Video meetings",
+          "text": "The AI Secretary records, summarizes and creates tasks"
+        },
+        {
+          "icon": "chat",
+          "title": "Chats and notes",
+          "text": "Talk with your team and keep what matters in one place."
+        },
+        {
+          "icon": "folder",
+          "title": "Drive",
+          "text": "Store, organize and share files in one place."
+        }
       ]
     }
   ],
-
   "ai": {
     "title": "An AI assistant that runs your company",
     "lead": "Takes routine off your plate, helps you run the company and keeps key tasks, workflows and decisions under control.",
     "cards": [
-      { "icon": "mail", "text": "Manages your inbox, drafts replies, keeps the focus on what matters" },
-      { "icon": "folder", "text": "Manages files on Google Drive: creates, edits and keeps things organized" },
-      { "icon": "orbit", "text": "Answers any question at GPT level" }
+      {
+        "icon": "mail",
+        "text": "Manages your inbox, drafts replies, keeps the focus on what matters"
+      },
+      {
+        "icon": "folder",
+        "text": "Manages files on Google Drive: creates, edits and keeps things organized"
+      },
+      {
+        "icon": "orbit",
+        "text": "Answers any question at GPT level"
+      }
     ],
     "agentsTitle": "The AI assistant manages agents",
     "jobTitle": "Job description",
@@ -162,7 +249,6 @@
       }
     ]
   },
-
   "security": {
     "title": "Enterprise-grade security, by default",
     "lead": "Your data is the most valuable thing you trust us with. Access control, encryption and AI transparency are built into the platform — not sold as an add-on.",
@@ -171,8 +257,14 @@
       "title": "Enterprise sign-in",
       "text": "SSO via Microsoft Entra and two-factor authentication. When someone leaves, access is revoked centrally in one action.",
       "rows": [
-        { "label": "Microsoft Entra SSO", "badge": "Active" },
-        { "label": "2FA for every role", "badge": "Active" }
+        {
+          "label": "Microsoft Entra SSO",
+          "badge": "Active"
+        },
+        {
+          "label": "2FA for every role",
+          "badge": "Active"
+        }
       ],
       "revoked": "Access revoked · 9:41 AM"
     },
@@ -190,7 +282,10 @@
       "icon": "sun",
       "title": "AI without leaks",
       "text": "Zero Data Retention: your company data is never stored by model providers or used for training. A human confirms agent actions.",
-      "row": { "label": "Zero Data Retention", "badge": "0 logs" }
+      "row": {
+        "label": "Zero Data Retention",
+        "badge": "0 logs"
+      }
     },
     "export": {
       "icon": "download",
@@ -202,13 +297,21 @@
       "title": "Audit and history",
       "text": "Every action on a document or task is logged: who opened, who approved, who signed and when. Disputes are settled by history, not memory.",
       "steps": [
-        { "label": "Document opened", "meta": "10:02 AM · CFO" },
-        { "label": "Approved", "meta": "10:26 AM · Legal" },
-        { "label": "Signed", "meta": "11:14 AM · Digital signature" }
+        {
+          "label": "Document opened",
+          "meta": "10:02 AM · CFO"
+        },
+        {
+          "label": "Approved",
+          "meta": "10:26 AM · Legal"
+        },
+        {
+          "label": "Signed",
+          "meta": "11:14 AM · Digital signature"
+        }
       ]
     }
   },
-
   "byRole": {
     "coverTitle": "One solution for every role in the business",
     "roles": [
@@ -218,7 +321,12 @@
         "metricLabel": "instead of 5+ separate tools",
         "pct": "86%",
         "desc": "The full picture without meetings: statuses, numbers and decisions in one system, with AI agents driving the routine.",
-        "chips": ["Task and workflow control", "Analytics and dashboards", "E-signing", "Team communication"]
+        "chips": [
+          "Task and workflow control",
+          "Analytics and dashboards",
+          "E-signing",
+          "Team communication"
+        ]
       },
       {
         "title": "For COOs",
@@ -226,7 +334,12 @@
         "metricLabel": "lost tasks or unescalated overdue items",
         "pct": "100%",
         "desc": "Workflows follow their routes, overdue items escalate automatically, team workload is visible ahead of time.",
-        "chips": ["Team workload view", "E-signing", "Team communication", "Task and workflow control"]
+        "chips": [
+          "Team workload view",
+          "E-signing",
+          "Team communication",
+          "Task and workflow control"
+        ]
       },
       {
         "title": "For CFOs",
@@ -234,7 +347,12 @@
         "metricLabel": "of payments follow an approval route",
         "pct": "100%",
         "desc": "Payment requests follow an approval route while the expense agent reads receipts and keeps reporting ready.",
-        "chips": ["Payment approvals", "E-signing", "Budget control", "Expense agent"]
+        "chips": [
+          "Payment approvals",
+          "E-signing",
+          "Budget control",
+          "Expense agent"
+        ]
       },
       {
         "title": "For HR directors",
@@ -242,7 +360,12 @@
         "metricLabel": "HR documents signed in minutes",
         "pct": "72%",
         "desc": "A transparent org chart, e-signed HR documents and automatic delegate assignment — no manual busywork.",
-        "chips": ["Org chart", "HR documents with e-signature", "Delegates", "Time tracking"]
+        "chips": [
+          "Org chart",
+          "HR documents with e-signature",
+          "Delegates",
+          "Time tracking"
+        ]
       },
       {
         "title": "For legal and accounting",
@@ -250,7 +373,11 @@
         "metricLabel": "of actions in the audit history",
         "pct": "100%",
         "desc": "Built-in signing, clear approval routes and a full action history for every document.",
-        "chips": ["E-signing", "Approval routes", "Audit and history"]
+        "chips": [
+          "E-signing",
+          "Approval routes",
+          "Audit and history"
+        ]
       },
       {
         "title": "For project managers",
@@ -258,11 +385,15 @@
         "metricLabel": "of meetings a week — the agent collects statuses",
         "pct": "64%",
         "desc": "Plan stages and resources, keep deadlines on track — the agent collects statuses, no extra meetings.",
-        "chips": ["Gantt and project stages", "Task agent", "Status without meetings", "Time tracking"]
+        "chips": [
+          "Gantt and project stages",
+          "Task agent",
+          "Status without meetings",
+          "Time tracking"
+        ]
       }
     ]
   },
-
   "onboarding": {
     "eyebrow": "Onboarding is our job, not yours",
     "title": "Live in a week. Seriously.",
@@ -284,7 +415,6 @@
     "cta": "Schedule your launch",
     "note": "The free plan takes 10 minutes to set up — no help needed"
   },
-
   "objections": {
     "eyebrow": "Peace of mind for your data and money",
     "title": "Answering your doubts before you ask them",
@@ -311,7 +441,6 @@
       }
     ]
   },
-
   "faq": {
     "title": "Frequently asked questions",
     "items": [
@@ -341,17 +470,153 @@
       }
     ]
   },
-
   "footer": {
     "logoAlt": "Darlean",
     "links": [
-      { "label": "Privacy policy", "href": "https://darlean.com/en/policy?region=us" },
-      { "label": "User agreement", "href": "https://darlean.com/en/terms?region=us" },
-      { "label": "Cookies policy", "href": "https://darlean.com/en/cookies?region=us" },
-      { "label": "Plans", "href": "/pricing" }
+      {
+        "label": "Privacy policy",
+        "href": "https://darlean.com/en/policy?region=us"
+      },
+      {
+        "label": "User agreement",
+        "href": "https://darlean.com/en/terms?region=us"
+      },
+      {
+        "label": "Cookies policy",
+        "href": "https://darlean.com/en/cookies?region=us"
+      },
+      {
+        "label": "Plans",
+        "href": "/pricing"
+      }
     ],
-    "linkedin": { "label": "LinkedIn", "href": "#" },
+    "linkedin": {
+      "label": "LinkedIn",
+      "href": "#"
+    },
     "copyright": "DAR TECH CY ©2024",
     "rights": "All rights reserved."
+  },
+  "pricing": {
+    "title": "Plans — Darlean",
+    "description": "One subscription instead of 5–6 separate tools. Start free, upgrade when the team grows.",
+    "hero": {
+      "titleLine1": "One subscription.",
+      "titleLine2": "Instead of 5–6 separate tools.",
+      "lead": "Start free, upgrade when the team grows. Flat price per user per month — no hidden fees, downgrade anytime."
+    },
+    "popularBadge": "Most popular",
+    "perUser": "per user / month",
+    "plans": [
+      {
+        "name": "Freemium",
+        "price": "$0",
+        "note": "Free forever. No credit card.",
+        "cta": "Start for free",
+        "highlighted": false,
+        "showPeriod": false,
+        "limits": [
+          {
+            "label": "Employees",
+            "value": "Up to 5"
+          },
+          {
+            "label": "Storage",
+            "value": "1 GB"
+          },
+          {
+            "label": "AI assistant",
+            "value": "10K tokens / team"
+          }
+        ],
+        "inherits": null,
+        "features": [
+          "Teamwork: chat, calendar, meetings + summaries",
+          "Task management: lists, kanban boards",
+          "B2B marketplace: access and listing"
+        ]
+      },
+      {
+        "name": "Basic",
+        "price": "$16.50",
+        "note": "For teams running work and approvals in one place.",
+        "cta": "Choose Basic",
+        "highlighted": false,
+        "showPeriod": true,
+        "limits": [
+          {
+            "label": "Employees",
+            "value": "Unlimited"
+          },
+          {
+            "label": "Storage",
+            "value": "20 GB"
+          },
+          {
+            "label": "AI assistant",
+            "value": "500K tokens / team"
+          }
+        ],
+        "inherits": "Everything in Freemium, plus:",
+        "features": [
+          "Time tracking and task analytics",
+          "Project management: statuses, roadmaps, files",
+          "HR: profiles, team list, timesheets",
+          "Business process builder with templates",
+          "Document signing: 20 docs / month",
+          "Budget planning and task dashboards",
+          "Google and Outlook calendar sync"
+        ]
+      },
+      {
+        "name": "Pro",
+        "price": "$22.00",
+        "note": "For companies automating processes end to end.",
+        "cta": "Choose Pro",
+        "highlighted": true,
+        "showPeriod": true,
+        "limits": [
+          {
+            "label": "Employees",
+            "value": "Unlimited"
+          },
+          {
+            "label": "Storage",
+            "value": "100 GB"
+          },
+          {
+            "label": "AI assistant",
+            "value": "1.5M tokens / team"
+          }
+        ],
+        "inherits": "Everything in Basic, plus:",
+        "features": [
+          "Document signing: 200 docs / month",
+          "Automated workflows",
+          "HR: org chart, compensation, training",
+          "Project goals, roadmaps and history",
+          "Budgeting: plan, actuals, variance analytics",
+          "Dashboards: tasks, requests, employees",
+          "Corporate governance: holding group management"
+        ]
+      }
+    ],
+    "notes": [
+      {
+        "title": "Counterparties sign for free",
+        "text": "Anyone you send a document to signs at no cost — no account required."
+      },
+      {
+        "title": "Change plans anytime",
+        "text": "Upgrade in one click, downgrade without penalties. You only pay for active users."
+      },
+      {
+        "title": "Need more?",
+        "textBefore": "Custom limits, SSO and onboarding for larger teams — ",
+        "linkLabel": "talk to us",
+        "linkHref": "/#start",
+        "textAfter": "."
+      }
+    ]
   }
 }

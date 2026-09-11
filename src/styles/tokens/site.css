@@ -30,10 +30,17 @@
 --accent-bar:rgba(3,155,230,0.24);
 --accent-bar-strong:rgba(3,155,230,0.50);
 
-/* The comp's own content width, wider than the DS bleed rules. */
+/* The comp's own content widths, wider than the DS bleed rules. */
 --width-site:1280px;
+--width-plans:1180px;
 --width-prose:880px;
 --height-nav:60px;
+
+/* The highlighted plan card is outlined in the accent rather than a hairline. */
+--border-highlight:rgba(3,155,230,0.55);
+
+/* Plan prices are set larger than any heading step in the design system. */
+--text-price-size:44px;
 
 /* Device frames in the hero. */
 --radius-frame:22px;

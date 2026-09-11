@@ -51,6 +51,7 @@ export default {
           pill: 'var(--accent-wash-pill)',
         },
         nav: 'var(--border-nav)',
+        highlight: 'var(--border-highlight)',
         chip: 'var(--border-chip)',
         'chip-strong': 'var(--border-chip-strong)',
         inactive: 'var(--surface-inactive)',
@@ -106,6 +107,7 @@ export default {
         lead: ['var(--text-lead-size)', { lineHeight: 'var(--text-lead-lh)' }],
         body: ['var(--text-body-size)', { lineHeight: 'var(--text-body-lh)' }],
         caption: ['var(--text-caption-size)', { lineHeight: 'var(--text-caption-lh)' }],
+        price: ['var(--text-price-size)', { lineHeight: '1', letterSpacing: 'var(--text-h1-track)' }],
       },
 
       spacing: {
@@ -132,6 +134,7 @@ export default {
         bleed: 'var(--width-bleed)',
         measure: 'var(--measure-body)',
         site: 'var(--width-site)',
+        plans: 'var(--width-plans)',
         prose: 'var(--width-prose)',
       },
 
