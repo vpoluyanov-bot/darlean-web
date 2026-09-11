@@ -47,6 +47,13 @@ URLs in `data-src` until an IntersectionObserver in `src/scripts/homepage.js`
 moves them onto the element, two screens ahead of arrival. Adding a video means
 adding `data-lazy-video` and `data-src`, not a bare `src`.
 
+**The AI section's height is derived, not chosen.** `src/lib/ai-timeline.js`
+lists the steps of the pinned sequence in beats; the component reads it to set
+the section height and the script reads it to drive the animation, so the two
+can never drift apart. The steps are laid end to end, which is what keeps the
+scroll free of stretches where nothing moves. `BEAT_VH` is the knob: raise it to
+slow the whole sequence evenly, never by editing a single step's numbers.
+
 **The Lottie sphere is the open question.** `ai-sphere.json` is 3.1 MB gzipped —
 more than every other clip on the page combined — because it is 300 base64 PNG
 frames, not vector art. It is lazy-loaded so it costs nothing up front, but as a

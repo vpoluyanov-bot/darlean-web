@@ -1,6 +1,7 @@
 ---
 import Icon from './Icon.astro';
 import { t, defaultLocale, type Locale } from '../i18n';
+import { SECTION_VH } from '../lib/ai-timeline.js';
 
 interface Props {
   locale?: Locale;
@@ -9,8 +10,9 @@ interface Props {
 const { locale = defaultLocale } = Astro.props;
 const copy = t(locale).ai;
 
-/* The section is 900vh tall and its contents are pinned: scroll position
-   drives the whole sequence from src/scripts/homepage.js. */
+/* The section pins its contents and lets scroll position play the sequence.
+   Its height is the sum of the steps in src/lib/ai-timeline.js, which the
+   script reads too — so the pacing and the height can never drift apart. */
 
 const agentTheme = {
   task: {
@@ -41,7 +43,8 @@ const agentTheme = {
 ---
 
 <section
-  class="h-[900vh] bg-light"
+  class="bg-light"
+  style={`height:${SECTION_VH}vh`}
   data-ai-section
   aria-label="The AI assistant"
 >

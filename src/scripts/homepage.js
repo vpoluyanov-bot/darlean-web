@@ -12,10 +12,12 @@
  * nothing else.
  */
 
+import { cue, cardIn, cardOut } from '../lib/ai-timeline.js';
+
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/** Maps `value` from the range [from, to] onto [0, 1], clamped at both ends. */
-const ease = (value, from, to) => Math.min(1, Math.max(0, (value - from) / (to - from)));
+/** Maps `value` onto [0, 1] across a [start, end] cue from the timeline. */
+const ease = (value, [from, to]) => Math.min(1, Math.max(0, (value - from) / (to - from)));
 
 /* -- Fetching video on approach ------------------------------------------ */
 
@@ -220,8 +222,9 @@ function updateAi() {
   const delays = [0, 140, 300, 390, 480];
   const offsets = [28, 28, 48, 48, 48];
 
-  // The intro plays as soon as the section comes into view, without scrolling.
-  if (box.top < window.innerHeight * 0.4 && !introShown) {
+  // The intro plays the moment the section reaches the screen, so the first
+  // thing the reader does inside it is already the second step, not the first.
+  if (box.top < window.innerHeight * 0.9 && !introShown) {
     introShown = true;
 
     reveals.forEach((el, i) => {
@@ -240,7 +243,7 @@ function updateAi() {
     }
   }
 
-  if (box.top > window.innerHeight * 0.9 && introShown) {
+  if (box.top > window.innerHeight * 1.1 && introShown) {
     introShown = false;
 
     reveals.forEach((el, i) => {
@@ -256,7 +259,7 @@ function updateAi() {
 
   // The intro block fades out before the agents title arrives.
   const intro = document.querySelector('[data-ai-intro]');
-  const introOut = ease(progress, 0.36, 0.41);
+  const introOut = ease(progress, cue.introOut);
   if (intro) {
     intro.style.opacity = String(1 - introOut);
     intro.style.pointerEvents = introOut > 0.5 ? 'none' : '';
@@ -265,8 +268,8 @@ function updateAi() {
   // The agents title rises, shrinks and hands over to the cards.
   const title = document.querySelector('[data-ai-agents-title]');
   if (title) {
-    const titleIn = ease(progress, 0.42, 0.47);
-    const titleUp = ease(progress, 0.5, 0.56);
+    const titleIn = ease(progress, cue.titleIn);
+    const titleUp = ease(progress, cue.titleUp);
     const lift = 36 * (1 - titleIn) - titleUp * (window.innerHeight * 0.44);
 
     title.style.opacity = String(titleIn);
@@ -275,12 +278,11 @@ function updateAi() {
 
   const cards = document.querySelectorAll('[data-agent-card]');
   cards.forEach((card, i) => {
-    const start = 0.54 + i * 0.098;
-    const cardIn = ease(progress, start, start + 0.038);
+    const arriving = ease(progress, cardIn[i]);
     // The last agent stays expanded rather than shrinking into a chip.
-    const cardOut = i === cards.length - 1 ? 0 : ease(progress, start + 0.062, start + 0.098);
+    const leaving = cardOut[i] ? ease(progress, cardOut[i]) : 0;
 
-    if (cardIn > 0 && !card.dataset.played) {
+    if (arriving > 0 && !card.dataset.played) {
       card.dataset.played = '1';
       for (const video of card.querySelectorAll('[data-agent-video]')) {
         if (REDUCED) continue;
@@ -291,12 +293,12 @@ function updateAi() {
       }
     }
 
-    card.style.opacity = String(cardIn * (1 - cardOut));
+    card.style.opacity = String(arriving * (1 - leaving));
     card.style.transform =
-      `translateY(${56 * (1 - cardIn) - 24 * cardOut}px) scale(${1 - 0.18 * cardOut})`;
+      `translateY(${56 * (1 - arriving) - 24 * leaving}px) scale(${1 - 0.18 * leaving})`;
 
     const chip = document.querySelector(`[data-agent-chip="${i}"]`);
-    if (chip) chip.style.opacity = String(cardOut);
+    if (chip) chip.style.opacity = String(leaving);
   });
 }
 
