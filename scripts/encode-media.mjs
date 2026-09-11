@@ -2,6 +2,11 @@
  * Rebuilds public/media from the original Claude Design export.
  *
  *   node scripts/encode-media.mjs "/path/to/Darvis export"
+ *   node scripts/encode-media.mjs "/path/to/Darvis export" --from "/path/to/new clips"
+ *
+ * With --from, only the clips that directory actually contains are rebuilt,
+ * using the same settings as everything else. That is how a replacement round
+ * of footage lands without touching the files nobody changed.
  *
  * Requires ffmpeg and cwebp (brew install ffmpeg webp). Homebrew's ffmpeg is
  * built without the libwebp encoder, so WebP goes through cwebp instead.
@@ -26,9 +31,12 @@ const run = promisify(execFile);
 
 const SRC = process.argv[2];
 if (!SRC) {
-  console.error('usage: node scripts/encode-media.mjs "<path to design export>"');
+  console.error('usage: node scripts/encode-media.mjs "<path to design export>" [--from "<dir>"]');
   process.exit(1);
 }
+
+const fromIndex = process.argv.indexOf('--from');
+const OVERRIDE = fromIndex > -1 ? process.argv[fromIndex + 1] : null;
 
 const OUT = 'public/media';
 
@@ -68,6 +76,19 @@ const STILL_WIDTH = 512;
 const SPHERE = { out: 'ai-sphere', src: 'assets/ai-sphere.json', size: 160, fps: 29.9464874267578 };
 
 const ff = (args) => run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', ...args]);
+
+/** Where a clip's source actually lives once --from is taken into account. */
+async function resolveSource(clip) {
+  if (!OVERRIDE) return path.join(SRC, clip.src);
+
+  const replacement = path.join(OVERRIDE, `${clip.out}.mp4`);
+  try {
+    await stat(replacement);
+    return replacement;
+  } catch {
+    return null; // Not part of this round.
+  }
+}
 const scale = (w) => `scale=${w}:-2:flags=lanczos`;
 
 /** ffmpeg writes a PNG, cwebp turns it into WebP, the PNG is thrown away. */
@@ -91,7 +112,9 @@ await mkdir(OUT, { recursive: true });
 const report = [];
 
 for (const clip of CLIPS) {
-  const input = path.join(SRC, clip.src);
+  const input = await resolveSource(clip);
+  if (!input) continue;
+
   const before = await size(input);
 
   // AV1 — the primary.
@@ -141,7 +164,7 @@ for (const clip of CLIPS) {
   console.log(`${clip.out} done`);
 }
 
-for (const still of STILLS) {
+for (const still of OVERRIDE ? [] : STILLS) {
   const input = path.join(SRC, still.src);
   const before = await size(input);
 
@@ -162,7 +185,7 @@ for (const still of STILLS) {
 
 /* ---- the sphere ------------------------------------------------------ */
 
-{
+if (!OVERRIDE) {
   const input = path.join(SRC, SPHERE.src);
   const before = await size(input);
   const frames = `${OUT}/.sphere-frames`;
