@@ -1,0 +1,234 @@
+---
+import Icon from './Icon.astro';
+import { t, defaultLocale, type Locale } from '../i18n';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = defaultLocale } = Astro.props;
+const copy = t(locale).ai;
+
+/* The section is 900vh tall and its contents are pinned: scroll position
+   drives the whole sequence from src/scripts/homepage.js. */
+
+const agentTheme = {
+  task: {
+    card: 'bg-agent-task-card',
+    name: 'text-agent-task-name',
+    pill: 'bg-agent-task-wash',
+    bar: 'bg-agent-task',
+  },
+  report: {
+    card: 'bg-light',
+    name: 'text-agent-report-name',
+    pill: 'bg-agent-report-wash',
+    bar: 'bg-agent-report',
+  },
+  expense: {
+    card: 'bg-light',
+    name: 'text-agent-expense-name',
+    pill: 'bg-agent-expense-wash',
+    bar: 'bg-agent-expense',
+  },
+  secretary: {
+    card: 'bg-light',
+    name: 'text-agent-secretary-name',
+    pill: 'bg-agent-secretary-wash',
+    bar: 'bg-agent-secretary',
+  },
+} as const;
+---
+
+<section
+  class="h-[900vh] bg-light"
+  data-ai-section
+  aria-label="The AI assistant"
+>
+  <div class="sticky top-0 box-border h-screen overflow-hidden px-6">
+    <!-- Lottie sphere. Its JSON is not in the repo — see public/media/README.md. -->
+    <div
+      data-ai-sphere
+      class="pointer-events-none absolute left-1/2 top-1/2 aspect-square w-[clamp(260px,34vw,440px)] -translate-x-1/2 -translate-y-1/2"
+    >
+    </div>
+
+    <div
+      data-ai-intro
+      class="absolute inset-0 flex flex-col items-center justify-center gap-7 px-6"
+    >
+      <h2
+        data-ai-reveal
+        class="m-0 max-w-[18em] text-balance text-center text-[clamp(32px,3.5vw,52px)] font-semibold leading-[1.08] tracking-[-0.03em] text-on-light opacity-0"
+        style="transform:translateY(28px)"
+      >
+        {copy.title}
+      </h2>
+
+      <p
+        data-ai-reveal
+        class="m-0 max-w-[34em] text-balance text-center font-rounded text-[clamp(17px,1.4vw,21px)] leading-[1.55] text-on-light-secondary opacity-0"
+        style="transform:translateY(28px)"
+      >
+        {copy.lead}
+      </p>
+
+      <ul
+        class="mt-6 grid w-full max-w-[1080px] list-none grid-cols-1 gap-5 p-0 sm:grid-cols-3"
+      >
+        {
+          copy.cards.map((card) => (
+            <li
+              data-ai-reveal
+              class="rounded-card bg-light-card p-7 opacity-0"
+              style="transform:translateY(48px)"
+            >
+              <span class="flex h-9 w-9 items-center justify-center rounded-tile bg-wash text-accent-deep">
+                <Icon name={card.icon} size={18} />
+              </span>
+              <p class="m-0 mt-4 text-balance text-[16px] font-medium leading-[1.5] text-on-light-body">
+                {card.text}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <h2
+      data-ai-agents-title
+      class="pointer-events-none absolute inset-0 m-0 flex items-center justify-center text-balance px-6 text-center text-[clamp(36px,4.6vw,68px)] font-semibold leading-[1.08] tracking-[-0.03em] text-on-light opacity-0"
+    >
+      {copy.agentsTitle}
+    </h2>
+
+    <div class="pointer-events-none absolute inset-0">
+      <ul
+        class="absolute left-0 right-0 top-[13vh] flex list-none flex-wrap justify-center gap-4 p-0 px-6"
+      >
+        {
+          copy.agents.map((agent, i) => (
+            <li
+              data-agent-chip={i}
+              class:list={[
+                'flex w-[150px] flex-col items-center gap-3 rounded-card px-4 pb-4 pt-5 opacity-0',
+                agentTheme[agent.id].card,
+              ]}
+            >
+              <img
+                src={agent.still}
+                alt=""
+                width="83"
+                height="82"
+                class="h-[82px] w-[83px] object-contain"
+              />
+              <span
+                class:list={[
+                  'text-balance text-center text-caption font-semibold leading-tight',
+                  agentTheme[agent.id].name,
+                ]}
+              >
+                {agent.name}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div
+        class="absolute left-1/2 top-1/2 h-[min(66vh,580px)] w-[min(1120px,94%)] -translate-x-1/2 -translate-y-1/2"
+      >
+        {
+          copy.agents.map((agent, i) => (
+            <article
+              data-agent-card={i}
+              class="agent-card absolute inset-0 box-border grid items-center gap-[clamp(20px,2vw,32px)] overflow-hidden rounded-panel bg-light opacity-0 grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]"
+            >
+              <div class="relative flex h-full items-center justify-center">
+                <video
+                  data-agent-video
+                  src={agent.video}
+                  poster={agent.still}
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-label={agent.name}
+                  class="absolute inset-4 h-[calc(100%-32px)] w-[calc(100%-32px)] object-contain"
+                />
+              </div>
+
+              <div class="flex flex-col justify-center py-[clamp(24px,3vw,48px)] pr-[clamp(24px,3vw,48px)]">
+                <h3
+                  class:list={[
+                    'm-0 text-balance text-[clamp(24px,2.4vw,34px)] font-semibold leading-[1.12] tracking-[-0.02em]',
+                    agentTheme[agent.id].name,
+                  ]}
+                >
+                  {agent.name}
+                </h3>
+
+                <p class="m-0 mt-3 text-balance text-[clamp(15px,1.3vw,17px)] leading-[1.5] text-on-light-body">
+                  {agent.quote}
+                </p>
+
+                <div class="mb-3 mt-6 text-[16px] font-semibold text-on-light">
+                  {copy.jobTitle}
+                </div>
+
+                <ul class="flex list-none flex-col gap-3 p-0">
+                  {agent.instructions.map((line) => (
+                    <li
+                      class:list={[
+                        'flex items-center gap-3 rounded-pill px-5 py-3',
+                        agentTheme[agent.id].pill,
+                      ]}
+                    >
+                      <span
+                        class:list={[
+                          'h-3.5 w-[3px] flex-none rounded-[2px]',
+                          agentTheme[agent.id].bar,
+                        ]}
+                      />
+                      <span class="text-caption leading-tight text-on-light-body">
+                        {line}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* The one place the design system's "no shadows" rule is relaxed for a
+     surface: the agent cards float above the white canvas. */
+  @keyframes shadowFloat {
+    0%,
+    100% {
+      box-shadow:
+        0 30px 90px -20px rgba(84, 94, 190, 0.35),
+        0 10px 30px -10px rgba(84, 94, 190, 0.16);
+    }
+    50% {
+      box-shadow:
+        0 46px 140px -14px rgba(84, 94, 190, 0.48),
+        0 18px 56px -8px rgba(84, 94, 190, 0.24);
+    }
+  }
+
+  .agent-card {
+    animation: shadowFloat 5s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .agent-card {
+      animation: none;
+    }
+  }
+</style>

@@ -1,0 +1,129 @@
+---
+import Button from './Button.astro';
+import { t, defaultLocale, type Locale } from '../i18n';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = defaultLocale } = Astro.props;
+const copy = t(locale).hero;
+---
+
+<section
+  class="flex min-h-[calc(100vh-220px)] items-center px-6 pb-20 pt-8"
+  aria-label="Darlean"
+>
+  <div
+    class="mx-auto grid w-full max-w-site items-center gap-16 [grid-template-columns:repeat(auto-fit,minmax(360px,1fr))]"
+  >
+    <div>
+      <h1
+        class="hero-in text-balance text-[clamp(32px,3.9vw,48px)] font-semibold leading-[1.06] tracking-[-0.03em] text-white"
+      >
+        {copy.titleLine1}
+        <span class="block bg-headline bg-clip-text text-transparent">
+          {copy.titleLine2}
+        </span>
+      </h1>
+
+      <p
+        class="hero-in mt-6 max-w-[32em] text-balance font-rounded text-body leading-[1.55] text-secondary"
+        style="animation-delay:120ms"
+      >
+        {copy.lead}
+      </p>
+
+      <ul
+        class="hero-in mt-8 flex list-none flex-wrap gap-3 p-0"
+        style="animation-delay:200ms"
+      >
+        {
+          copy.chips.map((chip) => (
+            <li class="rounded-pill border border-chip bg-card px-3 py-2 text-[12px] font-medium leading-none text-secondary">
+              {chip}
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="hero-in mt-11" style="animation-delay:280ms">
+        <Button href="#start" class="px-7 py-4">{copy.cta}</Button>
+
+        <p
+          class="mt-4 flex items-center gap-3 whitespace-nowrap text-caption text-tertiary"
+        >
+          {copy.noteBefore}
+          <span class="text-[11px] text-accent" aria-hidden="true">✦</span>
+          {copy.noteAfter}
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="hero-in relative"
+      id="hero-media"
+      style="animation-delay:200ms"
+      data-hero-media
+    >
+      <div
+        data-hero-frame
+        class="rounded-frame border border-hairline bg-elevated p-3 transition-transform duration-slow ease-brand"
+        style="margin-right:calc(50% - 50vw - 140px);max-width:calc((100vh - 260px)*1.6)"
+      >
+        <video
+          data-hero-main
+          src="/media/hero-main.mp4"
+          muted
+          playsinline
+          preload="auto"
+          aria-label={copy.mainVideoLabel}
+          class="block w-full rounded-input bg-card"
+          style="aspect-ratio:16/10"></video>
+      </div>
+
+      <div
+        data-hero-phone
+        class="absolute -right-4 box-border rounded-phone border border-control bg-elevated p-2 opacity-0 transition-[opacity,transform] duration-slow ease-brand"
+        style="bottom:-9%;height:min(82%,440px);aspect-ratio:435/935;transform:translateY(16px)"
+      >
+        <div
+          class="relative h-full w-full overflow-hidden rounded-phone-inner bg-card"
+        >
+          <video
+            data-hero-phone-video
+            src="/media/hero-notifications.mp4"
+            muted
+            playsinline
+            preload="auto"
+            aria-label={copy.phoneVideoLabel}
+            class="absolute block"
+            style="width:260.2%;left:-80.7%;top:-9.3%"></video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes heroIn {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .hero-in {
+    animation: heroIn var(--duration-slow) cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-in {
+      animation: none;
+    }
+  }
+</style>

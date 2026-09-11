@@ -23,7 +23,22 @@ every build.
 
 **The gradient button is a documented exception** to the design system's "no
 shadows anywhere" rule, specified by the brand brief. It lives entirely in
-`src/components/Button.astro`. Do not reproduce its CSS anywhere else.
+`src/components/Button.astro`. Do not reproduce its CSS anywhere else. Its
+gradient was darkened from the brief's stops so white label text clears 4.5:1 at
+every frame — the animation drags every stop under the label, so the brightest
+stop is the one that has to pass. #0370A7 is the ceiling; do not lighten it
+without re-checking the contrast.
+
+**Site token extensions.** The homepage uses colours, radii and widths the
+design system does not define (light sections, per-agent hues, the 1280px
+content width). They live in `src/styles/tokens/site.css`, clearly separated
+from the design-system files, and are listed on `/styleguide` under "Project
+extensions". Add new ones there rather than inline in markup.
+
+**Media.** The comp's videos, stills and Lottie sphere are not in the repo — the
+design sync tool truncates binaries over 256 KB. `public/media/README.md` lists
+every expected file and where it comes from. Slots render as flat panels until
+the files land; no code change is needed when they do.
 
 ## Commands
 

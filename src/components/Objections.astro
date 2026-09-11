@@ -1,0 +1,48 @@
+---
+import Icon from './Icon.astro';
+import { t, defaultLocale, type Locale } from '../i18n';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = defaultLocale } = Astro.props;
+const copy = t(locale).objections;
+---
+
+<section class="bg-page px-6 pb-40" aria-label="Common questions">
+  <div class="mx-auto max-w-site">
+    <div class="text-center">
+      <div
+        class="text-[13px] font-semibold uppercase tracking-[0.08em] text-accent"
+      >
+        {copy.eyebrow}
+      </div>
+      <h2
+        class="mt-[18px] text-balance text-[clamp(32px,3.5vw,52px)] font-semibold leading-[1.1] tracking-[-0.03em] text-white"
+      >
+        {copy.title}
+      </h2>
+    </div>
+
+    <div
+      class="mt-16 grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]"
+    >
+      {
+        copy.cards.map((card) => (
+          <article class="rounded-panel border border-hairline bg-card p-8">
+            <span class="flex h-11 w-11 items-center justify-center rounded-input bg-wash-strong text-accent">
+              <Icon name={card.icon} />
+            </span>
+            <h3 class="m-0 mt-6 text-[22px] font-semibold leading-[1.2] tracking-[-0.02em] text-white">
+              {card.title}
+            </h3>
+            <p class="mt-3 text-balance text-[16px] leading-[1.55] text-secondary">
+              {card.text}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

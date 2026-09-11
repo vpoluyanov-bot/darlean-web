@@ -1,0 +1,53 @@
+---
+import { t, defaultLocale, type Locale } from '../i18n';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = defaultLocale } = Astro.props;
+const copy = t(locale).faq;
+
+/* Native <details> rather than scripted state: it is keyboard-accessible,
+   announced correctly by screen readers and works before JS loads. */
+---
+
+<section class="bg-page px-6 pb-40" aria-label="Frequently asked questions">
+  <div class="mx-auto max-w-prose">
+    <h2
+      class="m-0 text-balance text-[clamp(32px,3.5vw,52px)] font-semibold leading-[1.1] tracking-[-0.03em] text-white"
+    >
+      {copy.title}
+    </h2>
+
+    <div class="mt-10 border-t border-hairline">
+      {
+        copy.items.map((item) => (
+          <details name="faq" class="faq group border-b border-hairline">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-[26px] text-left">
+              <span class="text-balance text-[clamp(17px,1.5vw,20px)] font-semibold leading-[1.35] text-white">
+                {item.q}
+              </span>
+              <span
+                class="flex-none text-[22px] leading-none text-accent transition-transform duration-base ease-brand group-open:rotate-45"
+                aria-hidden="true"
+              >
+                +
+              </span>
+            </summary>
+            <p class="m-0 pb-[26px] pr-10 text-balance text-[16px] leading-[1.6] text-secondary">
+              {item.a}
+            </p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Safari still paints the default disclosure triangle without this. */
+  .faq summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

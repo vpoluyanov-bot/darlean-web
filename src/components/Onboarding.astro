@@ -1,0 +1,61 @@
+---
+import Button from './Button.astro';
+import { t, defaultLocale, type Locale } from '../i18n';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = defaultLocale } = Astro.props;
+const copy = t(locale).onboarding;
+---
+
+<section id="start" class="bg-page px-6 pb-40 pt-30" aria-label="Onboarding">
+  <div class="mx-auto max-w-site">
+    <div
+      class="text-[13px] font-semibold uppercase tracking-[0.08em] text-accent"
+    >
+      {copy.eyebrow}
+    </div>
+
+    <h2
+      class="mt-[18px] text-balance text-[clamp(32px,3.5vw,52px)] font-semibold leading-[1.1] tracking-[-0.03em] text-white"
+    >
+      {copy.title}
+    </h2>
+
+    <p
+      class="mt-5 max-w-[38em] text-balance font-rounded text-[clamp(17px,1.4vw,21px)] leading-[1.55] text-secondary"
+    >
+      {copy.lead}
+    </p>
+
+    <ol
+      class="mt-16 grid list-none gap-5 p-0 [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]"
+    >
+      {
+        copy.steps.map((step, i) => (
+          <li class="rounded-panel border border-hairline bg-card p-9">
+            <span
+              class="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-[17px] font-semibold text-white"
+              aria-hidden="true"
+            >
+              {i + 1}
+            </span>
+            <h3 class="m-0 mt-6 text-[22px] font-semibold leading-[1.2] tracking-[-0.02em] text-white">
+              {step.title}
+            </h3>
+            <p class="mt-3 text-balance text-[16px] leading-[1.55] text-secondary">
+              {step.text}
+            </p>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="mt-12 flex flex-wrap items-center gap-6">
+      <Button href="#start" class="px-8 py-4 font-semibold">{copy.cta}</Button>
+      <span class="text-[15px] leading-[1.5] text-tertiary">{copy.note}</span>
+    </div>
+  </div>
+</section>

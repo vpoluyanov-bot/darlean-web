@@ -1,0 +1,41 @@
+---
+/**
+ * A video slot with a visible resting state.
+ *
+ * The comp's .mp4 files are not in the repo (see public/media/README.md), so
+ * the surface underneath has to look deliberate on its own: if the file is
+ * missing the frame simply stays a flat panel instead of collapsing to zero
+ * height. Playback is driven by src/scripts/homepage.js.
+ */
+interface Props {
+  src: string;
+  label: string;
+  ratio?: string;
+  class?: string;
+  videoClass?: string;
+  id?: string;
+}
+
+const {
+  src,
+  label,
+  ratio = '16 / 10',
+  class: className = '',
+  videoClass = '',
+  id,
+} = Astro.props;
+---
+
+<div
+  id={id}
+  class:list={['relative overflow-hidden bg-elevated', className]}
+  style={`aspect-ratio:${ratio}`}
+>
+  <video
+    src={src}
+    muted
+    playsinline
+    preload="none"
+    aria-label={label}
+    class:list={['block h-full w-full object-cover', videoClass]}></video>
+</div>

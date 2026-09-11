@@ -1,0 +1,95 @@
+---
+import Icon from './Icon.astro';
+import MediaSlot from './MediaSlot.astro';
+import { t, defaultLocale, type Locale } from '../i18n';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = defaultLocale } = Astro.props;
+const blocks = t(locale).featureStack;
+
+/* Each panel sticks 18px lower than the one before it, so they stack into a
+   deck as you scroll. Tailwind needs the full class name at build time, hence
+   the lookup tables rather than computed strings. */
+const stickyTop = ['top-[76px]', 'top-[94px]', 'top-[112px]', 'top-[130px]'];
+const tone = { card: 'bg-light-card', tint: 'bg-light-tint' };
+---
+
+<section class="px-6 pb-30 pt-16" aria-label="What Darlean does">
+  <div class="mx-auto max-w-site">
+    {
+      blocks.map((block, i) => (
+        <div
+          class:list={[
+            'sticky box-border grid items-center gap-12 rounded-panel p-[clamp(32px,4vw,64px)]',
+            'min-h-[min(74vh,640px)] [grid-template-columns:repeat(auto-fit,minmax(360px,1fr))]',
+            'shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.45)]',
+            stickyTop[i],
+            tone[block.tone],
+            i < blocks.length - 1 && 'mb-8',
+          ]}
+        >
+          <div class:list={[block.mediaSide === 'start' && 'order-2']}>
+            <div class="text-[13px] font-semibold uppercase tracking-[0.08em] text-accent-deep">
+              {block.eyebrow}
+            </div>
+
+            <h2 class="mt-4 text-balance text-[clamp(28px,2.8vw,40px)] font-semibold leading-[1.12] tracking-[-0.025em] text-on-light">
+              {block.title}
+            </h2>
+
+            <p class="mt-5 max-w-[34em] text-balance font-rounded text-body leading-[1.55] text-on-light-secondary">
+              {block.lead}
+            </p>
+
+            <ul
+              class:list={[
+                'flex list-none flex-col p-0',
+                block.compact ? 'mt-6 gap-4' : 'mt-9 gap-6',
+              ]}
+            >
+              {block.items.map((item) => (
+                <li class="flex items-start gap-4">
+                  <span
+                    class:list={[
+                      'flex flex-none items-center justify-center bg-wash text-accent-deep',
+                      block.compact
+                        ? 'h-9 w-9 rounded-tile'
+                        : 'h-10 w-10 rounded-input',
+                    ]}
+                  >
+                    <Icon name={item.icon} size={block.compact ? 18 : 20} />
+                  </span>
+
+                  <span>
+                    <span
+                      class:list={[
+                        'block font-semibold text-on-light',
+                        block.compact ? 'text-[15px]' : 'text-[16px]',
+                      ]}
+                    >
+                      {item.title}
+                    </span>
+                    <span class="mt-0.5 block text-caption text-tertiary">
+                      {item.text}
+                    </span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <MediaSlot
+            src={block.video}
+            label={block.videoLabel}
+            ratio="16 / 10"
+            class="self-center rounded-card"
+            id={`stack-media-${i}`}
+          />
+        </div>
+      ))
+    }
+  </div>
+</section>

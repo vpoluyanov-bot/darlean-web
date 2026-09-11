@@ -1,0 +1,94 @@
+---
+import { t, defaultLocale, type Locale } from '../i18n';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = defaultLocale } = Astro.props;
+const copy = t(locale).byRole;
+
+// Decorative bar heights, in percent.
+const bars = [34, 58, 42, 76, 100];
+---
+
+<section
+  class="h-[520vh] bg-page"
+  data-roles-section
+  aria-label="Darlean by role"
+>
+  <div class="sticky top-0 flex h-screen items-center overflow-hidden">
+    <div
+      data-roles-track
+      class="flex gap-6 px-[clamp(24px,6vw,120px)] will-change-transform"
+    >
+      <div
+        class="flex h-[min(72vh,640px)] w-[min(600px,80vw)] flex-none flex-col justify-between rounded-panel bg-role p-[clamp(32px,3.5vw,56px)]"
+      >
+        <img
+          src="/assets/logo-mark.svg"
+          width="56"
+          height="56"
+          alt=""
+          class="block h-14 w-14"
+        />
+        <p
+          class="m-0 text-balance text-[clamp(32px,3.2vw,48px)] font-semibold leading-[1.12] tracking-[-0.03em] text-white"
+        >
+          {copy.coverTitle}
+        </p>
+      </div>
+
+      {
+        copy.roles.map((role) => (
+          <article class="flex h-[min(72vh,640px)] w-[min(560px,78vw)] flex-none flex-col rounded-panel border border-hairline bg-card p-[clamp(28px,3vw,44px)]">
+            <h3 class="m-0 text-balance text-[clamp(26px,2.4vw,34px)] font-semibold leading-[1.15] tracking-[-0.025em] text-white">
+              {role.title}
+            </h3>
+
+            <div class="mt-6 flex items-center gap-5 rounded-field border border-hairline bg-elevated px-5 py-5">
+              <div class="min-w-0">
+                <div class="text-[clamp(30px,2.6vw,40px)] font-semibold leading-none tracking-[-0.03em] text-accent-light">
+                  {role.metric}
+                </div>
+                <div class="mt-2 text-[13px] leading-tight text-secondary">
+                  {role.metricLabel}
+                </div>
+                <div class="mt-3.5 h-1 overflow-hidden rounded-[2px] bg-hairline">
+                  <div
+                    class="h-full rounded-[2px] bg-accent"
+                    style={`width:${role.pct}`}
+                  />
+                </div>
+              </div>
+
+              <div
+                class="flex h-[52px] flex-none items-end gap-1.5"
+                aria-hidden="true"
+              >
+                {bars.map((h) => (
+                  <span
+                    class="w-2 rounded-t-[3px] bg-bar-strong"
+                    style={`height:${h}%`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <p class="mb-0 mt-auto text-balance pb-6 text-[clamp(19px,1.7vw,24px)] font-semibold leading-[1.4] tracking-[-0.01em] text-primary">
+              {role.desc}
+            </p>
+
+            <ul class="flex list-none flex-wrap gap-2.5 rounded-card bg-elevated p-[18px]">
+              {role.chips.map((chip) => (
+                <li class="whitespace-nowrap rounded-pill border border-chip-strong px-4 py-2.5 text-[12px] font-semibold uppercase leading-none tracking-[0.05em] text-primary">
+                  {chip}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

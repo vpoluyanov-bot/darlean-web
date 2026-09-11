@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import LogoMarquee from '../components/LogoMarquee.astro';
+import FeatureStack from '../components/FeatureStack.astro';
+import AiAssistant from '../components/AiAssistant.astro';
+import Security from '../components/Security.astro';
+import ByRole from '../components/ByRole.astro';
+import Onboarding from '../components/Onboarding.astro';
+import Objections from '../components/Objections.astro';
+import Faq from '../components/Faq.astro';
+import Footer from '../components/Footer.astro';
+import { t, defaultLocale } from '../i18n';
+
+const copy = t(defaultLocale);
+---
+
+<BaseLayout title={copy.site.title} description={copy.site.description}>
+  <Nav />
+  <main>
+    <Hero />
+    <LogoMarquee />
+    <FeatureStack />
+    <AiAssistant />
+    <Security />
+    <ByRole />
+    <Onboarding />
+    <Objections />
+    <Faq />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<script>
+  import '../scripts/homepage.js';
+</script>

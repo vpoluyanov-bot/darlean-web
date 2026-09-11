@@ -1,0 +1,65 @@
+/* -------------------------------------------------------------------------
+   Site token extensions.
+
+   NOT part of the Darlean Dark design system. These are values the homepage
+   comp uses that the design system does not define. They live here — not
+   inline in markup — so they stay countable and can be promoted into the
+   design system later.
+
+   Every value below is taken directly from "Homepage US.dc.html".
+   ------------------------------------------------------------------------- */
+:root{
+/* Light surfaces. The comp inverts four sections to white; the DS is dark-only. */
+--surface-light:#FFFFFF;
+--surface-light-card:#F5F5F7;
+--surface-light-tint:#EAF3FA;
+--text-on-light:#000000;
+--text-on-light-body:#1D1D1F;
+--text-on-light-secondary:#515154;
+
+/* Accent washes used behind icons and inside pills. */
+--accent-wash:rgba(3,155,230,0.10);
+--accent-wash-strong:rgba(3,155,230,0.12);
+--accent-wash-pill:rgba(3,155,230,0.14);
+--border-nav:rgba(255,255,255,0.06);
+--border-chip:rgba(255,255,255,0.14);
+--border-chip-strong:rgba(255,255,255,0.25);
+--surface-inactive:#48484A;
+
+/* Fills for the decorative activity bars in Security and By role. */
+--accent-bar:rgba(3,155,230,0.24);
+--accent-bar-strong:rgba(3,155,230,0.50);
+
+/* The comp's own content width, wider than the DS bleed rules. */
+--width-site:1280px;
+--width-prose:880px;
+--height-nav:60px;
+
+/* Device frames in the hero. */
+--radius-frame:22px;
+--radius-phone:36px;
+--radius-phone-inner:28px;
+--radius-tile:11px;
+--radius-field:16px;
+
+/* Rounded face for lead paragraphs — SF Pro Rounded in the comp. */
+--font-rounded:'SF Pro Rounded','Nunito',var(--font-sans);
+
+/* Role card cover. */
+--gradient-role:linear-gradient(135deg,#0277B5,#039BE6 60%,#39B1EC);
+
+/* Per-agent identity colours. Each agent owns a hue outside the brand blue. */
+--agent-task:#7A5CE0;
+--agent-task-name:#6C55D4;
+--agent-task-wash:rgba(122,92,224,0.09);
+--agent-report:#4CA050;
+--agent-report-name:#3E9142;
+--agent-report-wash:rgba(76,160,80,0.10);
+--agent-expense:#D4A017;
+--agent-expense-name:#A8790A;
+--agent-expense-wash:rgba(212,160,23,0.10);
+--agent-secretary:#3F66D6;
+--agent-secretary-name:#2F5FCC;
+--agent-secretary-wash:rgba(63,102,214,0.09);
+--agent-task-card:radial-gradient(110% 85% at 82% 108%,rgba(122,92,224,0.30),rgba(122,92,224,0.10) 42%,rgba(122,92,224,0.03) 62%,#FAFAFC 80%);
+}

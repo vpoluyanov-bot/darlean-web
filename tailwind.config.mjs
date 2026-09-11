@@ -33,10 +33,50 @@ export default {
         hairline: 'var(--border-hairline)',
         control: 'var(--border-control)',
         glass: 'var(--glass-bg)',
+
+        // Light sections and per-agent hues — see src/styles/tokens/site.css.
+        light: {
+          DEFAULT: 'var(--surface-light)',
+          card: 'var(--surface-light-card)',
+          tint: 'var(--surface-light-tint)',
+        },
+        'on-light': {
+          DEFAULT: 'var(--text-on-light)',
+          body: 'var(--text-on-light-body)',
+          secondary: 'var(--text-on-light-secondary)',
+        },
+        wash: {
+          DEFAULT: 'var(--accent-wash)',
+          strong: 'var(--accent-wash-strong)',
+          pill: 'var(--accent-wash-pill)',
+        },
+        nav: 'var(--border-nav)',
+        chip: 'var(--border-chip)',
+        'chip-strong': 'var(--border-chip-strong)',
+        inactive: 'var(--surface-inactive)',
+        bar: {
+          DEFAULT: 'var(--accent-bar)',
+          strong: 'var(--accent-bar-strong)',
+        },
+        agent: {
+          task: 'var(--agent-task)',
+          'task-name': 'var(--agent-task-name)',
+          'task-wash': 'var(--agent-task-wash)',
+          report: 'var(--agent-report)',
+          'report-name': 'var(--agent-report-name)',
+          'report-wash': 'var(--agent-report-wash)',
+          expense: 'var(--agent-expense)',
+          'expense-name': 'var(--agent-expense-name)',
+          'expense-wash': 'var(--agent-expense-wash)',
+          secretary: 'var(--agent-secretary)',
+          'secretary-name': 'var(--agent-secretary-name)',
+          'secretary-wash': 'var(--agent-secretary-wash)',
+        },
       },
 
       fontFamily: {
         sans: 'var(--font-sans)',
+        rounded: 'var(--font-rounded)',
       },
 
       fontWeight: {
@@ -91,6 +131,12 @@ export default {
         content: 'var(--width-content)',
         bleed: 'var(--width-bleed)',
         measure: 'var(--measure-body)',
+        site: 'var(--width-site)',
+        prose: 'var(--width-prose)',
+      },
+
+      height: {
+        nav: 'var(--height-nav)',
       },
 
       borderRadius: {
@@ -99,6 +145,11 @@ export default {
         card: 'var(--radius-card)',
         panel: 'var(--radius-panel)',
         pill: 'var(--radius-pill)',
+        frame: 'var(--radius-frame)',
+        phone: 'var(--radius-phone)',
+        'phone-inner': 'var(--radius-phone-inner)',
+        tile: 'var(--radius-tile)',
+        field: 'var(--radius-field)',
       },
 
       transitionDuration: {
@@ -113,6 +164,8 @@ export default {
 
       backgroundImage: {
         headline: 'var(--gradient-headline)',
+        role: 'var(--gradient-role)',
+        'agent-task-card': 'var(--agent-task-card)',
       },
 
       backdropBlur: {
