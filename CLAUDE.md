@@ -95,6 +95,22 @@ it after any layout change. The desktop layout is the baseline: mobile fixes go
 in as the unprefixed value with `md:` restoring the desktop behaviour, never by
 editing the desktop rule.
 
+## Hosting
+
+Vercel, connected to this repository. **A push to `main` is a deployment** —
+Vercel builds the commit and publishes it to Production without anything in the
+repo describing it: there is no `vercel.json`, no workflow file, and no GitHub
+Action. The only trace on the GitHub side is the deployment list. Treat pushing
+to `main` as going live, not as saving work.
+
+- Preview address: `darlean-web.vercel.app`
+- Domain: `darlean.com` is being connected. `www.darlean.com` will be the
+  canonical address, with the bare domain redirecting to it.
+
+The site has no canonical tags, sitemap, `robots.txt` or Open Graph tags, and
+`astro.config.mjs` sets no `site` URL — none of which can be generated
+correctly until the domain is live and the canonical host is settled.
+
 ## Commands
 
 - `npm run dev` — local server
