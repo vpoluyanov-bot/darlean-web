@@ -35,10 +35,23 @@ content width). They live in `src/styles/tokens/site.css`, clearly separated
 from the design-system files, and are listed on `/styleguide` under "Project
 extensions". Add new ones there rather than inline in markup.
 
-**Media.** The comp's videos, stills and Lottie sphere are not in the repo — the
-design sync tool truncates binaries over 256 KB. `public/media/README.md` lists
-every expected file and where it comes from. Slots render as flat panels until
-the files land; no code change is needed when they do.
+**Media is generated, not hand-managed.** `npm run media -- "<export path>"`
+rebuilds everything in `public/media` from the Claude Design export. Every clip
+ships as AV1/WebM with an H.264/MP4 fallback and a WebP poster; portraits ship
+as WebP with a PNG fallback. Resolutions are twice what the element occupies at
+1440px wide — the encode script records the display size next to each entry, so
+adjust it there if a layout changes rather than re-encoding by hand.
+
+**Nothing but the hero loads at first paint.** Clips outside the hero keep their
+URLs in `data-src` until an IntersectionObserver in `src/scripts/homepage.js`
+moves them onto the element, two screens ahead of arrival. Adding a video means
+adding `data-lazy-video` and `data-src`, not a bare `src`.
+
+**The Lottie sphere is the open question.** `ai-sphere.json` is 3.1 MB gzipped —
+more than every other clip on the page combined — because it is 300 base64 PNG
+frames, not vector art. It is lazy-loaded so it costs nothing up front, but as a
+160x160 looping video it would be about 84 KB. Raised with the team; not changed
+without a decision.
 
 ## Commands
 

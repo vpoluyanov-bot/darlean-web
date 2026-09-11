@@ -7,7 +7,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "fonts": "node scripts/fetch-fonts.mjs"
+    "fonts": "node scripts/fetch-fonts.mjs",
+    "media": "node scripts/encode-media.mjs"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.5",

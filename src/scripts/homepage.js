@@ -6,13 +6,100 @@
  * position inside them drives the sequence directly — nothing animates on its
  * own, so the motion always matches the reader's own scrolling.
  *
- * Ported from the design comp's React logic to plain DOM.
+ * Video is fetched late. Every clip outside the hero ships with its URLs in
+ * `data-src`, and they are only moved onto the element once the slot comes
+ * within two screens. Opening the page therefore costs the hero clip and
+ * nothing else.
  */
 
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /** Maps `value` from the range [from, to] onto [0, 1], clamped at both ends. */
 const ease = (value, from, to) => Math.min(1, Math.max(0, (value - from) / (to - from)));
+
+/* -- Fetching video on approach ------------------------------------------ */
+
+/** Moves the real URLs onto a slot and starts fetching it. Runs once per video. */
+function hydrate(video) {
+  if (video.dataset.hydrated) return;
+  video.dataset.hydrated = '1';
+
+  if (video.dataset.poster) video.poster = video.dataset.poster;
+
+  for (const source of video.querySelectorAll('source[data-src]')) {
+    source.src = source.dataset.src;
+    source.removeAttribute('data-src');
+  }
+
+  video.preload = 'auto';
+  video.load();
+}
+
+// Two screens of warning is enough for the clip to be ready when it arrives.
+const fetchWhenNear = new IntersectionObserver(
+  (entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      hydrate(entry.target);
+      fetchWhenNear.unobserve(entry.target);
+    }
+  },
+  { rootMargin: '200% 0px' }
+);
+
+for (const video of document.querySelectorAll('[data-lazy-video]')) {
+  fetchWhenNear.observe(video);
+}
+
+/* -- Playing only what is on screen -------------------------------------- */
+
+/** Plays only if the clip is still on screen and has something to show. */
+function tryPlay(video) {
+  if (REDUCED || !video.dataset.onScreen) return;
+  video.muted = true;
+  video.play().catch(() => {});
+}
+
+/** Feature clips rest for a beat between runs, the way the comp does. */
+function initPlayback(video) {
+  if (video.dataset.playbackInit) return;
+  video.dataset.playbackInit = '1';
+
+  // hydrate() calls load(), which cancels any play() issued in the same tick —
+  // so the first play has to wait until there are frames to show.
+  video.addEventListener('loadeddata', () => tryPlay(video));
+
+  video.addEventListener('ended', () =>
+    setTimeout(() => {
+      video.currentTime = 0;
+      tryPlay(video);
+    }, 2000)
+  );
+}
+
+const playWhenVisible = new IntersectionObserver(
+  (entries) => {
+    for (const entry of entries) {
+      const video = entry.target;
+
+      if (entry.isIntersecting) {
+        video.dataset.onScreen = '1';
+        if (REDUCED) continue;
+        initPlayback(video);
+        hydrate(video);
+        tryPlay(video);
+      } else {
+        delete video.dataset.onScreen;
+        video.pause();
+      }
+    }
+  },
+  { threshold: 0.5 }
+);
+
+for (const video of document.querySelectorAll('[id^="stack-media-"] video')) {
+  playWhenVisible.observe(video);
+}
 
 /* -- Hero: laptop video plays, then the phone slides in ------------------- */
 
@@ -56,60 +143,51 @@ function initHero() {
   };
 
   main.addEventListener('ended', reveal);
-  // Fallback for browsers that never fire `ended` on a looping fetch.
+  // Fallback for browsers that never fire `ended`.
   main.addEventListener('play', () => setTimeout(() => reveal(), 9000), { once: true });
   phone.addEventListener('ended', () => setTimeout(restart, 4000));
+
+  main.play().catch(() => {});
 }
 
-/* -- Videos: fetch late, play only while on screen ------------------------ */
+/* -- The sphere behind the AI headline ----------------------------------- */
 
-function updateVideos() {
-  if (REDUCED) return;
+function initSphere() {
+  const mount = document.querySelector('[data-ai-sphere]');
+  const section = document.querySelector('[data-ai-section]');
+  if (!mount || !section || REDUCED) return;
 
-  const vh = window.innerHeight;
+  let started = false;
 
-  // Start fetching a video only once it is within about two screens.
-  for (const video of document.querySelectorAll('video[src]')) {
-    if (video.dataset.warm) continue;
+  const load = new IntersectionObserver(
+    async (entries) => {
+      if (!entries.some((e) => e.isIntersecting) || started) return;
+      started = true;
+      load.disconnect();
 
-    const box = video.getBoundingClientRect();
-    if (box.top < vh * 2 && box.bottom > -vh) {
-      video.dataset.warm = '1';
-      video.preload = 'auto';
-      if (video.readyState === 0) video.load();
-    }
-  }
+      // The player is vendored in public/vendor — nothing comes from a CDN.
+      await new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = '/vendor/lottie_light.min.js';
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.append(script);
+      }).catch(() => {});
 
-  const playable = [
-    ...document.querySelectorAll('[id^="stack-media-"] video'),
-    ...document.querySelectorAll('#hero-media video'),
-  ];
+      if (!window.lottie) return;
 
-  for (const video of playable) {
-    if (!video.dataset.loopInit) {
-      video.dataset.loopInit = '1';
-      video.muted = true;
-      video.addEventListener('ended', () =>
-        setTimeout(() => {
-          video.currentTime = 0;
-          video.play().catch(() => {});
-        }, 2000)
-      );
-    }
+      window.lottie.loadAnimation({
+        container: mount,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: '/media/ai-sphere.json',
+      });
+    },
+    { rootMargin: '100% 0px' }
+  );
 
-    if (!video.paused || video.ended) continue;
-
-    const box = video.getBoundingClientRect();
-    if (!box.height) continue;
-
-    const visible =
-      Math.max(0, Math.min(box.bottom, vh) - Math.max(box.top, 0)) / box.height;
-
-    if (visible >= 0.5) {
-      video.muted = true;
-      video.play().catch(() => {});
-    }
-  }
+  load.observe(section);
 }
 
 /* -- By role: vertical scroll drives a horizontal track ------------------- */
@@ -120,8 +198,7 @@ function updateRoles() {
   if (!section || !track) return;
 
   const box = section.getBoundingClientRect();
-  const scrollable = box.height - window.innerHeight;
-  const progress = Math.min(1, Math.max(0, -box.top / scrollable));
+  const progress = Math.min(1, Math.max(0, -box.top / (box.height - window.innerHeight)));
   const distance = Math.max(0, track.scrollWidth - window.innerWidth);
 
   track.style.transform = `translateX(${-progress * distance}px)`;
@@ -207,9 +284,10 @@ function updateAi() {
       card.dataset.played = '1';
       for (const video of card.querySelectorAll('[data-agent-video]')) {
         if (REDUCED) continue;
-        video.muted = true;
-        video.loop = true;
-        video.play().catch(() => {});
+        video.dataset.onScreen = '1';
+        initPlayback(video);
+        hydrate(video);
+        tryPlay(video);
       }
     }
 
@@ -225,16 +303,13 @@ function updateAi() {
 /* -- Wiring -------------------------------------------------------------- */
 
 function onScroll() {
-  updateVideos();
   updateRoles();
   updateAi();
 }
 
 initHero();
+initSphere();
 onScroll();
 
 window.addEventListener('scroll', onScroll, { passive: true });
 window.addEventListener('resize', onScroll, { passive: true });
-
-// Resumes videos once their data lands, even if the reader never scrolls again.
-if (!REDUCED) setInterval(updateVideos, 800);

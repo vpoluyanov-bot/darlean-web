@@ -1,29 +1,43 @@
 ---
 /**
- * A video slot with a visible resting state.
+ * A silent video slot.
  *
- * The comp's .mp4 files are not in the repo (see public/media/README.md), so
- * the surface underneath has to look deliberate on its own: if the file is
- * missing the frame simply stays a flat panel instead of collapsing to zero
- * height. Playback is driven by src/scripts/homepage.js.
+ * Two encodings are offered: AV1 in WebM first, H.264 in MP4 as the fallback
+ * for Safari before 17.4 and older hardware. The browser picks the first it
+ * can play.
+ *
+ * Nothing is fetched until the slot approaches the viewport: the real URLs sit
+ * in `data-src` and are moved onto the <source> elements by
+ * src/scripts/homepage.js. `eager` opts the hero out of that, since it is on
+ * screen at first paint. A poster frame holds the space meanwhile.
+ *
+ * These clips pause for a beat between runs rather than looping seamlessly,
+ * which is what the comp does — the restart is handled in the script.
  */
 interface Props {
-  src: string;
+  name: string;
   label: string;
+  poster?: string;
   ratio?: string;
+  eager?: boolean;
   class?: string;
   videoClass?: string;
   id?: string;
 }
 
 const {
-  src,
+  name,
   label,
-  ratio = '16 / 10',
+  poster = `/media/${name}-poster.webp`,
+  ratio = '1 / 1',
+  eager = false,
   class: className = '',
   videoClass = '',
   id,
 } = Astro.props;
+
+const webm = `/media/${name}.webm`;
+const mp4 = `/media/${name}.mp4`;
 ---
 
 <div
@@ -32,10 +46,16 @@ const {
   style={`aspect-ratio:${ratio}`}
 >
   <video
-    src={src}
     muted
     playsinline
-    preload="none"
+    preload={eager ? 'auto' : 'none'}
+    poster={eager ? poster : undefined}
+    data-poster={eager ? undefined : poster}
+    data-lazy-video={eager ? undefined : ''}
     aria-label={label}
-    class:list={['block h-full w-full object-cover', videoClass]}></video>
+    class:list={['block h-full w-full object-cover', videoClass]}
+  >
+    <source src={eager ? webm : undefined} data-src={eager ? undefined : webm} type="video/webm" />
+    <source src={eager ? mp4 : undefined} data-src={eager ? undefined : mp4} type="video/mp4" />
+  </video>
 </div>

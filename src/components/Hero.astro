@@ -73,13 +73,17 @@ const copy = t(locale).hero;
       >
         <video
           data-hero-main
-          src="/media/hero-main.mp4"
           muted
           playsinline
           preload="auto"
+          poster="/media/hero-main-poster.webp"
           aria-label={copy.mainVideoLabel}
           class="block w-full rounded-input bg-card"
-          style="aspect-ratio:16/10"></video>
+          style="aspect-ratio:16/10"
+        >
+          <source src="/media/hero-main.webm" type="video/webm" />
+          <source src="/media/hero-main.mp4" type="video/mp4" />
+        </video>
       </div>
 
       <div
@@ -92,13 +96,17 @@ const copy = t(locale).hero;
         >
           <video
             data-hero-phone-video
-            src="/media/hero-notifications.mp4"
             muted
             playsinline
             preload="auto"
+            poster="/media/hero-notifications-poster.webp"
             aria-label={copy.phoneVideoLabel}
             class="absolute block"
-            style="width:260.2%;left:-80.7%;top:-9.3%"></video>
+            style="width:260.2%;left:-80.7%;top:-9.3%"
+          >
+            <source src="/media/hero-notifications.webm" type="video/webm" />
+            <source src="/media/hero-notifications.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
     </div>

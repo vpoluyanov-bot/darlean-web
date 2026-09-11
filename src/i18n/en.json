@@ -43,7 +43,7 @@
       "lead": "Bring tasks, deadlines and owners into Darlean — the team knows what to do, and you stop chasing statuses in chats.",
       "tone": "card",
       "mediaSide": "end",
-      "video": "/media/feature-projects.mp4",
+      "video": "feature-projects",
       "videoLabel": "A project opening in Darlean",
       "items": [
         { "icon": "checklist", "title": "Tasks", "text": "Assignments, deadlines and ownership in one place." },
@@ -57,7 +57,7 @@
       "lead": "Darlean routes documents and requests through the right approval path — you see every status and spot delays fast.",
       "tone": "tint",
       "mediaSide": "start",
-      "video": "/media/feature-requests.mp4",
+      "video": "feature-requests",
       "videoLabel": "A request moving through its approval route",
       "items": [
         { "icon": "workflow", "title": "Workflows", "text": "Visual workflow builder: branching, parallel steps, SLAs" },
@@ -71,7 +71,7 @@
       "lead": "Org chart, work hours and HR documents — transparent, simple and free of manual busywork.",
       "tone": "card",
       "mediaSide": "end",
-      "video": "/media/feature-org-chart.mp4",
+      "video": "feature-org-chart",
       "videoLabel": "An org chart building itself",
       "items": [
         { "icon": "people", "title": "Org chart", "text": "Who works where and who owns what, at a glance" },
@@ -86,7 +86,7 @@
       "tone": "tint",
       "mediaSide": "start",
       "compact": true,
-      "video": "/media/feature-meetings.mp4",
+      "video": "feature-meetings",
       "videoLabel": "A meeting flow in Darlean",
       "items": [
         { "icon": "calendar", "title": "Calendar", "text": "Two-way Google and Outlook sync, meeting links" },
@@ -112,8 +112,8 @@
         "id": "task",
         "name": "Task agent",
         "quote": "“I track deadlines and owners — no task ever slips”",
-        "video": "/media/agent-task.mp4",
-        "still": "/media/agent-task.png",
+        "video": "agent-task",
+        "still": "agent-task",
         "instructions": [
           "I track task deadlines and statuses",
           "I remind owners about due dates",
@@ -125,8 +125,8 @@
         "id": "report",
         "name": "Report agent",
         "quote": "“I build reports from company data and explain the numbers in plain language”",
-        "video": "/media/agent-report.mp4",
-        "still": "/media/agent-report.png",
+        "video": "agent-report",
+        "still": "agent-report",
         "instructions": [
           "I build reports from company data",
           "I explain numbers in plain language",
@@ -138,8 +138,8 @@
         "id": "expense",
         "name": "Expense agent",
         "quote": "“I read receipts, categorize expenses and can show a report across all employees anytime”",
-        "video": "/media/agent-expense.mp4",
-        "still": "/media/agent-expense.png",
+        "video": "agent-expense",
+        "still": "agent-expense",
         "instructions": [
           "I build expense reports",
           "I read receipts and assign categories",
@@ -151,8 +151,8 @@
         "id": "secretary",
         "name": "AI Secretary",
         "quote": "“I record meetings, write summaries and turn agreements into tasks”",
-        "video": "/media/agent-secretary.mp4",
-        "still": "/media/agent-secretary.png",
+        "video": "agent-secretary",
+        "still": "agent-secretary",
         "instructions": [
           "I record and transcribe meetings",
           "I write summaries and minutes",
