@@ -509,6 +509,7 @@
     "perUser": "per user / month",
     "plans": [
       {
+        "id": "freemium",
         "name": "Freemium",
         "price": "$0",
         "note": "Free forever. No credit card.",
@@ -537,6 +538,7 @@
         ]
       },
       {
+        "id": "basic",
         "name": "Basic",
         "price": "$16.50",
         "note": "For teams running work and approvals in one place.",
@@ -569,6 +571,7 @@
         ]
       },
       {
+        "id": "pro",
         "name": "Pro",
         "price": "$22.00",
         "note": "For companies automating processes end to end.",

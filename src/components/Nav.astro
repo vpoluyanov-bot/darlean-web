@@ -1,5 +1,6 @@
 ---
 import Button from './Button.astro';
+import { signupHref } from '../config';
 import { t, defaultLocale, type Locale } from '../i18n';
 
 interface Props {
@@ -26,7 +27,7 @@ const copy = t(locale).nav;
       />
     </a>
 
-    <Button href="#start" variant="secondary" class="px-5 py-2 text-caption">
+    <Button href={signupHref('header')} variant="secondary" class="px-5 py-2 text-caption">
       {copy.cta}
     </Button>
   </div>

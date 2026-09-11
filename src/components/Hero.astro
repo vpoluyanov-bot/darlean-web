@@ -1,5 +1,6 @@
 ---
 import Button from './Button.astro';
+import { signupHref } from '../config';
 import { t, defaultLocale, type Locale } from '../i18n';
 
 interface Props {
@@ -48,7 +49,7 @@ const copy = t(locale).hero;
       </ul>
 
       <div class="hero-in mt-11" style="animation-delay:280ms">
-        <Button href="#start" class="px-7 py-4">{copy.cta}</Button>
+        <Button href={signupHref('home_hero')} class="px-7 py-4">{copy.cta}</Button>
 
         <p
           class="mt-4 flex items-center gap-3 whitespace-nowrap text-caption text-tertiary"

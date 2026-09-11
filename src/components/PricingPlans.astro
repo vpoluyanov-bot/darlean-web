@@ -1,6 +1,7 @@
 ---
 import Button from './Button.astro';
 import Icon from './Icon.astro';
+import { signupHref } from '../config';
 import { t, defaultLocale, type Locale } from '../i18n';
 
 interface Props {
@@ -41,7 +42,7 @@ const copy = t(locale).pricing;
           <p class="m-0 mt-2 text-caption text-tertiary">{plan.note}</p>
 
           <Button
-            href="#start"
+            href={signupHref(`pricing_${plan.id}`)}
             variant={plan.highlighted ? 'primary' : 'secondary'}
             class="mt-7 justify-center px-6 py-3.5 text-[15px]"
           >

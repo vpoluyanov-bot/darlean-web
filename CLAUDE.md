@@ -47,6 +47,20 @@ URLs in `data-src` until an IntersectionObserver in `src/scripts/homepage.js`
 moves them onto the element, two screens ahead of arrival. Adding a video means
 adding `data-lazy-video` and `data-src`, not a bare `src`.
 
+**The signup address lives in `src/config.ts` and nowhere else.** Components ask
+for a link with `signupHref('<page>_<block>')`; the `cta` value names the page
+and the block that was clicked, lowercase and underscored. `src/scripts/
+attribution.js` recognises outgoing links by the host derived from the same
+constant, so changing the address is a one-line edit.
+
+**Attribution is first touch, written into hrefs at load.** The script records
+the campaign parameters, referrer and landing page once per session and never
+overwrites them, so an internal click-through cannot erase the campaign that
+brought the visitor. It writes the stored values into every signup link's href
+on load rather than on click, which is what keeps them intact when a link is
+opened in a new tab or copied. Parameters a link already carries — its `cta`
+included — are never replaced.
+
 **The AI section's height is derived, not chosen.** `src/lib/ai-timeline.js`
 lists the steps of the pinned sequence in beats; the component reads it to set
 the section height and the script reads it to drive the animation, so the two
