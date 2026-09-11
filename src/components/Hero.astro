@@ -16,7 +16,7 @@ const copy = t(locale).hero;
   aria-label="Darlean"
 >
   <div
-    class="mx-auto grid w-full max-w-site items-center gap-16 [grid-template-columns:repeat(auto-fit,minmax(360px,1fr))]"
+    class="mx-auto grid w-full max-w-site grid-cols-1 items-center gap-16 md:[grid-template-columns:repeat(auto-fit,minmax(360px,1fr))]"
   >
     <div>
       <h1
@@ -69,8 +69,7 @@ const copy = t(locale).hero;
     >
       <div
         data-hero-frame
-        class="rounded-frame border border-hairline bg-elevated p-3 transition-transform duration-slow ease-brand"
-        style="margin-right:calc(50% - 50vw - 140px);max-width:calc((100vh - 260px)*1.6)"
+        class="rounded-frame border border-hairline bg-elevated p-3 transition-transform duration-slow ease-brand md:[margin-right:calc(50%_-_50vw_-_140px)] md:[max-width:calc((100vh_-_260px)*1.6)]"
       >
         <video
           data-hero-main
@@ -89,7 +88,7 @@ const copy = t(locale).hero;
 
       <div
         data-hero-phone
-        class="absolute -right-4 box-border rounded-phone border border-control bg-elevated p-2 opacity-0 transition-[opacity,transform] duration-slow ease-brand"
+        class="absolute right-0 box-border rounded-phone border border-control bg-elevated p-2 opacity-0 transition-[opacity,transform] duration-slow ease-brand md:-right-4"
         style="bottom:-9%;height:min(82%,440px);aspect-ratio:435/935;transform:translateY(16px)"
       >
         <div

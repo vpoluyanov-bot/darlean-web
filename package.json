@@ -8,11 +8,15 @@
     "build": "astro build",
     "preview": "astro preview",
     "fonts": "node scripts/fetch-fonts.mjs",
-    "media": "node scripts/encode-media.mjs"
+    "media": "node scripts/encode-media.mjs",
+    "audit:mobile": "node scripts/audit-mobile.mjs"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.5",
     "astro": "^4.16.19",
     "tailwindcss": "^3.4.19"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
   }
 }

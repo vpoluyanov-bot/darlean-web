@@ -74,11 +74,19 @@ frames, not vector art. It is lazy-loaded so it costs nothing up front, but as a
 160x160 looping video it would be about 84 KB. Raised with the team; not changed
 without a decision.
 
+**Mobile is checked, not guessed.** `npm run audit:mobile` walks every page at
+375, 390 and 430px, reports elements that push the page sideways or spill out of
+their box, and writes a screen-by-screen set of screenshots into `.audit/`. Run
+it after any layout change. The desktop layout is the baseline: mobile fixes go
+in as the unprefixed value with `md:` restoring the desktop behaviour, never by
+editing the desktop rule.
+
 ## Commands
 
 - `npm run dev` — local server
 - `npm run build` — static build into `dist/`
 - `npm run fonts` — re-download the self-hosted Inter subsets
+- `npm run audit:mobile` — check every page at phone widths
 
 ## Fonts
 

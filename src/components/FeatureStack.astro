@@ -24,7 +24,8 @@ const tone = { card: 'bg-light-card', tint: 'bg-light-tint' };
         <div
           class:list={[
             'sticky box-border grid items-center gap-12 rounded-panel p-[clamp(32px,4vw,64px)]',
-            'min-h-[min(74vh,640px)] [grid-template-columns:repeat(auto-fit,minmax(360px,1fr))]',
+            'min-h-[min(74vh,640px)] grid-cols-1',
+            'md:[grid-template-columns:repeat(auto-fit,minmax(360px,1fr))]',
             'shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.45)]',
             stickyTop[i],
             tone[block.tone],
