@@ -107,9 +107,17 @@ to `main` as going live, not as saving work.
 - Domain: `darlean.com` is being connected. `www.darlean.com` will be the
   canonical address, with the bare domain redirecting to it.
 
-The site has no canonical tags, sitemap, `robots.txt` or Open Graph tags, and
-`astro.config.mjs` sets no `site` URL — none of which can be generated
-correctly until the domain is live and the canonical host is settled.
+`astro.config.mjs` holds the canonical host as `site`. Canonical tags, the
+sitemap and `robots.txt` are all built from it, so the host is written once.
+
+`src/pages/sitemap.xml.ts` and `src/pages/robots.txt.ts` generate their files
+from the pages that exist, discovered by `src/lib/routes.ts` — a new page is
+listed the moment it is added. Pages that are internal tooling go in that
+file's `INTERNAL` list, which keeps them out of the sitemap and disallows them
+in `robots.txt`; give them `noindex` on the layout too, the way `/styleguide`
+does.
+
+Open Graph tags are still missing.
 
 ## Commands
 

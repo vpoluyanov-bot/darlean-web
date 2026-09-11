@@ -1,16 +1,23 @@
 ---
 import '../styles/global.css';
 import { GA4_ID, GTM_ID } from '../config';
+import { canonical } from '../lib/routes';
 import { t, defaultLocale, type Locale } from '../i18n';
 
 interface Props {
   title: string;
   description?: string;
   locale?: Locale;
+  /** Internal pages ask not to be indexed even if a crawler finds them. */
+  noindex?: boolean;
 }
 
-const { title, description, locale = defaultLocale } = Astro.props;
+const { title, description, locale = defaultLocale, noindex = false } = Astro.props;
 const copy = t(locale);
+
+/* One address per page, built from the canonical host in astro.config.mjs, so
+   the bare domain and the www one can never both be indexed. */
+const canonicalUrl = canonical(Astro.url.pathname, Astro.site);
 
 /* Every page renders through this layout, so the tags below land on all of
    them. Both are skipped when their ID is blank — see src/config.ts. */
@@ -59,6 +66,8 @@ gtag('config', '${GA4_ID}');`} />
 
     <title>{title}</title>
     <meta name="description" content={description ?? copy.site.description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- Latin covers the visible copy on first paint; cyrillic loads on demand. -->
     <link
