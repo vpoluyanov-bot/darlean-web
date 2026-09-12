@@ -8,8 +8,11 @@ interface Props {
 const { locale = defaultLocale } = Astro.props;
 const { logos } = t(locale).customers;
 
-// The strip is duplicated so the marquee can loop on a -50% translate.
-const strip = [...logos, ...logos];
+/* Two identical halves, each carrying its own trailing gap, so translating the
+   track by exactly half its width lands the second half where the first began.
+   A single flex row with a shared `gap` cannot do this: the duplicated strip
+   ends up half a gap short and the loop visibly jumps. */
+const halves = [0, 1];
 
 const tracking: Record<string, string> = {
   tight: 'tracking-[-0.02em]',
@@ -22,17 +25,24 @@ const tracking: Record<string, string> = {
   <div
     class="mx-auto max-w-site overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]"
   >
-    <div class="marquee flex w-max items-center gap-20">
+    <div class="marquee flex w-max">
       {
-        strip.map((logo) => (
-          <span
-            class:list={[
-              'whitespace-nowrap text-h3 font-semibold text-tertiary',
-              tracking[logo.style],
-            ]}
+        halves.map((half) => (
+          <ul
+            class="flex w-max list-none items-center gap-20 p-0 pr-20"
+            aria-hidden={half === 1 ? 'true' : undefined}
           >
-            {logo.name}
-          </span>
+            {logos.map((logo) => (
+              <li
+                class:list={[
+                  'whitespace-nowrap text-h3 font-semibold text-tertiary',
+                  tracking[logo.style],
+                ]}
+              >
+                {logo.name}
+              </li>
+            ))}
+          </ul>
         ))
       }
     </div>
@@ -50,7 +60,10 @@ const tracking: Record<string, string> = {
   }
 
   .marquee {
-    animation: marquee 32s linear infinite;
+    /* One half is 1824px wide; 37s holds the ~49px/s the strip ran at before
+       the names changed. Change the names and this needs recalculating, or the
+       strip speeds up and slows down with the copy. */
+    animation: marquee 37s linear infinite;
   }
 
   @media (prefers-reduced-motion: reduce) {

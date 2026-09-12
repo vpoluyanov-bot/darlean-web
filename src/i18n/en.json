@@ -42,35 +42,35 @@
   "customers": {
     "logos": [
       {
-        "name": "Northwind",
+        "name": "Beeline",
         "style": "tight"
       },
       {
-        "name": "ATLAS",
-        "style": "wide"
-      },
-      {
-        "name": "Meridian",
-        "style": "tight"
-      },
-      {
-        "name": "Crestline",
+        "name": "Naiza",
         "style": "normal"
       },
       {
-        "name": "OMNI",
+        "name": "NTS",
         "style": "wide"
       },
       {
-        "name": "HALCYON",
+        "name": "Care Time",
         "style": "normal"
       },
       {
-        "name": "Bluepeak",
+        "name": "Zielinski & Rozen Boutique",
         "style": "tight"
       },
       {
-        "name": "Fairmont",
+        "name": "HKT-Alphatec",
+        "style": "normal"
+      },
+      {
+        "name": "Entrawind",
+        "style": "tight"
+      },
+      {
+        "name": "Solutect",
         "style": "normal"
       }
     ]
