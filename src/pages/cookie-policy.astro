@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import LegalDocument from '../components/LegalDocument.astro';
+import Footer from '../components/Footer.astro';
+import { t, defaultLocale } from '../i18n';
+
+const copy = t(defaultLocale).legal.cookiePolicy;
+---
+
+<BaseLayout title={copy.title} description={copy.description}>
+  <Nav />
+  <main class="px-6 pb-30 pt-20">
+    <LegalDocument document={copy.document} />
+  </main>
+  <Footer />
+</BaseLayout>

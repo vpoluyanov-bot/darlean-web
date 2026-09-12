@@ -483,15 +483,15 @@
     "links": [
       {
         "label": "Privacy policy",
-        "href": "https://www.darlean.com/en/policy?region=us"
+        "href": "/privacy-policy"
       },
       {
         "label": "User agreement",
-        "href": "https://www.darlean.com/en/terms?region=us"
+        "href": "/user-agreement"
       },
       {
         "label": "Cookies policy",
-        "href": "https://www.darlean.com/en/cookies?region=us"
+        "href": "/cookie-policy"
       },
       {
         "label": "Plans",
@@ -629,5 +629,2396 @@
         "emailSubject": "Darlean — plans enquiry (from the pricing page)"
       }
     ]
+  },
+  "legal": {
+    "userAgreement": {
+      "route": "/user-agreement",
+      "navLabel": "User agreement",
+      "title": "User agreement — Darlean terms of service",
+      "description": "The terms you agree to when using Darlean: registration, subscription and payment, intellectual property, liability, and the data processing addendum.",
+      "document": {
+        "title": "User Agreement",
+        "blocks": [
+          {
+            "type": "p",
+            "html": "Terms and Conditions for the use of the DAR Lean Platform of DAR TECH Limited",
+            "lede": true
+          },
+          {
+            "type": "h2",
+            "text": "1. Preamble"
+          },
+          {
+            "type": "p",
+            "html": "1.1 These Terms and Conditions (hereinafter “T&amp;C”) apply to the use of the DAR Lean Platform available via the address https://app.darlean.com and as an app from DAR TECH Limited, Kyriakou Matsi 46, Apt 101, 1082, Nicosia, Cyprus (hereinafter “DAR TECH”) including all Services, videos, recordings, sounds, texts, graphics and other materials sent, received, stored or otherwise displayed on the DAR Lean Platform."
+          },
+          {
+            "type": "p",
+            "html": "These T&amp;C create a legal agreement between DAR TECH and each User of the DAR Lean Platform and/or Services."
+          },
+          {
+            "type": "p",
+            "html": "1.2 By accessing or using the DAR Lean Platform and/or Services, the User automatically agrees to the T&amp;C, whether or not the User has entered into a separate contract with DAR TECH. If the User does not agree to the T&amp;C in full, he/she is prohibited from accessing the DAR Lean Platform and Services and using the content and services offered there."
+          },
+          {
+            "type": "p",
+            "html": "1.3 To use the DAR Lean Platform, App and Services, the User must be 18 years old and an Entrepreneur or Business Owner. Contracts are not concluded with consumers."
+          },
+          {
+            "type": "p",
+            "html": "1.4 The User expressly acknowledges that DAR TECH already objects to all deviating regulations in any order or in other business documents of the User."
+          },
+          {
+            "type": "p",
+            "html": "1.5 IMPORTANT NOTICE – This T&amp;C requires the use of arbitration on an individual basis to resolve disputes between any User and DAR TECH, rather than jury trials or class actions. Please read Section 10.6 for further details."
+          },
+          {
+            "type": "h2",
+            "text": "2. Definitions"
+          },
+          {
+            "type": "p",
+            "html": "2.1 The definitions used in this T&amp;C refer exclusively to this T&amp;C and do not affect the definitions in DAR TECH's Privacy Statement or other documents. In this T&amp;C, unless otherwise expressly stated in the text, the following terms shall have the meanings given below:"
+          },
+          {
+            "type": "p",
+            "html": "DAR Lean Platform or Platform: the DAR Lean cloud-based internet platform operated by DAR TECH under the web address https://app.darlean.com, which allows Users to organize and manage operational processes as well as teamwork, including, inter alia, productivity tools, processes, planning, HR management and reporting."
+          },
+          {
+            "type": "p",
+            "html": "DAR Lean App or App: DAR TECH also offers the DAR Lean Services as an app available via an external app store."
+          },
+          {
+            "type": "p",
+            "html": "User: a legal or natural person who uses the Platform and Services of DAR TECH, regardless of whether the User has registered or there is a contractual relationship between the Contracting Parties."
+          },
+          {
+            "type": "p",
+            "html": "Entrepreneurs or Business Owners: natural or legal persons or partnerships with legal capacity who run a business. Businesses are any permanent organizations of independent economic activity, even if they are not profit-oriented. Consumers are not Entrepreneurs/Business Owners."
+          },
+          {
+            "type": "p",
+            "html": "Contracting Party/Parties or Party/Parties: This is understood to mean DAR TECH and the User individually or jointly. This applies irrespective of whether a contractual relationship has already been established between the User and DAR TECH or not."
+          },
+          {
+            "type": "p",
+            "html": "User’s Personal Account or Personal Account: a set of protected Platform pages created as a result of the User’s registration, using which the User is able to access the functionality of the DAR Lean Services, allowing the User to manage settings, edit the account, and perform other actions necessary to implement the functionality of the DAR Lean Services within the authority granted to him."
+          },
+          {
+            "type": "p",
+            "html": "Administrator: a person authorised by the User to manage the administrative panel in the User’s Personal Account, responsible for managing the settings, editing the account, and performing actions necessary for the use of the DAR Lean Services within the limits of his authority."
+          },
+          {
+            "type": "p",
+            "html": "Privacy Statement: a document, as amended and supplemented, which defines the procedure and conditions for the collection, use, storage, processing, protection, and privacy of the User’s data, including Personal Data, which forms an integral part of these T&amp;C, and which is available at:"
+          },
+          {
+            "type": "p",
+            "html": "Referral Link: a link to the Platform provided to the User by the Administrator to register and make changes to the account by filling out the form in the User’s Personal Account."
+          },
+          {
+            "type": "p",
+            "html": "DAR Lean Services or Services: the services and tools available to Users through the Platform and the App."
+          },
+          {
+            "type": "p",
+            "html": "General Data Protection Regulation (GDPR): EU-General Data Protection Regulation or GDPR means Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of individuals with regard to the processing of personal data, on the free movement of such data and repealing Directive 95/46/EC as last published."
+          },
+          {
+            "type": "p",
+            "html": "Personal Data: any information relating to an identified or identifiable natural person (“Data Subject”); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person."
+          },
+          {
+            "type": "h2",
+            "text": "3. TERMS OF USE"
+          },
+          {
+            "type": "p",
+            "html": "3.1 DAR TECH shall grant the User, under the T&amp;C, the right to use the DAR Lean Platform and DAR Lean App as well as the additional Services available therein."
+          },
+          {
+            "type": "p",
+            "html": "3.2 The DAR Lean Platform and DAR Lean App is a fee-based online platform of DAR TECH that offers various DAR Lean Services. In order to use the DAR Lean Services on the Platform and DAR Lean App, Users must meet certain technical requirements, and under certain circumstances, pay a fee for a certain duration, and the User shall pay DAR TECH any such applicable fee as provided in Sections 5 and 6. A separate contract between DAR TECH and the User will be concluded when the use of the DAR Lean Services starts. The conditions in these T&amp;Cs apply to all contracts between DAR TECH and the Users as well as to any use of the DAR Lean Services. Any deviating agreements must be recorded in writing."
+          },
+          {
+            "type": "p",
+            "html": "3.3 The functionality, interface, and any Services provided on the Platform and DAR Lean App, including any Services, may be modified, supplemented, and updated, and may change the form and nature of the Platform’s or Services’ functionality at any time without prior notice to the User, and therefore, their use is offered on an “as is” basis, that is, in the form and volume in which DAR TECH provides them at the time of the User’s request."
+          },
+          {
+            "type": "p",
+            "html": "DAR TECH shall have the right, at its sole discretion, to terminate (temporarily or permanently, in whole or in separate territories, to Users of all or certain categories, or models of devices and (or) operating systems, software products), the provision of support for the DAR Lean Services, its parts, and (or) individual Services (or any individual functions within the Services) to all Users in general or an individual User, in particular, without prior notice."
+          },
+          {
+            "type": "p",
+            "html": "3.4 DAR TECH shall have the right to restrict or prohibit (temporarily or permanently) the User’s access to the DAR Lean Platform, App and/or Services to its functionality, if the User has violated ethical standards both in relation to employees of DAR TECH and other Users or has violated any provisions of these T&amp;C."
+          },
+          {
+            "type": "p",
+            "html": "3.5 Information content of the Platform and DAR Lean App, changes in the design of the Platform and DAR Lean App, and changes in the prices of the fees may be made by DAR TECH without prior notice to the Users."
+          },
+          {
+            "type": "p",
+            "html": "3.6 After successful registration, the User shall gain access to the User’s Personal Account and be able to use the functionalities of the Platform."
+          },
+          {
+            "type": "p",
+            "html": "3.7 DAR TECH may at any time, at its sole discretion and without prior notice to the User, transfer all or part of its rights and obligations arising from these T&amp;C and other legal documents applicable to the legal relations between the Parties to any third party."
+          },
+          {
+            "type": "p",
+            "html": "3.8 The User shall use the DAR Lean Services and the User’s Personal Account in good faith, without violating any laws, any rights or freedoms of any person (including third parties), and the standards of morality and ethics."
+          },
+          {
+            "type": "p",
+            "html": "3.9 If the User has a claim against another User in connection with the latter’s use of the Platform, the User shall address the claim directly to that User and settle the claim independently and without the involvement of DAR TECH."
+          },
+          {
+            "type": "p",
+            "html": "3.10 If the User violates the T&amp;C, the law, standards of morality and ethics, or technical requirements or fails to meet its payment obligation, DAR TECH shall have the right to suspend, block, or delete the User’s Personal Account, prohibit, or restrict access to some or all of the functions of the DAR Lean Services using the User’s Personal Account."
+          },
+          {
+            "type": "p",
+            "html": "3.11 The User guarantees that all claims of rights holders/authors/contractors arising from the use of the DAR Lean Services information by the User in contradiction with these T&amp;C shall be settled independently by the User, at his own expense. If DAR TECH receives claims from third parties regarding illegal use of the intellectual property on the DAR Lean Platform and DAR Lean App, the User agrees to compensate all losses of DAR TECH incurred as a result of such claims, and DAR TECH also reserves the right to unilaterally terminate these T&amp;C as between the Parties by deleting the User’s profile."
+          },
+          {
+            "type": "h2",
+            "text": "4. REGISTRATION CONDITIONS"
+          },
+          {
+            "type": "p",
+            "html": "4.1 DAR TECH shall provide the User access to information relating to the DAR Lean Services before the User’s registration. The prerequisite for the conclusion of a contract is the registration of the User or Administrator on the DAR Lean Platform and DAR Lean App. The User shall have the right to use the DAR Lean Services after registering in his personal account and entering into these T&amp;C."
+          },
+          {
+            "type": "p",
+            "html": "4.2 By completing registration on the DAR Lean Platform, the User makes a binding offer to conclude a contract. The User and/or Administrator also confirm that all information provided by him/her during registration is true and complete. He/she is obliged to inform DAR TECH immediately of any change in the registration data. DAR TECH may accept this offer by activating the Personal Account for the User’s use of the DAR Lean Services. With the acceptance of the offer, the contract between the Parties is concluded in the form of these T&amp;C."
+          },
+          {
+            "type": "p",
+            "html": "4.3 If an Administrator uses the DAR Lean Services on behalf of a legal entity User, he/she shall (and hereby does) confirm his/her authority to act on behalf of that legal entity User, and such Administrator shall accept these T&amp;C on behalf of such User."
+          },
+          {
+            "type": "p",
+            "html": "4.4 The date of the Agreement between the Parties shall be deemed to be the date of successful registration of the Administrator and/or User on the Platform or App, subject to the available functionality."
+          },
+          {
+            "type": "p",
+            "html": "4.5 Then the Administrator shall register the Users on behalf of a legal entity by successively having the User carry out all of the following specific actions:"
+          },
+          {
+            "type": "p",
+            "html": "clicking on the Referral Link provided to the User by the Administrator. By such clicking, the User confirms his/her intention to use the Platform’s or App Services."
+          },
+          {
+            "type": "p",
+            "html": "reading and accepting the T&amp;C, reading the Privacy Statement and successfully registering on the Platform or App."
+          },
+          {
+            "type": "p",
+            "html": "4.6 After registering, the User is given access to the User’s Personal Account using the email address or subscriber phone number, and a password is set up. When registering, the User specifies a subscriber phone number. Further use of the DAR Lean Services by the User constitutes unconditional acceptance of these T&amp;C."
+          },
+          {
+            "type": "p",
+            "html": "4.7 It is the responsibility of the Administrator and/or the User to ensure the security and safety of the password to third parties. If the password is lost or compromised and if third parties gain unauthorised access to the Personal Account, the Administrator and/or User shall immediately notify DAR TECH at the email address: support@darlean.com. Until such a notice is received, all actions taken using the Administrator and/or User’s Personal Account shall be deemed to have been accepted by the Administrator and/or User."
+          },
+          {
+            "type": "p",
+            "html": "4.8 The User undertakes not to use anyone else’s username and password to access the DAR Lean Services and not to provide their verification data to other Users or third parties to access the Platform.."
+          },
+          {
+            "type": "h2",
+            "text": "5. SERVICES FROM DAR TECH"
+          },
+          {
+            "type": "p",
+            "html": "5.1 DAR TECH offers Users free (limited access) and several paid subscriptions with additional functions. Full details of the prices and information on the individual subscriptions can be found at: https://darlean.com/en/plans."
+          },
+          {
+            "type": "p",
+            "html": "5.2 DAR TECH shall provide the User with the purchased Services during the term of the applicable Subscription Period in accordance with these T&amp;Cs."
+          },
+          {
+            "type": "p",
+            "html": "This does not affect DAR TECH's right to terminate the contract between the Parties for a good cause or as otherwise provided in these T&amp;C."
+          },
+          {
+            "type": "p",
+            "html": "5.3 For more information on the services, products, information, contract or subscription period and performance of DAR TECH, please refer to:"
+          },
+          {
+            "type": "h2",
+            "text": "6. SUBSCRIPTION FEE AND PAYMENT PROCEDURE"
+          },
+          {
+            "type": "p",
+            "html": "6.1 The prices for the various payment versions are listed on https://darlean.com/en/plans. These prices are not binding and exclude the applicable statutory taxes. As soon as a contract is concluded, the fee is payable and due immediately."
+          },
+          {
+            "type": "p",
+            "html": "6.2 The cost of access to the functionality of the DAR Lean Services may change at the discretion of DAR TECH; however, a change in such cost shall not affect the cost of access to the DAR Lean Services functionality for Users who have paid such cost in full at the previous price for the remainder of the applicable Subscription Period only. DAR TECH shall notify Users of changes to the DAR Lean Services functionality by specifying the cost of the Platform in accordance with Section 6.1."
+          },
+          {
+            "type": "p",
+            "html": "6.3 The purchase of access to the functionality of the DAR Lean Services shall be for a certain period. At the same time, the User shall have the right to select the period for purchasing access to the functionality of the DAR Lean Services (hereinafter “Subscription Period”) in the relevant tab of the Platform from a limited selection of possible Subscription Periods."
+          },
+          {
+            "type": "p",
+            "html": "6.4 Payment for a subscription to access the functionality of the DAR Lean Platform and Services shall be made through electronic payment system providers allowing payment by credit or debit cards of international payment systems. For payment, the User must select one of the payment methods offered on the DAR Lean Platform. Other payment methods are not possible."
+          },
+          {
+            "type": "p",
+            "html": "6.5 In terms of implementing the payment infrastructure, the DAR Lean Services is based solely on financial services."
+          },
+          {
+            "type": "p",
+            "html": "6.6 The User agrees that DAR TECH is not responsible for failures in operating the payment systems."
+          },
+          {
+            "type": "p",
+            "html": "6.7 The processing of card data entry and the payments themselves shall be carried out by a financial service provider."
+          },
+          {
+            "type": "p",
+            "html": "6.8 Payment obligations shall be considered to have been fulfilled by the User if the payment is authorised in the system. The proof of the payment shall be the payment system information about the payment made."
+          },
+          {
+            "type": "p",
+            "html": "6.9 DAR TECH shall have no control over the electronic payment system and shall not be responsible for errors in such a payment system. If, as a result of such errors, the User’s money is debited, but the system does not authorise the payment, the obligation to return the funds to the User shall lie with the electronic payment system provider."
+          },
+          {
+            "type": "p",
+            "html": "6.10 If the User does not fulfil his payment obligation towards DAR TECH, DAR TECH is entitled to temporarily block the User's profile until the owed payment has been received. All other claims of DAR TECH remain unaffected by this."
+          },
+          {
+            "type": "h2",
+            "text": "7. INTELLECTUAL PROPERTY"
+          },
+          {
+            "type": "p",
+            "html": "7.1 The DAR Lean Platform, App and Services contain the results of intellectual activity owned by DAR TECH. DAR TECH owns and reserves all right, title, and interest in and to the DAR Lean Platform, App and the Services, including without limitation any intellectual property rights therein or thereto."
+          },
+          {
+            "type": "p",
+            "html": "7.2 By using the DAR Lean Services, the User acknowledges and agrees that all content on the Platform and App, and the structure of content on the Platform, are protected by copyright, trademark, and other intellectual property rights and that these rights are valid and protected in all forms, on all media and in relation to all technologies, whether currently existing or later developed or created. No rights to any content on the Platform, including but not limited to audio-visual works, images, methodological materials, or trademarks, shall be transferred to the User as a result of using the DAR Lean Services and entering into these T&amp;C."
+          },
+          {
+            "type": "p",
+            "html": "7.3 Without prejudice to the universality of the foregoing provisions, the User acknowledges that the DAR Lean Services contain the results of intellectual activity, protected rights, and other materials of third parties and that, as between the Parties, such rights belong to DAR TECH. The User is prohibited from copying, modifying, changing, deleting, supplementing, publishing, transferring the objects of exclusive and personal non-property rights contained in the Platform or App, creating derivative works, making, or selling products based thereon, reproducing, displaying, or in any other way exercising or using such rights without the express permission of the rights holder."
+          },
+          {
+            "type": "p",
+            "html": "7.4 DAR TECH shall grant a limited, personal, non-exclusive, non-commercial, revocable, and non-transferable license to view the DAR Lean Services content to anyone who has accepted the T&amp;C. The User undertakes not to copy content from the Platform using automated systems (such as scripts, bots, spiders, scanners, etc.) or using other information extraction systems and technologies (frames, User data extraction masks) without the prior written permission of the respective right holder. No materials from the DAR Lean Services may be copied, reproduced, modified, republished, uploaded, posted on third-party products, transferred to third parties, or distributed in any form or by any means without the prior written consent of DAR TECH except as expressly provided in these T&amp;C."
+          },
+          {
+            "type": "p",
+            "html": "7.5 DAR TECH shall have the right to set limits on access to the DAR Lean Services products, including setting time and quantitative limits in order to prevent unauthorized access to the DAR Lean Services products by third parties."
+          },
+          {
+            "type": "p",
+            "html": "7.6 Suggestions made by Users do not give rise to any property rights of the User against DAR TECH. Notwithstanding any provision in these T&amp;C to the contrary, DAR TECH may use, develop and implement any information, suggestions, comments, or other feedback (collectively, “Feedback”) provided to DAR TECH by or on behalf of User in connection with the development, operation, marketing and sale of the Platform and/or Services, in its discretion and with no compensation to any person providing such Feedback, irrespective of any intellectual property or proprietary rights claimed by User in such Feedback. User represents that it has not, and will not, knowingly provide Feedback that is subject to any third-party intellectual property rights."
+          },
+          {
+            "type": "h2",
+            "text": "8. PERSONAL DATA"
+          },
+          {
+            "type": "p",
+            "html": "8.1 Personal data of the User will be stored and processed automatically by DAR TECH in the performance of this contract. In this regard, DAR TECH hereby refers to the Privacy Statement available at https://darlean.com/en/policy."
+          },
+          {
+            "type": "p",
+            "html": "8.2 Insofar as DAR TECH processes Personal Data of Data Subjects attributable to the User (including, but not limited to employees or third parties of the User to whom the User has – within the limitations and prerequisites laid out in the Platform – granted access to the Platform, the App or to Services), DAR TECH shall be Processor within the meaning of Article 4(8) GDPR and the respective User shall be Controller within the meaning of Article 4(7) GDPR. In such a case, the Contracting Parties agree that the Annex to the Terms &amp; Conditions: Processing Agreement for the use of the DAR Lean Platform together with the appendices referenced therein, available at [Link] (hereinafter “Data Processing Agreement”) shall apply as an agreement pursuant to Article 28 GDPR. This Data Processing Agreement shall be deemed an integral part of these T&amp;C."
+          },
+          {
+            "type": "h2",
+            "text": "9. LIABILITY / DISCLAIMER OF WARRANTIES"
+          },
+          {
+            "type": "p",
+            "html": "9.1 DAR TECH shall not be liable for the performance of the DAR Lean Services and does not guarantee the uninterrupted operation of the DAR Lean Services. DAR TECH also does not guarantee the safety of the information posted on the Platform and App and the possibility of uninterrupted access to the Platform and App."
+          },
+          {
+            "type": "p",
+            "html": "9.2 The Platform and App may contain links to other websites or services on the Internet (hereinafter “Third-Party Websites”). DAR TECH shall not check these Third-Party Websites or their content for compliance with any requirements (authenticity, completeness, legality, etc.). DAR TECH shall not be liable for any information or materials posted on Third-Party Websites to which the User gains access in connection with the use of the DAR Lean Platform or Services, including any opinions or statements expressed on Third-Party Websites, advertisements, etc., as well as for the availability of such websites or content and the consequences of their use by the User."
+          },
+          {
+            "type": "p",
+            "html": "9.3 DAR TECH will not be liable for any direct, indirect, incidental, special, exemplary or consequential damages, personal injury/wrongful death, lost profits, lost data, or business interruption, the use or misuse of submissions or content in any way whatsoever arising out of the use of, or inability to use, the Platform and/or any Services, whether or not DAR TECH is advised of the possibility of such damages. In the event that the foregoing exclusion of liability is found by a court of competent jurisdiction to be unenforceable, and a determination is made that DAR TECH is liable, under no circumstances will DAR TECH be liable to any person or entity for more than the amount paid to DAR TECH by such person or entity in the 90 days immediately preceding the date on which the claim was first asserted."
+          },
+          {
+            "type": "p",
+            "html": "9.4 The User shall be liable to DAR TECH for the legality of all instructions given and shall indemnify and hold DAR TECH harmless from and against any and all damages and losses resulting from compliance with such instructions. Further, each User shall defend, indemnify and hold harmless DAR TECH from and against all liability, claims, actions, and expenses, including attorneys' fees and costs, arising out of such User’s use of the Platform and/or Services or such User’s breach or alleged breach of any term, condition, obligation, representation or warranty in this T&amp;C. The User agrees that the provisions in this paragraph will survive any termination of such User’s Personal Account, the Platform or Services, or these T&amp;C."
+          },
+          {
+            "type": "p",
+            "html": "9.5 DAR TECH does not guarantee that the DAR Lean Services meet the User’s requirements and that access to the Platform will be uninterrupted, fast, reliable, or error-free. Software and hardware errors both on the side of DAR TECH and on the side of the User, which made it impossible for the User to access the Platform, are force majeure circumstances and grounds for exemption from liability for non-fulfilment of obligations by DAR TECH under these T&amp;C."
+          },
+          {
+            "type": "p",
+            "html": "9.6 The presentation, information and advertising of products and services on the DAR Lean Platform and/or the App and/or Third-Party Websites and/or any other websites, folders or advertising materials do not constitute a binding offer by DAR TECH to sell specific products or services."
+          },
+          {
+            "type": "p",
+            "html": "9.7 DAR TECH shall not be responsible for advertising materials distributed using the Service and Platform products, as well as for goods and services offered in accordance with these advertising materials."
+          },
+          {
+            "type": "p",
+            "html": "9.8 Subsidiaries, directors, employees, managers, agents, representatives, or vendors of DAR TECH may not give express or implied warranties on behalf of DAR TECH."
+          },
+          {
+            "type": "p",
+            "html": "9.9 Furthermore, to the extent permitted by applicable law, DAR TECH disclaims all express and implied warranties regarding the DAR Lean Services suitability for specific purposes not expressly defined in these T&amp;C, including without limitation any warranty regarding the commercial value, respect for property rights, protection against computer viruses, title, non-infringement, merchantability, or fitness for a particular purpose."
+          },
+          {
+            "type": "p",
+            "html": "9.10 DAR TECH cannot guarantee the absence of errors and defects on the Platform and/or App, as well as uninterrupted access to the Platform and/or App, which may depend on the network connection, the User’s software and equipment, and other factors. The User agrees that he/she is solely responsible for using the Service and the Platform products. DAR TECH cannot guarantee that the Platform or Services are fully available in all jurisdictions, therefore, the use of the DAR Lean Services is permitted subject to the laws of the Commonwealth of Massachusetts."
+          },
+          {
+            "type": "p",
+            "html": "9.11 Each User forever releases, discharges, and covenants not to sue DAR TECH from and with respect to any and all liability, claims, actions, and expenses that may arise, whether caused by the negligence of DAR TECH or otherwise, in connection with the User’s use of the Platform and/or Services or the User’s interaction with any person or entity through or as a result of the Platform and/or Services."
+          },
+          {
+            "type": "p",
+            "html": "9.12 DAR TECH shall have no responsibility or liability for, or involvement with, any relationship that exists or comes to exist between or among Users of the Platform."
+          },
+          {
+            "type": "p",
+            "html": "9.13 To the extent permitted by applicable law, each User and DAR TECH agrees that regardless of any statute or law to the contrary, any claim or cause of action arising out of or related to use of the Platform and/or Services or this T&amp;C (including the Privacy Policy) must be filed within ONE (1) YEAR after such claim or cause of action arose (or, if longer, within the shortest statute of limitations for such claim which the Parties may establish by agreement) or the claim will be forever barred."
+          },
+          {
+            "type": "h2",
+            "text": "10. Additional provision for the use of the dar lean app"
+          },
+          {
+            "type": "p",
+            "html": "10.1 The User is granted a non-exclusive, non-transferable and limited right by DAR TECH to access and use the DAR Lean App. This use is solely for personal and non-commercial purposes."
+          },
+          {
+            "type": "p",
+            "html": "10.2 The User may download and install the App from the respective application stores. The availability of the App may vary depending on the device, operating system and region."
+          },
+          {
+            "type": "p",
+            "html": "10.3 The User may not reproduce, distribute, make publicly available, modify or otherwise use the App without authorisation. The App may not be decompiled, reverse engineered, disassembled or otherwise converted into a readable form."
+          },
+          {
+            "type": "p",
+            "html": "10.4 Updates, upgrades and modifications to the App will be made at DAR TECH's sole discretion and may change the way the App is used or restrict the use of the App."
+          },
+          {
+            "type": "p",
+            "html": "10.5 DAR TECH cannot guarantee that the App will be error-free or uninterrupted at all times. Outages may occur due to maintenance, updates or for other reasons beyond DAR TECH's control."
+          },
+          {
+            "type": "p",
+            "html": "10.6 The App is protected by copyright and all rights thereto are owned by DAR TECH or its licensors. By using the App, the User does not acquire any ownership or other rights in the App other than the right to use expressly granted in these T&amp;C."
+          },
+          {
+            "type": "h2",
+            "text": "11. Final Provisions"
+          },
+          {
+            "type": "p",
+            "html": "11.1 Except with respect to Section 11.6 (which can only be amended by mutual written agreement of the parties), DAR TECH shall have the right to unilaterally amend the T&amp;C, with such amendments taking effect 30 days after the publication of the new version of the T&amp;C. On each subsequent visit to the Platform or App prior to using the Personal Account, the User undertakes to read the new version of these T&amp;C. Continued use of the DAR Lean Platform, App and Services and the User’s Personal Account shall constitute the User’s acceptance of the terms and conditions of the new version of these T&amp;C. If the User does not agree with the terms and conditions of the new version of these T&amp;C, he/she shall stop using the Platform and Services."
+          },
+          {
+            "type": "p",
+            "html": "11.2 Should one or more provisions of this contract be or become invalid, this shall not affect the remaining provisions of this contract."
+          },
+          {
+            "type": "p",
+            "html": "11.3 The headings of the provisions contained in these T&amp;C are for convenience only and shall not be used in interpreting them."
+          },
+          {
+            "type": "p",
+            "html": "11.4 This T&amp;C and all aspects of the Platform and Services will be governed by and construed in accordance with the internal laws of the United States and the Commonwealth of Massachusetts governing contracts entered into and to be fully performed in Massachusetts (thus, without regard to conflict of laws provisions), regardless of any User’s location."
+          },
+          {
+            "type": "p",
+            "html": "11.5 With respect to any disputes or claims not subject to informal dispute resolution or arbitration (as set forth below), each User agrees not to commence or prosecute any action in connection therewith other than in the state or federal courts located in Boston, Massachusetts, and each User hereby consents to, and waive all defenses of lack of personal jurisdiction and forum non conveniens with respect to, venue and jurisdiction in the state and federal courts located in Boston, Massachusetts."
+          },
+          {
+            "type": "p",
+            "html": "11.6 11.6. To expedite resolution and control the cost of any dispute, controversy, or claim related to this T&amp;C (\"Dispute\"), each User and DAR TECH agrees to first attempt to negotiate any Dispute (except those Disputes expressly provided below) informally for at least thirty (30) days before initiating any arbitration or court proceeding. Such informal negotiations commence upon written notice from one party to the other. If such User and DAR TECH are unable to resolve a Dispute through informal negotiations within 30 days, either such User or DAR TECH may elect to have the Dispute (except those Disputes expressly excluded below) finally and exclusively resolved by binding arbitration. Any election to arbitrate by one party will be final and binding on the other. EACH USER UNDERSTANDS THAT ABSENT THIS PROVISION, SUCH USER WOULD HAVE THE RIGHT TO SUE IN COURT AND HAVE A JURY TRIAL. The arbitration will be commenced and conducted under the Streamlined Arbitration Rules and Procedures (the “Rules”) of JAMS, which is available at the JAMS website at www.jamsadr.com. The determination of whether a Dispute is subject to arbitration will be governed by the Federal Arbitration Act and determined by a court rather than an arbitrator. The User’s arbitration fees and share of arbitrator compensation will be governed by the Rules. The arbitration may be conducted in person, through the submission of documents, by phone, by video conference, or online. The arbitrator will make a decision in writing, but need not provide a statement of reasons unless requested by a party. The arbitrator must follow applicable law, and any award may be challenged if the arbitrator fails to do so. Notwithstanding the above, each User and DAR TECH agrees that arbitration will be limited to the Dispute between DAR TECH and the User individually. To the full extent permitted by law, (a) no arbitration will be joined with any other; (b) there is no right or authority for any Dispute to be arbitrated on a class-action basis or to utilize class action procedures; and (c) there is no right or authority for any Dispute to be brought in a purported representative capacity on behalf of the general public or any other persons. Each User and DAR TECH agrees that the following Disputes are not subject to the above provisions concerning informal negotiations and binding arbitration: (a) any Disputes seeking to enforce or protect, or concerning the validity of, any of DAR TECH’s intellectual property rights; and (b) any claim for injunctive relief or to compel arbitration, stay proceedings pending arbitration, or to confirm, modify, vacate or enter judgment on the award entered by the arbitrator."
+          },
+          {
+            "type": "p",
+            "html": "11.7 The User may obtain any clarification on the matters of interest by contacting DAR TECH by email at support@darlean.com."
+          },
+          {
+            "type": "p",
+            "html": "Annex to the Terms &amp; Conditions (T&amp;C) Processing Agreement for the Use of the DAR Lean Platform of (the “Agreement”) DARLEAN US CORP. (\"DARLEAN US\")"
+          },
+          {
+            "type": "h2",
+            "text": "1. Preamble and Scope of this Agreement, Annex to the Terms &amp; Conditions"
+          },
+          {
+            "type": "p",
+            "html": "1.1 This Agreement is an integral part of the Terms &amp; Conditions (T&amp;C) on the use of the DAR Lean Platform concluded between DARLEAN US CORP., 850 New Burton Road, Suite 201, Dover, DE 19904, USA (in short, \"DARLEAN US\") and the Contractual Partner. Capitalized terms used and not otherwise defined herein shall have the meanings ascribed to them in the T&amp;C."
+          },
+          {
+            "type": "p",
+            "html": "1.2 This Agreement serves as a Processing agreement between the Contractual Partner as Controller and DARLEAN US as Processor."
+          },
+          {
+            "type": "p",
+            "html": "1.3 This Agreement shall only apply between DARLEAN US and the Contractual Partner if the Contractual Partner is based within the United States of America."
+          },
+          {
+            "type": "h2",
+            "text": "2. Definitions"
+          },
+          {
+            "type": "p",
+            "html": "DAR Lean Platformmeans the cloud-based internet platform operated by DARLEAN US under the web address https://app.darlean.com, which allows Users to organize and manage operational processes as well as teamwork, including, inter alia, productivity tools, processes, planning, HR management and reporting."
+          },
+          {
+            "type": "p",
+            "html": "Annex or Agreement means this Annex to the Terms &amp; Conditions (T&amp;C) of DARLEAN US for the use of the DAR Lean Platform."
+          },
+          {
+            "type": "p",
+            "html": "Contractual Partner or Controller means any natural or legal person who concludes or has concluded a contract with DARLEAN US for the use of the DAR Lean Platform which includes the Terms &amp; Conditions."
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US means DARLEAN US CORP., 850 New Burton Road, Suite 201, Dover, DE 19904, USA."
+          },
+          {
+            "type": "p",
+            "html": "Privacy Lawsmeans the data protection laws applicable to the Processing of Personal Data under this Agreement, including inter alia the following and as amended from time to time:"
+          },
+          {
+            "type": "p",
+            "html": "to the extent applicable, the California Consumer Privacy Act of 2018, as amended by the California Privacy Rights Act of 2020, together with any regulations promulgated thereunder (CCPA) in each case to the extent effective and applicable and together with any regulations promulgated thereunder: (i) the Colorado Privacy Act; (ii) the Connecticut Act Concerning Personal Data Privacy and Online Monitoring; (iii) the Utah Consumer Privacy Act; (iv) the Virginia Consumer Data Protection Act; (v) the Delaware Personal Data Privacy Act; (vi) the Indiana Consumer Data Protection Act; (vii) the Iowa Consumer Data Protection Act;"
+          },
+          {
+            "type": "p",
+            "html": "(viii) the Montana Consumer Data Privacy Act; (ix) the Oregon Consumer Privacy Act; (x) the Tennessee Information Protection Act; (xi) the Texas Data Privacy and Security Act; (xii) New Jersey SB 332; (xiii) New Hampshire SB 255; (xiv) the Nebraska Data Privacy Act; and (xv) the Kentucky Consumer Data Protection Act, (collectively, State Data Protection Laws)."
+          },
+          {
+            "type": "p",
+            "html": "General Data Protection Regulation, Regulation (EU) 2016/679, as it forms part of domestic law in the UK by virtue of section 3 of the European Union (Withdrawal) Act 2018 (UK GDPR);"
+          },
+          {
+            "type": "p",
+            "html": "Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (EU GDPR)."
+          },
+          {
+            "type": "p",
+            "html": "Parties refers to DAR TECH and the Contractual Partner collectively."
+          },
+          {
+            "type": "p",
+            "html": "Personal Data is as defined within the T&amp;Cs."
+          },
+          {
+            "type": "p",
+            "html": "Processing means any operation or set of operations which is performed on Personal Data or on sets of Personal Data, whether or not by automated means, such as collection, recording, organisation, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction."
+          },
+          {
+            "type": "p",
+            "html": "Controllermeans, unless explicitly stated otherwise by applicable Privacy Laws, the natural or legal person, public authority, agency or other body which, alone or jointly with others, determines the purposes and means of the Processing of Personal Data; where the purposes and means of such Processing are determined by law, the Controller or the specific criteria for its nomination may be provided for by such legal provisions."
+          },
+          {
+            "type": "p",
+            "html": "Processormeans, unless explicitly stated otherwise by applicable Privacy Laws, a natural or legal person, public authority, agency or other body which processes Personal Data on behalf of the Controller."
+          },
+          {
+            "type": "p",
+            "html": "Recipientmeans, unless explicitly stated otherwise by applicable Privacy Laws, a natural or legal person, public authority, agency or another body, to which the Personal Data are disclosed, whether a third party or not. However, public authorities which may receive Personal Data in the framework of a particular inquiry in accordance with applicable law shall not be regarded as Recipients; the Processing of those data by those public authorities shall be in compliance with the applicable Privacy Laws according to the purposes of the Processing."
+          },
+          {
+            "type": "p",
+            "html": "Special Categories of Personal Datameans, unless explicitly stated otherwise by applicable Privacy Laws, personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person's sex life or sexual orientation."
+          },
+          {
+            "type": "p",
+            "html": "State Laws Datameans any Personal Data regulated by any State Data Protection Laws and Processed by DARLEAN US solely on behalf of Contractual Partner."
+          },
+          {
+            "type": "p",
+            "html": "Terms &amp; Conditions means DAR TECH’s Terms and Conditions on the use of the DAR Lean Platform."
+          },
+          {
+            "type": "h2",
+            "text": "3. Objective of the Agreement, Contractual Partner as Controller"
+          },
+          {
+            "type": "p",
+            "html": "3.1 DARLEAN US undertakes to perform, on behalf of the Contractual Partner, the data Processing operations in accordance with the Terms &amp; Conditions and this Agreement as further described in Appendix 1 of this Agreement."
+          },
+          {
+            "type": "p",
+            "html": "3.2 The Contractual Partner is deemed to be Controller relating to the data Processing operations in accordance with Section 3.1. Accordingly, the Contractual Partner is obliged to implement all obligations applicable to Controllers under the applicable Privacy Laws and to monitor their implementation and compliance. The Contractual Partner confirms that before using the DAR Lean Platform, the Contractual Partner understands and is compliant with the relevant statutory provisions, in particular those relating to the applicable Privacy Laws to which they are subject. Further, Contractual Partner represents, warrants, and covenants that: (i) it has (and will have) Processed, collected, and disclosed all Personal Data in compliance with applicable law and provided any notice and obtained all consents and rights required by applicable law to enable DARLEAN US to lawfully Process Personal Data as permitted by the T&amp;C and this Agreement; (ii) it has (and will continue to have) full right and authority to make Personal Data available to DARLEAN US under the T&amp;C and this Agreement; and (iii) DARLEAN US‘ Processing of the Personal Data in accordance with the T&amp;C, this Agreement, and/or Contractual Partner‘s instructions does and will not infringe upon or violate any applicable law or any rights of any third party."
+          },
+          {
+            "type": "p",
+            "html": "3.3 The Contractual Partner undertakes not to make the DAR Lean Platform or individual modules or functions thereof accessible to Users if such use is prohibited under the legal provisions to which the Contractual Partner is subject. In such case, the Contractual Partner must instruct the Users without undue delay not to use the DAR Lean Platform or the relevant modules or functions, and to revoke, if possible, the User authorizations for such use; if such revocation is not possible within the DAR Lean Platform, the Contractual Partner shall immediately inform DARLEAN US about this circumstance."
+          },
+          {
+            "type": "p",
+            "html": "The Contractual Partner shall indemnify, defend, and hold DARLEAN US harmless from and against any claims of Users against DARLEAN US arising from the Contractual Partner's breach of these obligations."
+          },
+          {
+            "type": "h2",
+            "text": "4. Processing by DARLEAN US, Right to Instruction"
+          },
+          {
+            "type": "p",
+            "html": "4.1 DARLEAN US shall process Personal Data as further described in Appendix 1 of this Agreement only on documented instructions from the Contractual Partner, including with regard to transfers of Personal Data to a third country or an international organization, unless required to do so by any applicable law to which DARLEAN US is subject; in such a case, DARLEAN US shall inform the Contractual Partner of that legal requirement before Processing, unless that law prohibits such information on important grounds of public interest."
+          },
+          {
+            "type": "p",
+            "html": "The conclusion of a contract on the use of the DAR Lean Platform between DARLEAN US and the Contractual Partner to which the T&amp;C and this Agreement are attached as integral parts shall be deemed to be such documented instruction to Process Personal Data. Subsequent instructions may also be given by the Contractual Partner throughout the duration of the Processing of Personal Data. These instructions shall always be documented."
+          },
+          {
+            "type": "p",
+            "html": "4.2 DARLEAN US shall immediately inform the Contractual Partner if, without seeking legal advice, it considers that an instruction given by the Contractual Partner obviously infringes applicable Privacy Laws. DARLEAN US shall not be obliged to seek legal advice on the performance of this Agreement and shall not provide any legal advice related to the performance of this Agreement."
+          },
+          {
+            "type": "p",
+            "html": "4.3 DAR TECH shall immediately inform the Contractual Partner whether it is obliged, under EU or EU Member State law, to process Personal Data contrary to the instructions of the Contractual Partner or without the instructions of the Contractual Partner, if such notification is legally permissible.DARLEAN US shall immediately inform the Contractual Partner whether it is legally obliged to process Personal Data contrary to the instructions of the Contractual Partner or without the instructions of the Contractual Partner, if such notification is legally permissible."
+          },
+          {
+            "type": "p",
+            "html": "4.4 Instructions given by the Contractual Partner must be consistent with the subject matter of this Agreement. Should DARLEAN US incur an expense of more than one working hour as a result of following any individual instruction upon the explicit request of the Contractual Partner, the entire expense shall be reimbursed by the Contractual Partner."
+          },
+          {
+            "type": "h2",
+            "text": "5. Confidentiality"
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US shall ensure that persons authorized to process Personal Data have committed themselves to confidentiality or are under an appropriate statutory obligation of confidentiality."
+          },
+          {
+            "type": "h2",
+            "text": "6. Data Security"
+          },
+          {
+            "type": "p",
+            "html": "6.1 DARLEAN US shall implement technical and organisational measures to ensure the security of the Personal Data. This includes protecting the data against a breach of security leading to accidental or unlawful destruction, loss, alteration, unauthorised disclosure or access to the data (Personal Data breach). In assessing the appropriate level of security, DARLEAN US shall take due account of the state of the art, the costs of implementation, the nature, scope, context and purposes of Processing and the risks involved for the Data Subject."
+          },
+          {
+            "type": "p",
+            "html": "6.2 DARLEAN US fulfils its obligation under Section 6.1 by implementing the measures set out in Appendix 2 of this Agreement. DARLEAN US is entitled to adapt the technical and organizational measures to the current state of the art from time to time to ensure an adequate level of data security."
+          },
+          {
+            "type": "p",
+            "html": "6.3 DARLEAN US shall inform the Contractual Partner of any Personal Data breach, in so far as such breach concerns data processed by DARLEAN US on behalf of the Contractual Partner and results in a risk to the rights and freedoms of natural persons. This information shall be provided without delay as soon as DARLEAN US becomes aware of such a breach and shall be addressed to the contact point notified in writing by the Contractual Partner."
+          },
+          {
+            "type": "p",
+            "html": "6.4 The information provided to the Contractual Partner pursuant to Section 6.3 shall include the following, as far as possible in the light of the circumstances:"
+          },
+          {
+            "type": "p",
+            "html": "the nature of the Personal Data breach including where possible, the categories and approximate number of Data Subjects concerned and the categories and approximate number of Personal Data records concerned;"
+          },
+          {
+            "type": "p",
+            "html": "the likely consequences of the Personal Data breach; and the measures taken or proposed to be taken to address the Personal Data breach, including, where appropriate, measures to mitigate its possible adverse effects."
+          },
+          {
+            "type": "p",
+            "html": "6.5 In addition to the purposes described in Appendix 1, DARLEAN US hereby informs the Contractual Partner and the Contractual Partner expressly agrees that DARLEAN US may process Personal Data as further described in Appendix 1 of this Agreement, to the extent necessary, for the purposes of IT Security and the prevention of fraud and abuse. If certain Personal Data Processed on behalf of the Contractual Partner is found to affect IT security (e.g. because certain files contain viruses), DARLEAN US reserves the right to delete such data in accordance with the Terms &amp; Conditions and to immediately inform the Contractual Partner."
+          },
+          {
+            "type": "h2",
+            "text": "7. International Transfers"
+          },
+          {
+            "type": "p",
+            "html": "Contractual Partner hereby instructs DARLEAN US to transfer Personal Data to, and to Process Personal Data in, the United States and/or to any other jurisdiction in which DARLEAN US or its Sub-Processors have operations, and Contractual Partner hereby consents to the foregoing."
+          },
+          {
+            "type": "h2",
+            "text": "8. Sub-Processing"
+          },
+          {
+            "type": "p",
+            "html": "8.1 DARLEAN US has the Contractual Partner’s general authorisation for the engagement of sub-processors from an agreed list pursuant to Appendix 3 of this Agreement. DARLEAN US shall inform the Contractual Partner of any intended changes concerning the addition or replacement of other processors or sub-processors (hereinafter collectively “Sub-Processors”), thereby giving the Contractual Partner the opportunity to object to and prohibit such changes. If the Contractual Partner does not object within two weeks after such notification, the addition or replacement shall be deemed to have been approved. If such objection is raised, DARLEAN US shall be entitled to terminate this Agreement as well as the underlying contractual relationship with the Contractual Partner to the end of the month by giving two weeks‘ notice."
+          },
+          {
+            "type": "p",
+            "html": "8.2 Where DARLEAN US engages another Sub-Processor for carrying out specific Processing activities on behalf of the Contractual Partner, the data protection obligations required by applicable Privacy Laws shall be imposed on that Sub-Processor by way of a contract."
+          },
+          {
+            "type": "h2",
+            "text": "9. Assistance"
+          },
+          {
+            "type": "p",
+            "html": "9.1 Taking into account the nature of the Processing, DARLEAN US shall assist the Contractual Partner by appropriate technical and organizational measures, insofar as this is possible, for the fulfilment of the Contractual Partner‘s obligation to respond to requests for exercising the Data Subject‘s rights under applicable Privacy Laws. DARLEAN US shall fulfil this obligation by forwarding requests received from Data Subjects to the Contractual Partner. If the Contractual Partner deems it necessary to receive additional support from DARLEAN US and DARLEAN US agrees to provide such support, DARLEAN US shall be entitled to demand additional appropriate remuneration for rendering such additional support."
+          },
+          {
+            "type": "p",
+            "html": "9.2 Moreover, taking into account the nature of Processing and the information available to DARLEAN US, DARLEAN US shall assist the Contractual Partner in ensuring compliance with the Contractual Partner’s obligations under applicable Privacy Laws. DARLEAN US shall do so by (i) taking the measures set forth in Sections 5 (“Confidentiality”) and 6 (“Data Security”) of this Agreement; (ii) notifying the Contractual Partner of a breach of Personal Data pursuant to Section 6.3; and (iii) providing the information set forth in Appendix 1 of this Agreement. If the Contractual Partner deems it necessary to receive additional support from DARLEAN US and DARLEAN US agrees to provide such support, DARLEAN US shall be entitled to demand additional appropriate remuneration for rendering such additional support."
+          },
+          {
+            "type": "h2",
+            "text": "10. Deletion and Return of Personal Data"
+          },
+          {
+            "type": "p",
+            "html": "10.1 DARLEAN US hereby informs the Contractual Partner that currently a deletion of the entire Workspace is only possible by way of a separate written notification from the Contractual Partner to DARLEAN US. DARLEAN US is entitled to integrate such functionality (which would allow Contractual Partner to delete an entire Workspace without providing a separate written notification to DARLEAN US) into the DAR Lean Platform in the future."
+          },
+          {
+            "type": "p",
+            "html": "10.2 DARLEAN US shall moreover, at the choice of the Contractual Partner, delete or return all the Personal Data to the Contractual Partner after the end of the provision of services relating to Processing, and delete existing copies unless applicable law requires storage of the Personal Data."
+          },
+          {
+            "type": "h2",
+            "text": "11. Intentionally Omitted."
+          },
+          {
+            "type": "h2",
+            "text": "12. Liability"
+          },
+          {
+            "type": "p",
+            "html": "12.1 The liability of both Parties is subject to any limitations of liability set forth in the T&amp;C."
+          },
+          {
+            "type": "p",
+            "html": "12.2 The Contractual Partner shall be liable to DARLEAN US for the legality of all instructions given."
+          },
+          {
+            "type": "p",
+            "html": "12.3 The Contractual Partner shall indemnify, defend, and hold DARLEAN US harmless from and against any and all claims, actions, proceedings, expenses, liabilities (including without limitation any governmental investigations, complaints and actions), damages, attorneys’ fees, and/or losses arising or resulting from Contractual Partner’s breach or alleged breach of this Agreement or from DARLEAN US’s compliance with any instructions of Contractual Partner."
+          },
+          {
+            "type": "h2",
+            "text": "13. Miscellaneous"
+          },
+          {
+            "type": "p",
+            "html": "13.1 The Final Provisions (Section 11) of the Terms &amp; Conditions shall also apply for this Agreement."
+          },
+          {
+            "type": "p",
+            "html": "13.2 In the event of a contradiction between this Agreement and the provisions of related agreements between the Parties existing at the time when this Agreement is agreed or entered into thereafter, this Agreement shall prevail. Notwithstanding the foregong, this Agreement shall not prevail over future amendments to this Agreement (unless expressly specified in such amendment)."
+          },
+          {
+            "type": "h2",
+            "text": "14. U.S. State Law Provisions"
+          },
+          {
+            "type": "p",
+            "html": "14.1 To the extent Contractual Partner makes available to DARLEAN US Personal Data regulated by the CCPA for a business purpose pursuant to this Agreement and/or to the extent DARLEAN US Processes Personal Data regulated by the CCPA solely on behalf of Contractual Partner (collectively, “California Personal Data”), then to the extent required by the CCPA, the California Data Appendix (attached hereto as Appendix 4, the “California Data Appendix”) will apply to DARLEAN US’ Processing of such California Personal Data and the Parties hereby agree to comply with such California Data Appendix, which is hereby incorporated into this Agreement in its entirety. In the event of a conflict between this Agreement and the California Data Appendix, the California Data Appendix will control to the extent applicable to the California Personal Data."
+          },
+          {
+            "type": "p",
+            "html": "14.2 To the extent DARLEAN US Processes State Laws Data, then to the extent required by State Data Protection Laws, the Other States Data Appendix (attached hereto as Appendix 5, the “Other States Data Appendix”) will apply to DARLEAN US’ Processing of such State Laws Data and the Parties hereby agree to comply with such Other States Data Appendix, which is hereby incorporated into this Agreement in its entirety. In the event of a conflict between this Agreement and the Other States Data Appendix, the Other States Data Appendix will control to the extent applicable to the State Laws Data."
+          },
+          {
+            "type": "p",
+            "html": "Appendix 1: Description of the Processing DAR Lean Platform Processing: Definitions Users: Users of the DAR Lean Platform who are either (i) the Contractual Partner, (ii) in a contractual relationship with the Contractual Partner (e.g. as employees or contract partners), or (iii) to whom the Contractual Partner has granted access to the DAR Lean Platform."
+          },
+          {
+            "type": "p",
+            "html": "Interested Party: A natural person who is not yet a User of the DAR Lean Platform but has received an invitation to use it."
+          },
+          {
+            "type": "p",
+            "html": "Workspace Data: Personal Data that a User enters by using the various modules of the DAR Lean Platform within a Workspace, in particular:"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Invitation Data: This includes Personal Data entered by the User for the purpose of inviting an Interested Party, such as in particular the e-mail address as well as the intended role.",
+              "Collaboration Data: This includes Personal Data that occurs as a result of multiple Users interacting with each other or within a Team, specifically Personal Data contained in project plans, functional personal tasks, meeting notes, Personal Data related to video conferencing (including video transmission), or related User assignments/assignments.",
+              "Team Data: This includes Personal Data related to the Team (including human resources) of a Workspace, in particular listings of Users, roles, hierarchies, employee contract terms (if applicable), working time records, leave dates and types.",
+              "Work Data: This includes Personal Data related to tasks, in particular the assignment of Users to tasks, Per-onal Data related to processes, projects or budgets.",
+              "Media Data: This includes Personal Data contained in uploaded files, such as Word and PDF files, image, video and audio files."
+            ]
+          },
+          {
+            "type": "p",
+            "html": "Special categories of personal data: DARLEAN US confirms that free-text fields are available within the DAR Lean platform. Whether DARLEAN US processes Special Categories of Personal Data is dependent upon whether Users enter such data into the free-text fields within the DAR Lean Platform."
+          },
+          {
+            "type": "p",
+            "html": "Processing activities on behalf of the Controller (Contractual Partner):"
+          },
+          {
+            "type": "table",
+            "columns": [
+              "Categories of data subjects",
+              "Categories of personal data",
+              "Subject matter and nature",
+              "Purpose",
+              "Duration of the processing"
+            ],
+            "rows": [
+              [
+                "Users",
+                "Workspace Data",
+                "Processing (especially collecting, recording, organizing, structuring, storing, retrieving, combining or erasing) Personal Data that has been entered by the User into the DAR Lean Platform in accordance with the Terms &amp; Conditions as well as this Agreement. The scope of Processing is depending on the subscription plan chosen by the Contractual Partner.",
+                "Provide Collaboration Tools to Users on behalf of the Contractual Partner",
+                "Duration of the contractual relationship between the Contractual Partner and DARLEAN US."
+              ],
+              [
+                "Users, Interested Party",
+                "Name, E-Mail",
+                "Collecting the name and e-mail address of an Interested Party from the User, transmission of an e-mail, storing the invitation data.",
+                "Invite Interested Parties to the DAR Lean Platform on behalf of the Contractual Partner",
+                "Until the transmission of the invitation e-mail and then for a reasonable time within which the Interested Party is able to accept the invitation"
+              ],
+              [
+                "Users",
+                "Workspace Data",
+                "Accessing User’s Workspace Data on an individual basis upon User’s explicit request.",
+                "Provision of technical assistance and support to Users upon request, on behalf of the Contractual Partner",
+                "Until the completion of the technical assistance or support activity"
+              ]
+            ]
+          },
+          {
+            "type": "p",
+            "html": "Provision of technical assistance and support to Users upon request, on behalf of the Contractual Partner Until the completion of the technical assistance or support activity"
+          },
+          {
+            "type": "h3",
+            "text": "Appendix 2: Technical and organizational measures"
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US has implemented suitable technical and organizational measures to fulfil the legal requirements set forth in the applicable Privacy Laws. These measures include inter alia:"
+          },
+          {
+            "type": "h2",
+            "text": "1. Pseudonymization"
+          },
+          {
+            "type": "p",
+            "html": "Implementation of suitable pseudoymization methods."
+          },
+          {
+            "type": "h2",
+            "text": "2. Encryption"
+          },
+          {
+            "type": "p",
+            "html": "Implementation of SSL encryption, encryption of local hard drives."
+          },
+          {
+            "type": "h2",
+            "text": "3. Confidentiality"
+          },
+          {
+            "type": "p",
+            "html": "Physical access control No unauthorized access to data Processing systems, e.g. magnetic or chip cards, keys, electric door openers, plant security or gatekeepers, alarm systems, video systems;"
+          },
+          {
+            "type": "p",
+            "html": "Access rights No unauthorized system use, e.g. secure passwords, automatic locking mechanisms, two-factor authentication, encryption of data media;"
+          },
+          {
+            "type": "p",
+            "html": "Access control No unauthorized reading, copying, modification or removal within the system, e.g. Authorization concepts and needs-based access rights, logging of accesses;"
+          },
+          {
+            "type": "p",
+            "html": "Separation control Separate processing of data collected for different purposes, e.g. multi-client capability, sandboxing;"
+          },
+          {
+            "type": "p",
+            "html": "Pseudonymization (Art. 32 (1) letter a GDPR) The processing of personal data in such a way that the data can no longer be assigned to a specific data subject without the inclusion of additional information, provided that this additional information is kept separately and is subject to appropriate technical and organizational measures."
+          },
+          {
+            "type": "h2",
+            "text": "4. Integrity"
+          },
+          {
+            "type": "p",
+            "html": "Transmission control No unauthorized reading, copying, modification or removal during electronic transmission or transport, e.g. encryption, Virtual Private Networks (VPN), electronic signature."
+          },
+          {
+            "type": "p",
+            "html": "Entry control Determining whether and by whom personal data have been entered, modified or removed from data processing systems, e.g: logging, document management."
+          },
+          {
+            "type": "h2",
+            "text": "5. Availability and resilience"
+          },
+          {
+            "type": "p",
+            "html": "Availability control Protection against accidental or wilful destruction or loss, e.g. backup strategy (online/offline; on-site/off-site), uninterruptible power supply (UPS), virus protection, firewall, reporting channels and emergency plans;"
+          },
+          {
+            "type": "p",
+            "html": "Rapid restorability"
+          },
+          {
+            "type": "h2",
+            "text": "6. Procedures for regular review, assessment and evaluation"
+          },
+          {
+            "type": "p",
+            "html": "Data protection management;"
+          },
+          {
+            "type": "p",
+            "html": "Incident-Response-Management;"
+          },
+          {
+            "type": "p",
+            "html": "Privacy-friendly default settings (Art. 25 (2) GDPR);"
+          },
+          {
+            "type": "p",
+            "html": "Order control No data Processing in the sense of Art. 28 GDPR without corresponding instruction of the Contractual Partner, e.g. clear contract drafting, formalized order management, strict selection of the service provider, obligation to assure in advance, and follow-up checks."
+          },
+          {
+            "type": "h3",
+            "text": "Appendix 3: Sub-Processors"
+          },
+          {
+            "type": "table",
+            "columns": [
+              "Sub-Processor",
+              "Function",
+              "Country",
+              "Legal basis for data export"
+            ],
+            "rows": [
+              [
+                "DAR Solutions LLP., 180640002340 Almaty, Koktem microdistrict 2 – 22, Kazakhstan",
+                "Technical Assistance and Support of Users",
+                "Kazakhstan",
+                "Standard Contractual Clauses (SCC)"
+              ],
+              [
+                "AMAZON WEB SERVICES EMEA SOCIÉTÉ À RESPONSABILITÉ LIMITÉE, 38 Avenue John F. Kennedy, L-1855 Luxembourg",
+                "Hosting",
+                "Luxembourg",
+                "(EU Member State)"
+              ]
+            ]
+          },
+          {
+            "type": "h3",
+            "text": "Appendix 4: California Data Appendix"
+          },
+          {
+            "type": "p",
+            "html": "1. This California Data Appendix (this “Appendix”), forms part of the Agreement. Capitalized terms used and not otherwise defined herein shall have the meanings ascribed to them in the Agreement. The types of California Personal Data subject to processing hereunder are as set forth in Appendix 1."
+          },
+          {
+            "type": "p",
+            "html": "2. CCPA Provisions."
+          },
+          {
+            "type": "p",
+            "html": "2.1 In this Appendix, the following terms have the meanings given in the CCPA: \"business purpose\", “personal information”, “processing”, “service provider”, “contractor”, “person”, “share”, “sharing”, “shared”, “sell”, “selling”, “sale” and “sold”."
+          },
+          {
+            "type": "p",
+            "html": "2.2 Except as otherwise required by applicable law or as otherwise permitted by the CCPA, DARLEAN US shall:"
+          },
+          {
+            "type": "p",
+            "html": "2.2.1 not sell or share California Personal Data;"
+          },
+          {
+            "type": "p",
+            "html": "2.2.2 not retain, use, or disclose California Personal Data for any purpose other than for the business purposes as set out in the T&amp;C and the Agreement (including Appendix 1) for the Contractual Partner, nor retain, use, or disclose California Personal Data for a commercial purpose other than the business purposes specified in the T&amp;C and the Agreement (including Appendix 1), or as otherwise permitted by the CCPA;"
+          },
+          {
+            "type": "p",
+            "html": "2.2.3 not retain, use, or disclose California Personal Data outside of the direct business relationship between the Parties;"
+          },
+          {
+            "type": "p",
+            "html": "2.2.4 not combine California Personal Data, which DARLEAN US receives pursuant to the Agreement or from or on behalf of Contractual Partner, with personal information which it receives from or on behalf of another person or persons, or collects from its own interaction with the individual to whom such California Personal Data relates, except as otherwise expressly permitted by the CCPA;"
+          },
+          {
+            "type": "p",
+            "html": "2.2.5 reasonably cooperate with Contractual Partner in responding to any requests from any individual regarding California Personal Data relating to such individual, including reasonably assisting Contractual Partner in deletion, correction, or limitation of the use of such California Personal Data where required under the CCPA, and including instructing DARLEAN US’ service providers and/or contractors (if any) to so reasonably cooperate in such response;"
+          },
+          {
+            "type": "p",
+            "html": "2.2.6 reasonably assist Contractual Partner through appropriate technical and organizational measures in Contractual Partner’s complying with the requirements of subdivisions (d) to (f), inclusive, of Section 1798.100 of the CCPA, taking into account the nature of the California Personal Data processing by DARLEAN US;"
+          },
+          {
+            "type": "p",
+            "html": "2.2.7 implement and maintain commercially reasonable security procedures and practices, including the procedures and practices set out in Appendix 2, appropriate to the nature of the California Personal Data intended to protect such California Personal Data from unauthorized access, destruction, use, modification, or disclosure;"
+          },
+          {
+            "type": "p",
+            "html": "2.2.8 comply with all applicable obligations under the CCPA and provide the same level of privacy protection with respect to California Personal Data as required by the CCPA;"
+          },
+          {
+            "type": "p",
+            "html": "2.2.9 notify Contractual Partner if DARLEAN US determines it can no longer meet its obligations under the CCPA; and 2.2.10 to the extent required by the CCPA, comply with Section 1798.140(m) of the CCPA with respect to deidentified data (as defined in the CCPA) received by DARLEAN US from Contractual Partner."
+          },
+          {
+            "type": "p",
+            "html": "To the extent DARLEAN US is a contractor, DARLEAN US certifies that DARLEAN US understands the restrictions provided in Sections 2(b)(i), 2(b)(ii), 2(b)(iii), and 2(b)(iv) and will comply with them."
+          },
+          {
+            "type": "p",
+            "html": "2.3 DARLEAN US acknowledges and agrees that the California Personal Data has been disclosed to it for the limited and specified purposes set forth in the T&amp;C and the Agreement (including Appendix 1) and DARLEAN US further acknowledges and agrees that Contractual Partner shall have the right: (i) to take reasonable and appropriate steps to ensure that DARLEAN US uses California Personal Data in a manner consistent with Contractual Partner’s obligations under the CCPA; and (ii) upon notice from Contractual Partner to DARLEAN US, to take reasonable and appropriate steps to stop and remediate unauthorized use of California Personal Data."
+          },
+          {
+            "type": "p",
+            "html": "2.4 To the extent required by the CCPA and to the extent DARLEAN US is a contractor, DARLEAN US shall permit, subject to agreement of the Parties, Contractual Partner to monitor DARLEAN US’ compliance with this Appendix through measures, including, but not limited to, ongoing manual reviews and automated scans, and regular assessments, audits, or other technical and operational testing once every twelve (12) months (each, an “Audit”), upon reasonable prior notice from Contractual Partner, provided that no third-party auditor (each an “Auditor”) shall be a competitor of DARLEAN US, nor shall any Auditor be compensated on a contingency basis, and provided further that in no event shall Contractual Partner or any Auditor have access to the information of any other customer of DARLEAN US and the disclosures made pursuant to this Section 2(d) (“Audit Information”) shall be held in confidence as DARLEAN US’ confidential information and subject to any confidentiality obligations in the T&amp;C, and provided further that no Audit shall be undertaken unless or until Contractual Partner has requested, and DARLEAN US has provided, information about DARLEAN US’ data protection practices and Contractual Partner reasonably determines that an Audit remains necessary to demonstrate material compliance with the obligations laid down in this Appendix. Without limiting the generality of any provision in the T&amp;C, Contractual Partner shall employ the same degree of care to safeguard Audit Information that it uses to protect its own confidential and proprietary information and in any event, not less than a reasonable degree of care under the circumstances, and Contractual Partner shall be liable for any improper disclosure or use of Audit Information by Contractual Partner or its agents."
+          },
+          {
+            "type": "p",
+            "html": "2.5 If DARLEAN US engages any other person to assist DARLEAN US in processing California Personal Data for a business purpose on behalf of Contractual Partner, DARLEAN US shall notify Contractual Partner of such engagement, and the engagement shall be pursuant to a written contract binding the other person to observe substantially similar requirements to those set forth in this Appendix. DARLEAN US hereby notifies Contractual Partner that DARLEAN US may engage the persons listed in Appendix 3 of the Agreement to assist DARLEAN US in processing California Personal Data for a business purpose on behalf of Contractual Partner."
+          },
+          {
+            "type": "p",
+            "html": "Appendix 4: California Data Appendix 1. State Data Protection Laws. This Other States Data Appendix (this “Appendix”), forms part of the Agreement. Capitalized terms used and not otherwise defined herein shall have the meanings ascribed to them in the Agreement."
+          },
+          {
+            "type": "p",
+            "html": "1.1 Instructions. Contractual Partner hereby instructs DARLEAN US to Process State Laws Data as set out in the T&amp;C and the Agreement (including Appendix 1)."
+          },
+          {
+            "type": "p",
+            "html": "1.2 Nature of the Processing; Purpose of the Processing. The nature and purpose of the Processing is as set forth in the T&amp;C and the Agreement (including Appendix 1)."
+          },
+          {
+            "type": "p",
+            "html": "1.3 Types of State Laws Data. The types of State Laws Data subject to Processing are as set forth in Appendix 1."
+          },
+          {
+            "type": "p",
+            "html": "1.4 Duration of Processing. The duration of the State Laws Data Processing is as set forth in the Agreement (including Appendix 1)."
+          },
+          {
+            "type": "p",
+            "html": "1.5 Rights, Duties, and Obligations. Except as otherwise required or permitted by applicable law, DARLEAN US shall:"
+          },
+          {
+            "type": "p",
+            "html": "1.5.1 Ensure that each person Processing State Laws Data on behalf of DARLEAN US is subject to a duty of confidentiality with respect to such State Laws Data;"
+          },
+          {
+            "type": "p",
+            "html": "1.5.2 At Contractual Partner’s choice and direction, delete or return all State Laws Data to Contractual Partner in accordance with Section 10 of the Agreement, unless retention of such State Laws Data is required by applicable law;"
+          },
+          {
+            "type": "p",
+            "html": "1.5.3 Make available to Contractual Partner all information necessary to demonstrate DARLEAN US’ compliance with the obligations in the State Data Protection Laws;"
+          },
+          {
+            "type": "p",
+            "html": "1.5.4 Taking into account the context of Processing, DARLEAN US shall implement appropriate technical and organizational measures, including the measures set out in Appendix 2, designed to ensure a level of security with respect to the State Laws Data appropriate to the risk in accordance with the Agreement;"
+          },
+          {
+            "type": "p",
+            "html": "1.5.5 Allow for, contribute to, and cooperate with reasonable audits, inspections, and/or assessments (each a “State Audit”) by Contractual Partner or Contractual Partner’s designated third-party representative (each, a “State Auditor”), provided that, to the extent permitted by State Data Protection Laws, as an alternative, Contractual Partner hereby consents that DARLEAN US may arrange for a qualified and independent auditor or assessor to conduct (at least annually and at Contractual Partner’s expense (except to the extent State Data Protection Laws require such expense to be borne by DARLEAN US)) a State Audit of DARLEAN US’ policies and technical and organizational measures in support of the obligations under the State Data Protection Laws using an appropriate and accepted control standard or framework and State Audit procedure for the State Audits as applicable and DARLEAN US shall provide a report of such State Audit (and the results thereof) to Contractual Partner upon request. No third-party State Auditor appointed by Contractual Partner shall be a competitor of DARLEAN US, nor shall any such State Auditor be compensated on a contingency basis. In no event shall Contractual Partner or any State Auditor have access to the information of any other customer of DARLEAN US and the disclosures made pursuant to this Section 1(e)(v) (“State Audit Information”) shall be held in confidence as DARLEAN US’ Confidential Information and subject to the confidentiality obligations in the T&amp;C, and provided further that no State Audit under this Section 1(e)(v) shall be undertaken unless or until Contractual Partner has requested, and DARLEAN US has provided, information about DARLEAN US’ data protection practices and Contractual Partner reasonably determines that such a State Audit remains necessary to demonstrate material compliance with the obligations laid down in the State Data Protection Laws. Without limiting the generality of any provision in the T&amp;C, Contractual Partner shall employ the same degree of care to safeguard State Audit Information that it uses to protect its own confidential and proprietary information and in any event, not less than a reasonable degree of care under the circumstances, and Contractual Partner shall be liable for any improper disclosure or use of State Audit Information by Contractual Partner or its agents; and 1.5.6 Engage a subcontractor to Process State Laws Data on behalf of DARLEAN US only after providing Contractual Partner with an opportunity to object, and DARLEAN US shall bind each such subcontractor to a written contract in accordance with State Data Protection Laws that requires such subcontractor to comply with obligations of processors (as defined in the State Data Protection Laws) under the State Data Protection Laws and to meet equivalent obligations with respect to such State Laws Data as are set forth in this Other States Data Appendix. Contractual Partner hereby consents to DARLEAN US’ engagement of the subcontractors listed in Appendix 3 of this Agreement to Process State Laws Data."
+          },
+          {
+            "type": "p",
+            "html": "1.6 Deidentified Data. To the extent required by State Data Protection Laws, with respect to Deidentified Data received by DARLEAN US from Contractual Partner, DARLEAN US shall: (A) take reasonable measures to ensure that such data cannot be associated with an individual; (B) publicly commit to maintain, use, and Process such Deidentified Data only in a de-identified fashion and not attempt to re-identify such Deidentified Data; and (C) comply with the State Data Protection Laws. “Deidentified Data” means data that cannot reasonably be used to infer information about, and that cannot otherwise be linked to, an identified individual or an identifiable individual, or to a device linked to such individual."
+          }
+        ]
+      }
+    },
+    "privacyPolicy": {
+      "route": "/privacy-policy",
+      "navLabel": "Privacy policy",
+      "title": "Privacy policy — how Darlean handles your data",
+      "description": "What personal data Darlean collects, why, who it is shared with, how long it is kept, and the rights you have over it.",
+      "document": {
+        "title": "Privacy Policy",
+        "blocks": [
+          {
+            "type": "p",
+            "html": "Privacy Statement for the use of the DAR Lean Platform of DARLEAN US CORP. (&ldquo;DARLEAN US&rdquo;) &middot; Last updated: December 1, 2024",
+            "lede": true
+          },
+          {
+            "type": "h2",
+            "text": "1. Preamble and scope of this Privacy Statement"
+          },
+          {
+            "type": "p",
+            "html": "This Privacy Statement applies to the use of the following websites and/or applications offered and operated by DARLEAN US CORP., 850 New Burton Road, Suite 201, Dover, DE 19904 (in short, \"DARLEAN US\"), including all videos, recordings, sounds, texts, graphics and other materials sent, received, stored or otherwise displayed via the following services:"
+          },
+          {
+            "type": "p",
+            "html": "the \"DAR Lean\" landing pages, accessible via the address https://www.darlean.com;"
+          },
+          {
+            "type": "p",
+            "html": "the “DAR Lean” web platform, accessible via the address https://app.darlean.com;"
+          },
+          {
+            "type": "p",
+            "html": "the application \"DAR Lean\", which is available for download via the digital distribution platforms App Store (Apple) as well as Play Store (Google)."
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US provides the following information in this regard:"
+          },
+          {
+            "type": "p",
+            "html": "with regard to which Processing operations DARLEAN US shall be deemed to be the Controller or Processor;"
+          },
+          {
+            "type": "p",
+            "html": "which Personal Data DARLEAN US processes;"
+          },
+          {
+            "type": "p",
+            "html": "the purposes for which DARLEAN US processes Personal Data;"
+          },
+          {
+            "type": "p",
+            "html": "the legal bases on which DARLEAN US relies to process Personal Data;"
+          },
+          {
+            "type": "p",
+            "html": "to whom and to which entities DARLEAN US transfers Personal Data;"
+          },
+          {
+            "type": "p",
+            "html": "how long DARLEAN US stores Personal Data;"
+          },
+          {
+            "type": "p",
+            "html": "which external tools and plugins DARLEAN US uses;"
+          },
+          {
+            "type": "p",
+            "html": "what rights data subjects have with regard to their Personal Data;"
+          },
+          {
+            "type": "p",
+            "html": "how DARLEAN US can be reached in connection with data protection issues as well as the exercise of data subject rights."
+          },
+          {
+            "type": "p",
+            "html": "With this Privacy Statement, DARLEAN US fulfils its information obligations under data protection law within the meaning of Articles 12 to 14 GDPR."
+          },
+          {
+            "type": "p",
+            "html": "The definitions used in this Privacy Statement refer exclusively to this Privacy Statement and do not affect the definitions in DARLEAN US's Terms and Conditions (T&amp;C)."
+          },
+          {
+            "type": "h2",
+            "text": "2. Definitions"
+          },
+          {
+            "type": "h3",
+            "text": "2.1 General"
+          },
+          {
+            "type": "p",
+            "html": "Personal Data means, unless explicitly stated otherwise by applicable Privacy Laws, any information relating to an identified or identifiable natural person (“Data Subject”); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person."
+          },
+          {
+            "type": "p",
+            "html": "Processing means, unless explicitly stated otherwise by applicable Privacy Laws, any operation or set of operations which is performed on personal data or on sets of Personal Data, whether or not by automated means, such as collection, recording, organisation, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction."
+          },
+          {
+            "type": "p",
+            "html": "Controller means, unless explicitly stated otherwise by applicable Privacy Laws, the natural or legal person, public authority, agency or other body which, alone or jointly with others, determines the purposes and means of the Processing of Personal Data; where the purposes and means of such Processing are determined by EU or Member State law, the controller or the specific criteria for its nomination may be provided for by EU or Member State law."
+          },
+          {
+            "type": "p",
+            "html": "Processor means, unless explicitly stated otherwise by applicable Privacy Laws, a natural or legal person, public authority, agency or other body which processes Personal Data on behalf of the Controller."
+          },
+          {
+            "type": "p",
+            "html": "Recipient means, unless explicitly stated otherwise by applicable Privacy Laws, a natural or legal person, public authority, agency or another body, to which the Personal Data are disclosed, whether a third party or not. However, public authorities which may receive Personal Data in the framework of a particular inquiry in accordance with EU or Member State law shall not be regarded as Recipients; the Processing of those data by those public authorities shall be in compliance with the applicable data protection rules according to the purposes of the Processing."
+          },
+          {
+            "type": "p",
+            "html": "Special Categories of Personal Data means, unless explicitly stated otherwise by applicable Privacy Laws, personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person's sex life or sexual orientation."
+          },
+          {
+            "type": "p",
+            "html": "Privacy Laws means, the applicable data protection laws in connection with this Privacy Statement, the Terms &amp; Conditions, and the Annex to the Terms &amp; Conditions, including inter alia the following as applicable and as amended from time to time:"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "General Data Protection Regulation, Regulation (EU) 2016/679, as it forms part of domestic law in the UK by virtue of section 3 of the European Union (Withdrawal) Act 2018 (UK GDPR);",
+              "Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (EU GDPR)."
+            ]
+          },
+          {
+            "type": "p",
+            "html": "Privacy Statement means this Privacy Statement of DARLEAN US."
+          },
+          {
+            "type": "p",
+            "html": "Terms &amp; Conditions means DARLEAN US's Terms and Conditions."
+          },
+          {
+            "type": "p",
+            "html": "Annex to the Terms &amp; Conditions means DARLEAN US’s Annex to the Terms and conditions which contains provisions relating to the Processing of Workspace Data by DARLEAN US as Processor on behalf of the Contractual Partner as Controller."
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US means DARLEAN US CORP., 850 New Burton Road, Suite 201, Dover, DE 19904."
+          },
+          {
+            "type": "p",
+            "html": "DAR Lean Platform means the cloud-based internet platform operated by DARLEAN US which allows a Team to organize and manage operational processes as well as teamwork, including, inter alia, productivity tools, processes, planning, HR management and reporting. The DAR Lean Platform consists of the following components:"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "DAR Lean Landing Page: the website operated by DAR TECH at the web addresses https://www.darlean.com, which can be accessed by means of compatible web browsers and on which the DAR Lean Products are presented and promoted.",
+              "DAR Lean Web Platform: the web platform operated by DAR TECH at the web address https://app.darlean.com, which can be accessed by means of compatible web browsers and on which the individual modules are provided to the Users depending on the selected Subscription of the Contractual Partner.",
+              "DAR Lean App: the software application offered by DAR TECH, which is made available for download via the App Store offered by Apple Inc. and the Play Store offered by Google Inc. and which, depending on the Contractual Partner's selected Subscription, enables Users to use individual or all modules of the DAR Lean Platform on compatible end devices."
+            ]
+          },
+          {
+            "type": "p",
+            "html": "Workspace means a virtual Workspace within the DAR Lean Platform in which Users are provided with the possibility to use certain modules or tools."
+          },
+          {
+            "type": "p",
+            "html": "Team means a plurality of Users who are subscribed to the same Workspace."
+          },
+          {
+            "type": "h3",
+            "text": "2.2 Roles"
+          },
+          {
+            "type": "p",
+            "html": "Contractual Partner means any natural or legal person who concludes or has concluded a contract including the Terms &amp; Conditions as well as the Annex to the Terms &amp; Conditions with DARLEAN US for the use of the DAR Lean Platform. The Contractual Partner is by default the owner of a Workspace."
+          },
+          {
+            "type": "p",
+            "html": "Interested Party means any natural person who is not yet a User of the DAR Lean Platform but has received the invitation to use it."
+          },
+          {
+            "type": "p",
+            "html": "User means any natural person, including a Contractual Partner, who uses the DAR Lean Platform. A User can be assigned one of the following roles:"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Owner: A registered User who is or can act on behalf of the Contractual Partner and who is granted access to a Workspace, including, but not limited to set up such Workspace, grant and configure access to such Workspace and manage the rights and permissions of Users who are assigned to such Workspace. The Owner has full control over the Workspace and can develop, configure, and customise it to meet the organisational needs of the Contractual Partner. The Owner is, on behalf of the Contractual Partner, permitted to request the deletion of a Workspace or Workspace Data from DARLEAN US.",
+              "Administrator:A registered User who has the same privileges as the Owner, except for the ability to request the deletion of a Workspace.",
+              "Member:A registered User who is an employee of a Contractual Partner and who is assigned to a Workspace belonging to the Contractual Partner. The Member is authorised to use the modules of the DAR Lean Platform within the limits set by an Owner or Administrator and the subscription model of the DAR Lean Platform chosen by the Contractual Partner.",
+              "Guest: A registered User who is an outsource employee, outside partner or any external member of the Contractual Partner and who is assigned to a Workspace belonging to the Contractual Partner. The Guest is authorised to use the modules of the DAR Lean Platform within the limits set by an Owner or Administrator and the subscription model of the DAR Lean Platform chosen by the Contractual Partner. As compared to a Member, the Guest usually has fewer permissions, such as read-only mode.",
+              "Visitor: A User who visits the DAR Lean Platform without being registered or logged in."
+            ]
+          },
+          {
+            "type": "h2",
+            "text": "3. Categories of Personal Data"
+          },
+          {
+            "type": "h3",
+            "text": "3.1 Data that DARLEAN US as Controller collects from the User (\"DARLEAN US Data\"):"
+          },
+          {
+            "type": "p",
+            "html": "Master Data: This includes Personal Data that is necessary for establishing a contractual relationship with the Contractual Partner and for billing, as well as for establishing a User account inter alia the name (including any academic titles), the job title, the employer, the address (street, postal code/city, country), the location of the registration, account data, other payment data or information, the tax number, a unique User ID and the affiliation to one or more Workspaces."
+          },
+          {
+            "type": "p",
+            "html": "Sign-in Data: This includes the User's credentials required to log in to the DAR Lean Platform, such as, the email address, a password or an SSO token (E-Mail, other social network ID including, but not limited to Facebook, Google). The SSO services are described in Section 9."
+          },
+          {
+            "type": "p",
+            "html": "Profile Data:This includes Personal Data that a User enters to create or update their profile, such as the name, the contact, social links (social network name), telephone number, e-mail- address, data on the employment contract and a description of such person."
+          },
+          {
+            "type": "p",
+            "html": "Correspondence Data: This includes Personal Data that arise in correspondence between DARLEAN US and a User, for example, when a User submits a support request to DARLEAN US via the DAR Lean Platform, by e-mail or telephone, such as the User's e-mail address or telephone number and the message content."
+          },
+          {
+            "type": "p",
+            "html": "Session Data: This includes the session ID assigned to a User while logging in to the DAR Lean Platform."
+          },
+          {
+            "type": "p",
+            "html": "Connection Data: This includes Personal Data of a technical nature that is collected in connection with the use of the DAR Lean platform, such as the URL accessed by the User, the timestamp (date/time), browser type/browser version, the operating system used, the referrer URL and the IP address, the geolocation of the User, date and time of visits."
+          },
+          {
+            "type": "p",
+            "html": "In general, the Contractual Partner as well as the User is not required to provide Personal Data. However, this may possibly result in DARLEAN US not being able to provide all services of the DAR Lean Platform. For example, the non-disclosure of Master Data may lead to the fact that no contractual relationship can be established between the Contractual Partner and DARLEAN US. Likewise, the non-disclosure of Correspondence Data may result in DARLEAN US not being able to answer enquiries/requests or give support."
+          },
+          {
+            "type": "p",
+            "html": "3.2 Data that DARLEAN US as Processor processes on behalf of a Contractual Partner (\"Workspace Data\"):"
+          },
+          {
+            "type": "p",
+            "html": "This includes all Personal Data that a User enters by using the various modules of the DAR Lean Platform within a Workspace, in particular:"
+          },
+          {
+            "type": "p",
+            "html": "Invitation Data: This includes Personal Data entered by the User for the purpose of inviting an Interested Party, such as in particular the e-mail address as well as the intended role."
+          },
+          {
+            "type": "p",
+            "html": "Collaboration Data: This includes Personal Data that occurs as a result of multiple Users interacting with each other or within a Team, specifically Personal Data contained in project plans, functional personal tasks, meeting notes, Personal Data related to video conferencing (including video transmissions), or related User assignments/assignments."
+          },
+          {
+            "type": "p",
+            "html": "Team Data: This includes Personal Data related to the Team (including human resources) of a Workspace, in particular listings of Users, roles, hierarchies, employee contract terms (if applicable), working time records, leave dates and types."
+          },
+          {
+            "type": "p",
+            "html": "Work Data: This includes Personal Data related to tasks, in particular the assignment of Users to tasks, Personal Data related to processes, projects or budgets."
+          },
+          {
+            "type": "p",
+            "html": "Media Data: This includes Personal Data contained in uploaded files, such as Word and PDF files, image, video and audio files."
+          },
+          {
+            "type": "h2",
+            "text": "4. Areas in which DARLEAN US acts as Controller and areas in which DARLEAN US acts as Processor"
+          },
+          {
+            "type": "h3",
+            "text": "4.1 DARLEAN US as Controller regarding DARLEAN US Data"
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US, is the data Controller for the Processing of DARLEAN US Data and for the purposes set forth in Section 5."
+          },
+          {
+            "type": "h3",
+            "text": "4.2 DARLEAN US as Processor of the contracting party regarding Workspace Data"
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US, processes Workspace Data on behalf of the Contractual Partner and in accordance with the Annex to the Terms &amp; Conditions and is therefore a Processor. The Processing operations that DARLEAN US performs on behalf of the Contractual Partner are, for example:"
+          },
+          {
+            "type": "p",
+            "html": "Sending an invitation email to an Interested Party based on a User's entry of Invitation Data."
+          },
+          {
+            "type": "p",
+            "html": "Storage and provision of Collaboration Data, Team Data and Work Data according to the permissions set by a User in each case."
+          },
+          {
+            "type": "p",
+            "html": "Regarding the Processing of Workspace Data, the Contractual Partner shall be the independent and sole Controller; joint responsibility with DARLEAN US is excluded."
+          },
+          {
+            "type": "h2",
+            "text": "5. Purposes of Processing"
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US processes DARLEAN US Data as Controller for the following purposes:"
+          },
+          {
+            "type": "p",
+            "html": "Provision of the DAR Lean Platform − Registration, creation of a User account: DARLEAN US processes Master Data and Sign-in Data of the User in order to enable the User to register for the first time to the DAR Lean Platform and to set up a User account."
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Sign-in and provision of the available modules of the DAR Lean Platform: DARLEAN US processes Sign-in Data of the User as well as Session Data in order to enable the User to log-in to the DAR Lean Platform and use it accordingly. The SSO services are further described in Section 9.",
+              "Display of the DAR Lean Platform: DARLEAN US processes certain Connection Data to enable the User to fully and properly display the DAR Lean Platform.",
+              "Optimized loading of the DAR Lean Platform:DARLEAN US processes certain Connection Data to improve the performance of the DAR Lean Platform, for example because some components are loaded from external Content Deployment Networks (CDN).",
+              "Personalization of the DAR Lean Platform: DARLEAN US processes certain Master Data as well as Profile Data to personalize the DAR Lean Platform for the respective User. Such personalization includes, inter alia, the subscriptions to Workspaces by the User.",
+              "Ordering of services, billing including debt collection: DARLEAN US processes Master Data and, if necessary, Correspondence Data and Connection Data in order to be able to bill a Contractual Partner for services relating to the DAR Lean Platform and, if necessary, to pursue them (also in court)."
+            ]
+          },
+          {
+            "type": "p",
+            "html": "Communication with the User − Communication (User Request/Support): DARLEAN US processes Master Data as well as Correspondence Data in order to be able to contact and correspond with the User, inter alia to be able to answer enquiries and provide support, in particular by means of the contact form on the DAR Lean Platform or by e-mail."
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Communication (Transactional): DARLEAN US processes Master Data as well as Correspondence Data to send transactional messages (including e- mails) to the User or Contractual Partner. Transactional messages, include, inter alia, important messages related to the account, a Workspace or User credentials (e.g. notification about a password reset) or information about changes/amendments relating to contracts between the User and DARLEAN US or this Privacy Statement.",
+              "Newsletter: DARLEAN US processes certain Master Data to send the User a newsletter by e-mail based on the prior registration of the User."
+            ]
+          },
+          {
+            "type": "p",
+            "html": "However, DARLEAN US will only process this Personal Data for this purpose if the User has given their prior consent. This consent can be withdrawn at any time without giving reasons. The withdrawal of consent shall not affect the lawfulness of Processing based on consent before its withdrawal."
+          },
+          {
+            "type": "p",
+            "html": "Security and abuse prevention − IT Security: DARLEAN US processes DARLEAN US Data as well as - exclusively in justified cases and only to the extent absolutely necessary in accordance with the Terms &amp; Conditions - Workspace Data (excluding Special Categories of Personal Data) to ensure the security and operability of the DAR Lean Platform. This includes, in particular, Processing carried out in connection with technical and organizational measures to detect, prevent and track attacks on the DAR Lean Platform. If certain Workspace Data is found to affect IT security (e.g. because certain files contain viruses), DARLEAN US reserves the right to delete such data in accordance with the Terms &amp; Conditions as well as the Annex to the Terms &amp; Conditions and to immediately inform the Contractual Partner. DARLEAN US will, however, never transfer such data to third parties, unless explicitly required to do so by applicable law."
+          },
+          {
+            "type": "p",
+            "html": "− Prevention of fraud and abuse: DARLEAN US processes DARLEAN US Data as well as - exclusively in justified cases and only to the extent absolutely necessary in accordance with the Terms &amp; Conditions - Workspace Data (excluding Special Categories of Personal Data of data to be able to detect, prevent and prosecute abuse of the DAR Lean Platform (in particular the use of the DAR Lean Platform by the User contrary to the Terms &amp; Conditions, use of a User account by several persons, data and credit card fraud, upload of illegal content)."
+          },
+          {
+            "type": "p",
+            "html": "Fulfilment of legal obligations under Cypriot and European law − Information, Recording and Retention Obligations: DARLEAN US processes all DARLEAN US Data to comply with statutory disclosure, recording and retention obligations, in particular those under tax and commercial law."
+          },
+          {
+            "type": "p",
+            "html": "− Exercise of data subject rights: DARLEAN US processes all DARLEAN US Data in order to fulfil Users’ data subject rights pursuant to applicable Privacy Laws (see Section 13 in detail) and to be able to respond to them."
+          },
+          {
+            "type": "p",
+            "html": "Analysis and optimization of the DAR Lean Platform − Improvement of the DAR Lean Platform: DARLEAN US processes certain Connection Data to be able to analyse and optimize the operation of the DAR Lean Platform, inter alia to find and understand bugs of the DAR Lean Platform. The services used for this purpose as well as the relevant data being processed by these services including the legal bases for Processing are further described in Sections 6 to 8."
+          },
+          {
+            "type": "p",
+            "html": "− Analysis of the User structure: DARLEAN US processes DARLEAN US Data to be able to understand the geographical presence, gender, age and product patterns of Users who use the DAR Lean Platform, as well as to understand the usage habits and usage frequency as well as the satisfaction of tools provided within the DAR Lean Platform, in order to personalize the appearance of the DAR Lean Platform and to evaluate the useability and effectiveness of the modules within the DAR Lean Platform. The services used for this purpose as well as the relevant data being processed including the legal bases for Processing are described in Sections 6 to 8."
+          },
+          {
+            "type": "p",
+            "html": "Further purposes − Purposes which require consent: DARLEAN US may process Personal Data for additional purposes, which will be communicated to the User in this Privacy Statement as amended from time to time or otherwise as the occasion arises. Processing will only take place if the User has given prior consent to such Processing. Consent can be withdrawn easily at any time without giving reasons. The withdrawal of consent shall not affect the lawfulness of Processing based on consent before its withdrawal."
+          },
+          {
+            "type": "p",
+            "html": "− Purposes stated elsewhere within this Privacy Statement: DARLEAN US may also process Personal Data for purposes and on the basis of the legal bases set forth in Sections 6 to 8."
+          },
+          {
+            "type": "p",
+            "html": "Deidentified Data − To the extent required by any binding obligation to which DARLEAN US is subject, DARLEAN US hereby publicly commits to process Deidentified Data in its possession only in a de-identified fashion and not attempt to re-identify such Deidentified Data."
+          },
+          {
+            "type": "p",
+            "html": "− “Deidentified Data” means data that cannot reasonably be used to infer information about, and that cannot reasonably be linked to, an identified or identifiable individual."
+          },
+          {
+            "type": "h2",
+            "text": "6. Legal Bases of Processing"
+          },
+          {
+            "type": "p",
+            "html": "Unless specified otherwise, DARLEAN US processes DARLEAN US Data for the purposes set forth in Section 5 based on one or more of the following legal bases:"
+          },
+          {
+            "type": "p",
+            "html": "Performance of a contract:DARLEAN US processes DARLEAN US Data on the basis of a contractual agreement concluded with the Contractual Partner regarding the use of the DAR Lean Platform or in order to take steps at the request of the Contractual Partner prior to entering into a contract, insofar as the Processing is necessary for this purpose."
+          },
+          {
+            "type": "p",
+            "html": "Legal obligation: DARLEAN US processes DARLEAN US Data based on a legal obligation to which DARLEAN US is subject to."
+          },
+          {
+            "type": "p",
+            "html": "Legitimate interest: DARLEAN US processes DARLEAN US Data as well as - exclusively in justified cases and only to the extent absolutely necessary in accordance with the Terms &amp; Conditions as well as the Annex to the Terms &amp; Conditions – Workspace Data (excluding Special Categories of Personal Data) based on its legitimate interest. Unless otherwise stated, the legitimate interests of DARLEAN US are, in particular, − to establish and maintain a proper contract and User management;"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "to ensure the proper provision and functioning of the DAR Lean Platform;",
+              "to maintain the security and performance of the IT infrastructure used by DARLEAN US;",
+              "to understand how the DAR Lean Platform is used, especially to identify usage habits and preferences;",
+              "to evaluate the performance of the DAR Lean Platform;",
+              "to personalize the DAR Lean Platform to the respective User preferences;",
+              "to find and eliminate bugs of the DAR Lean Platform; and − to be able to detect and stop any misuse of the DAR Lean Platform."
+            ]
+          },
+          {
+            "type": "p",
+            "html": "If referred to separately, DARLEAN US also processes DARLEAN US Data, based on a previously given and voluntary consent by the User. The User is entitled to revoke this consent at any time without giving reasons. The withdrawal of consent shall not affect the lawfulness of Processing based on consent before its withdrawal."
+          },
+          {
+            "type": "h2",
+            "text": "7. Transfer of Personal Data to Recipients"
+          },
+          {
+            "type": "h3",
+            "text": "7.1 Transfer to categories of recipients"
+          },
+          {
+            "type": "p",
+            "html": "Personal Data will be transferred by DAR TECH for the purposes mentioned in Section 5 to one or more of the following categories of Recipients:"
+          },
+          {
+            "type": "p",
+            "html": "banks (e.g. in order to facilitate bank transfers);"
+          },
+          {
+            "type": "p",
+            "html": "tax advisors (e.g. in order to carry out proper accounting);"
+          },
+          {
+            "type": "p",
+            "html": "lawyers and collection agencies (e.g. to collect outstanding debts or exercise other legal rights);"
+          },
+          {
+            "type": "p",
+            "html": "courts and public authorities (e.g. to report and clarify legally relevant facts or to enforce claims);"
+          },
+          {
+            "type": "p",
+            "html": "external services as described in Sections 7.2 and 8;"
+          },
+          {
+            "type": "p",
+            "html": "Single Sign-on providers as described in Sections 7.2 and 9."
+          },
+          {
+            "type": "p",
+            "html": "The data is also transferred if DARLEAN US is legally obliged to do so."
+          },
+          {
+            "type": "h3",
+            "text": "7.2 Overview of transmission to external services"
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US may transfers Personal Data to the affiliates and service providers listed below."
+          },
+          {
+            "type": "p",
+            "html": "DAR Solutions LLP., Almaty, Koktem microdistrict 2 – 22, Kazakhstan. DAR Solutions LLP processes DARLEAN US Data on behalf of DARLEAN US to provide technical assistance and development relating to the DAR Lean Platform and to provide support for Users. DAR Solutions LLP as well as DARLEAN US are companies of the same group."
+          },
+          {
+            "type": "p",
+            "html": "DAR TECH Limited, Kyriakou Matsi 46, Apt 101, 1082, Nicosia, Cyprus, European Union. DAR TECH Limited provides additional technical and analytical support relating to the DAR Lean Platform. DAR TECH Limited as well as DAR FT UK LIMITED are companies of the same group."
+          },
+          {
+            "type": "p",
+            "html": "Any cross-border data transfer is conducted solely to ensure the functionality and performance of the DAR Lean Platform and its Services."
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US may choose not to transfer such data to its affiliates if it is not deemed necessary. Cross-border data transfer is a right, not an obligation, of DARLEAN US."
+          },
+          {
+            "type": "p",
+            "html": "Web Tool Providers, as described in detail in Section 8:"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "HubSpot, Inc., Two Canal Park Cambridge, MA 02141 USA, as operator of the service \"Hubspot\", a Content Delivery Network (CDN).",
+              "Stripe Payments Company, 354 Oyster Point Boulevard, South San Francisco, California, 94080, as operator of \"Stripe\", an online payment service.",
+              "Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA, as operator of the services \"Google Tag Manager” as well as \"DialogFlow\").",
+              "Volentio JSD Limited, Suite 2a1, Northside House, Mount Pleasant, Barnet, England, EN4 9EB, as operator of the service \"jsDelivr\", a Content Delivery Network (CDN) for open-source files, such as common frontend libraries like ReactJS.",
+              "Tilda Platform Cloud Services Co. LLC, License 1110180, P.O. Box number 450767, Dubai, UAE, as operator of the service “Tilda”.",
+              "Cloudflare, Inc, 101 Townsend St, San Francisco, CA 94107, USA, as operator of the service “Unpkg”."
+            ]
+          },
+          {
+            "type": "p",
+            "html": "Single Sign-on Providers as described in detail in Section 9:"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "Meta Platforms Ireland Limited, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Ireland (operator of the Service “Facebook Single Sign- on”).",
+              "Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA (operator of the service \"Google Single Sign-on”)."
+            ]
+          },
+          {
+            "type": "p",
+            "html": "Hosting provider:"
+          },
+          {
+            "type": "p",
+            "html": "− Amazon Web Services, Inc., 410 Terry Avenue North, Seattle, WA 98109-5210, U.S.A. (operator of the service \"AWS\"): DARLEAN US uses this service to provide the platform (hosting of the DAR Lean Platform). The legal basis is the legitimate interest of DARLEAN US, which lies in being able to fulfil the aforementioned purpose; also the fulfilment of contracts with Contractual Partners."
+          },
+          {
+            "type": "h2",
+            "text": "8. Web Tools including the Cookies set by these tools"
+          },
+          {
+            "type": "h3",
+            "text": "8.1 Introduction and Technical Explanation"
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US utilises certain web tools as further described in Sections 8.2 to 8.9. Some of these web tools may utilize cookies. The link to the Consent Tool (including cookies) can be found here: Cookie-Banner."
+          },
+          {
+            "type": "p",
+            "html": "For detailed information about the Cookies set by the individual services listed below please refer to the https://darlean.com/cookies."
+          },
+          {
+            "type": "p",
+            "html": "Please note that through certain of the web tools and other services DARLEAN US uses, external parties (including without limitation third-party analytics service providers) may directly collect information about a Users’ or Interested Party’s online activities over time and across different websites."
+          },
+          {
+            "type": "h3",
+            "text": "8.2 Hubspot"
+          },
+          {
+            "type": "p",
+            "html": "Hubspot is an external service provided by Hubspot Inc., Two Canal Park Cambridge, MA 02141 USA."
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US uses this service for the purpose of organizing communication with Users, thus to be able to answer User enquiries and provide support, as well as to enable proper presentation of the DAR Lean Platform and to optimize speed (for example by sideloading fonts). Among the data collected is the User name, the User phone number and the User e-mail-address."
+          },
+          {
+            "type": "p",
+            "html": "The legal basis is the legitimate interest of DARLEAN US to achieve the aforementioned purposes."
+          },
+          {
+            "type": "p",
+            "html": "The Service Provider makes its Privacy Policy available at the following location: https://legal.hubspot.com/privacy-policy."
+          },
+          {
+            "type": "h3",
+            "text": "8.3 Stripe"
+          },
+          {
+            "type": "p",
+            "html": "Stripe is an external service offered and operated by Stripe Payments Company, 354 Oyster Point Boulevard, South San Francisco, California, 94080."
+          },
+          {
+            "type": "p",
+            "html": "Stripe is an online payment service provider. If the Contractual Partner makes a payment via the DAR Lean Platform, the relevant payment data (name, address, data on bank details), the IP address and data on the contract concluded with DARLEAN US are transmitted to the payment service provider who subsequently stores the data."
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US uses this service to perform the billing (Processing regarding payment). The legal basis is the fulfilment of the contract vis-à-vis the Contractual Partner; if cookies are used, additionally the prior consent of the Contractual Partner."
+          },
+          {
+            "type": "p",
+            "html": "In particular, we would like you to be aware that, when you make a payment via the DAR LEAN Platform and interact with Stripe, Stripe may place cookies on your computer or mobile device in connection with the provision of its services, including for fraud prevention purposes. Please see https://stripe.com/cookie-settings for more information."
+          },
+          {
+            "type": "p",
+            "html": "The Service Provider makes its Privacy Policy available at the following location: https://stripe.com/en-cy/privacy."
+          },
+          {
+            "type": "h3",
+            "text": "8.4 Google Tag Manager"
+          },
+          {
+            "type": "p",
+            "html": "Google Tag Manager is an external service offered and operated by Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA."
+          },
+          {
+            "type": "p",
+            "html": "Google Tag Manager is a tag management system with which tracking codes and associated code fragments can be centrally integrated, managed and updated on the DAR Lean Platform."
+          },
+          {
+            "type": "p",
+            "html": "The Google Tag Manager serves as a mere system for passing through other tools, is hosted locally and does not transfer any Personal Data to Google."
+          },
+          {
+            "type": "p",
+            "html": "Information on Processing in connection with these other tools can be found under the respective tools in this Privacy Statement."
+          },
+          {
+            "type": "p",
+            "html": "The service provider makes its privacy policy available at the following location: https://policies.google.com/privacy."
+          },
+          {
+            "type": "h3",
+            "text": "8.5 DialogFlow"
+          },
+          {
+            "type": "p",
+            "html": "DialogFlow is an external service offered and operated by Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA."
+          },
+          {
+            "type": "p",
+            "html": "DialogFlow is a natural language understanding platform used to design and integrate a conversational user interface into mobile apps, web applications, devices, bots, interactive voice response systems and related uses."
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US uses DialogFlow to offer advice and to respond to Users’ requests by implementing the service into a chatbot solution. DialogFlow uses machine learning to understand inputs and respond accordingly. In general, DialogFlow does not request Personal Data from Users."
+          },
+          {
+            "type": "p",
+            "html": "Google Ireland Limited, Google LLC or Alphabet Inc. may anonymize the dialog created by the User and the DAR Lean Platform and subsequently use it to improve and train the DialogFlow product."
+          },
+          {
+            "type": "p",
+            "html": "The legal basis for Processing is the consent given by the User. Consent can be withdrawn at any time without giving reasons. The withdrawal of consent shall not affect the lawfulness of Processing based on consent before its withdrawal."
+          },
+          {
+            "type": "p",
+            "html": "Possible data Recipients are:"
+          },
+          {
+            "type": "p",
+            "html": "Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland Google LLC, 1600 Amphitheatre Parkway Mountain View, CA 94043, USA Alphabet Inc, 1600 Amphitheatre Parkway Mountain View, CA 94043, USA The service provider makes its privacy policy available at the following location: https://cloud.google.com/dialogflow/docs/data-logging-terms?"
+          },
+          {
+            "type": "p",
+            "html": "hl=en."
+          },
+          {
+            "type": "h3",
+            "text": "8.6 jsDelivr"
+          },
+          {
+            "type": "p",
+            "html": "jsDelivr is an external service offered and operated by Volentio JSD Limited, Suite 2a1, Northside House, Mount Pleasant, Barnet, England, EN4 9EB. It is a Content Delivery Network (CDN) for open-source files, such as common frontend libraries like ReactJS."
+          },
+          {
+            "type": "p",
+            "html": "DAR TECH uses this service to automatically keep certain libraries used for the DAR Lean Platform up to date by automatically including the latest distribution into it. This is necessary to safeguard IT Security and to optimize the loading time of the DAR Lean Platform. When the User accesses the DAR Lean Platform, certain Connection Data to the aforementioned service provider is transmitted."
+          },
+          {
+            "type": "p",
+            "html": "The legal basis for Processing is the legitimate interest of DARLEAN US which is to be able to fulfil the aforementioned purposes, especially to keep the DAR Lean Platform up to date and to avoid security flaws caused by outdated libraries."
+          },
+          {
+            "type": "p",
+            "html": "The service provider makes its privacy policy available at the following location: https://www.jsdelivr.com/terms/privacy-policy-jsdelivr-net."
+          },
+          {
+            "type": "h3",
+            "text": "8.7 Matomo"
+          },
+          {
+            "type": "p",
+            "html": "Matomo is an open source web analytics application to track online visits to websites and display reports on these visits for analytics. DARLEAN US uses this service to statistically analyze the User structure and subsequently optimize the DAR Lean Platform. DARLEAN US collects the following Personal Data: User IP address, Optional User ID, Date and time of the request, Title of the page being viewed (Page Title), URL of the page being viewed (Page URL), URL of the page that was viewed prior to the current page (Referrer URL), Screen resolution being used, Time in local user’s timezone, Files that were clicked and downloaded (Download), Links to an outside domain that were clicked (Outlink), Pages generation time (the time it takes for webpages to be generated by the webserver and then downloaded by the user: Page speed), Location of the user: country, region, city, approximate latitude and longitude, Main Language of the browser being used, User Agent of the browser being used, Random unique Visitor ID, Time of the first visit for this user, Time of the previous visit for this user, Number of visits for this user."
+          },
+          {
+            "type": "p",
+            "html": "The legal basis for Processing is the legitimate interest of DARLEAN US to improve the DAR Lean Platform and to understand the user structure. If cookies are set, the legal basis for Processing is consent given by the User. Consent can be withdrawn at any time without giving reasons. The withdrawal of consent shall not affect the lawfulness of Processing based on consent before its withdrawal."
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US is using the Matomo Cloud service (“matomo.cloud”), which is provided by InnoCraft Ltd, 7 Waterloo Quay, PO625, 6140 Wellington, New Zealand (“InnoCraft”), to store the aforementioned personal data. InnoCraft publishes its “Matomo Cloud Privacy Policy” under https://matomo.org/matomo-cloud-privacy-policy/."
+          },
+          {
+            "type": "h3",
+            "text": "8.8 Tilda"
+          },
+          {
+            "type": "p",
+            "html": "Tilda is an external service offered and operated by Tilda Platform Cloud Services Co. LLC, License 1110180, P.O. Box number 450767, Dubai, UAE."
+          },
+          {
+            "type": "p",
+            "html": "Tilda is a no-code website builder and content delivery network (CDN) service. Its purpose is to deliver web content – inter alia web pages, videos and/or audio files – to the User. The purpose of this service is to increase the performance of the DAR Lean Platform and to provide the User with visually appealing web pages. When the User visits the DAR Lean Platform, a connection to servers of the Service Provider is made and Connection Data is processed."
+          },
+          {
+            "type": "p",
+            "html": "The legal basis is the legitimate interest of DAR TECH (Article 6 (1) lit f GDPR) to achive the aforementioned purposes.The legal basis is the legitimate interest of DARLEAN US to achive the aforementioned purposes."
+          },
+          {
+            "type": "p",
+            "html": "The Service Provider makes its Privacy Policy available at the following location: https://tilda.cc/privacy/. The technical information of Tilda can be accessed under https://tilda.cc/lp/technical-information/."
+          },
+          {
+            "type": "h3",
+            "text": "8.9 Unpkg"
+          },
+          {
+            "type": "p",
+            "html": "Unpkg is an external service offered and operated by Cloudflare, Inc, 101 Townsend St, San Francisco, CA 94107, USA (“Cloudflare”)."
+          },
+          {
+            "type": "p",
+            "html": "Unpkg is a global content delivery network (CDN) for JavaScript packages; it delivers such JavaScript packages to the User. The purpose of this service is to increase the performance of the DAR Lean Platform and to enable DARLEAN US to include the most recent versions of such JavaScript packages into the DAR Lean Platform. This relieves DARLEAN US from manually updating these packages; it furthermore also guarantees the security of the DAR Lean Platform. When the User visits the DAR Lean Platform, a connection to servers of the Service Provider is made and Connection Data is processed."
+          },
+          {
+            "type": "p",
+            "html": "The legal basis is the legitimate interest of DARLEAN US to achive the aforementioned purposes. Cloudflare outlines its compliance under Privacy Laws under https://www.cloudflare.com/privacypolicy/. The User can prevent the collection and processing of Personal Data by Cloudflare by deactivating the execution of script code or by installing a script blocker in the web browser."
+          },
+          {
+            "type": "h2",
+            "text": "9. Single Sign-on"
+          },
+          {
+            "type": "h3",
+            "text": "9.1 Facebook Single Sign-on"
+          },
+          {
+            "type": "p",
+            "html": "Facebook Single Sign-on is an authentication (single sign-on) service operated by Meta Platforms Inc, 1 Meta Way Menlo Park, CA 94025-1444 (formerly Facebook, Inc)."
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US uses this service to allow users to log in to the platform using the Facebook login without having to create a specific user account (with individual email and password)."
+          },
+          {
+            "type": "p",
+            "html": "The legal basis for Processing is the explicit consent given by the User. Such explicit consent is given by the User clicking on the \"Facebook\" button on the login page of the DAR Lean Platform. Consent can be withdrawn at any time without giving reasons. The withdrawal of consent shall not affect the lawfulness of Processing based on consent before its withdrawal."
+          },
+          {
+            "type": "p",
+            "html": "The service provider makes its privacy policy available at the following location: https://www.facebook.com/privacy/policy/."
+          },
+          {
+            "type": "h3",
+            "text": "9.2 Google Single Sign-On"
+          },
+          {
+            "type": "p",
+            "html": "Google Single Sign-on is an authentication (single sign-on) service operated by Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA."
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US uses this service to allow users to log in to the platform using the Google login without having to create a specific user account (with individual email and password)."
+          },
+          {
+            "type": "p",
+            "html": "The legal basis for Processing is the explicit consent given by the User. Such explicit consent is given by the User clicking on the \"Google\" button on the login page of the DAR Lean Platform. Consent can be withdrawn at any time without giving reasons. The withdrawal of consent shall not affect the lawfulness of Processing based on consent before its withdrawal."
+          },
+          {
+            "type": "p",
+            "html": "The service provider makes its privacy policy available at the following location: https://policies.google.com/privacy?hl=en."
+          },
+          {
+            "type": "h2",
+            "text": "10. Specific Information for the DAR Lean App"
+          },
+          {
+            "type": "p",
+            "html": "This section provides additional information on the Processing of Personal Data in connection with the use of the DAR Lean App."
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US enables the User to download the DAR Lean App via various internet-based digital distribution platforms for application software. The download via these distribution platforms usually requires that the User has previously registered with the distribution platforms used. The distribution platforms on which the DAR Lean app is offered for download are:"
+          },
+          {
+            "type": "p",
+            "html": "App Store: This is a distribution platform for application software offered and operated by Apple Inc. or other legal entities of Apple. Apple's privacy policy is available at https://www.apple.com/legal/privacy."
+          },
+          {
+            "type": "p",
+            "html": "Play Store: This is a distribution platform for application software offered and operated by Google LLC or another legal entity of Google. Google's privacy policy is available at https://policies.google.com/privacy."
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US has neither knowledge nor influence of the way in which and the purposes for which these distribution platforms process the User's Personal Data."
+          },
+          {
+            "type": "h2",
+            "text": "11. Storage duration"
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US stores Personal Data for the period necessary to achieve the purposes set forth in this Privacy Statement and, in addition, for the duration of any statutory retention obligation. In particular, the following storage or retention periods apply, unless applicable law, especially applicable Privacy Law, provides otherwise:"
+          },
+          {
+            "type": "p",
+            "html": "Master Data, Profile Data, and Sign-in Data of Users are stored for at least the duration of the existence of the User relationship with DARLEAN US and then for a subsequent period of 3 years after the termination of the account."
+          },
+          {
+            "type": "p",
+            "html": "Correspondence Data will be stored at least for the duration of the existence of the User relationship with DARLEAN US, but no longer than 3 years after the termination of the account."
+          },
+          {
+            "type": "p",
+            "html": "Session Data is stored for the duration of the visit to the DAR Lean Platform and deleted at the earliest after logout, but at the longest after 72 hours."
+          },
+          {
+            "type": "p",
+            "html": "If the sole legal basis for Processing is consent, Personal Data is stored until such consent is withdrawn; after that, such Personal Data is deleted, as long as there are no other legitimate purposes for which this Personal Data is processed, such as legal retention periods. Depending on the purpose for which the consent was given, the Processing time within which DARLEAN US complies with the request may be a maximum of 7 days after the withdrawal of consent."
+          },
+          {
+            "type": "h2",
+            "text": "12. Automated decision making including profiling"
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US does not process Personal Data for the purpose of automated decision-making, including profiling."
+          },
+          {
+            "type": "h2",
+            "text": "13. Rights of data subjects in connection with Personal Data"
+          },
+          {
+            "type": "h3",
+            "text": "13.1 Overview of rights of data subjects"
+          },
+          {
+            "type": "p",
+            "html": "Data Subjects whose Personal Data is processed by DARLEAN US may be – under the conditions and prerequisites set out by applicable Privacy Law – entitled to:"
+          },
+          {
+            "type": "p",
+            "html": "request information as to whether and which Personal Data of the Data Subject DARLEAN US is Processing and to receive further information on such Processing; also to receive copies of such data;"
+          },
+          {
+            "type": "p",
+            "html": "request the correction or completion of Personal Data;"
+          },
+          {
+            "type": "p",
+            "html": "request the deletion of Personal Data that is incorrect or processed in a way that does not comply with the law;"
+          },
+          {
+            "type": "p",
+            "html": "request DARLEAN US to restrict the Processing of the Personal Data;"
+          },
+          {
+            "type": "p",
+            "html": "know the identity of third parties to whom the Personal Data is transferred;"
+          },
+          {
+            "type": "p",
+            "html": "request data portability, provided that the Processing is based on the legal grounds of consent or the performance or initiation of a contract and is carried out by means of automated processes;"
+          },
+          {
+            "type": "p",
+            "html": "object to the Processing of Personal Data under certain circumstances, whereby an objection to the Processing for purposes of direct marketing is possible at any time without stating reasons;"
+          },
+          {
+            "type": "p",
+            "html": "if the Processing is based on the legal basis of consent, to withdraw the consent, whereby such withdrawal shall not affect the lawfulness of the Processing carried out on the basis of the consent until the withdrawal;"
+          },
+          {
+            "type": "p",
+            "html": "file a complaint with the competent supervisory authority."
+          },
+          {
+            "type": "h3",
+            "text": "13.2 Exercise of Rights"
+          },
+          {
+            "type": "p",
+            "html": "Whenever DARLEAN US acts as Controller relating to DARLEAN US Data (e.g. correspondence between the User and DARLEAN US), the rights as described in Section 13.1 will be satisfied directly by DARLEAN US within the timelines set by applicable law."
+          },
+          {
+            "type": "p",
+            "html": "Whenever DARLEAN US acts as Processor relating to Workspace Data (e.g. when the User has written or was mentioned in meeting notes, or when a User requests the deletion of a file uploaded by him/her), DARLEAN US will, after the receipt of such request, immediately transmit this request to the competent Contractual Partner as Controller of the Workspace the User is assigned to. Such a request is usually not directly answered by DARLEAN US, but satisfied directly by the Contractual Partner, as DARLEAN US is not a Controller regarding this category of Personal Data. Only after having received a documented instruction of the Contractual Partner, DARLEAN US may answer the request on behalf of the Contractual Partner as described in the Terms &amp; Conditions as well as the Annex to the Terms &amp; Conditions."
+          },
+          {
+            "type": "h3",
+            "text": "13.3 Do Not Track Requests"
+          },
+          {
+            "type": "p",
+            "html": "The term “Do Not Track” refers to a HTTP header offered by certain web browsers to request that websites refrain from tracking the user. DARLEAN US takes no action in response to automated Do Not Track requests. However, if you wish to stop such tracking, please contact us in accordance with Section 14."
+          },
+          {
+            "type": "h2",
+            "text": "14. Contact details of DARLEAN US as Controller"
+          },
+          {
+            "type": "p",
+            "html": "For inquiries regarding data protection or the exercise of Data Subject rights, please contact exclusively:"
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US CORP."
+          },
+          {
+            "type": "p",
+            "html": "850 New Burton Road, Suite 201, Dover, DE 19904, USA E-mail: support@darlean.com"
+          },
+          {
+            "type": "h2",
+            "text": "15. Changes to the Privacy Policy and your duty to inform DAR TECH of changes"
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US keeps this Privacy Statement under regular review. This version was last updated on and is valid from December 1, 2024."
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US will not make changes that result in significant additional uses or disclosures of your personal data without allowing you to “opt in” to such changes. DARLEAN US may also make non-significant changes to this Privacy Statement that generally will not significantly affect our use of your personal data, for which your opt-in is not required. DARLEAN US encourages you to check this page periodically for any changes. If any non-significant changes to this Privacy Statement are unacceptable to you, you must immediately contact us and, until the issue is resolved, stop using the DAR Lean Platform."
+          },
+          {
+            "type": "p",
+            "html": "Historic versions can be obtained by contacting DARLEAN US using the contact details in Section 14. DARLEAN US reserves the right to change and/or amend this Privacy Statement from time to time."
+          },
+          {
+            "type": "p",
+            "html": "It is important that the Personal Data DARLEAN US holds about Users is accurate and current. Users should keep DARLEAN US informed (using the respective functions on the Platform or the contact details in Section 14) if their Personal Data changes during their relationship with DARLEAN US, for example a new address or email address."
+          },
+          {
+            "type": "h2",
+            "text": "16. Third-party Links"
+          },
+          {
+            "type": "p",
+            "html": "This website may include links to third-party websites, plug-ins and applications. Clicking on those links or enabling those connections may allow third parties to collect or share data about individuals. DARLEAN US does not control these third-party websites and is not responsible for their privacy statements. When a User leaves our website, DARLEAN US encourages each User to read the privacy policy of every website visited."
+          },
+          {
+            "type": "p",
+            "html": "Privacy Policy Scope of this Privacy Policy Your privacy is extremely important to us. To better protect you, we provide this notice explaining our online information practices and the ch make about the way your information is collected and used."
+          },
+          {
+            "type": "p",
+            "html": "If you do not agree to our use of your personal data in line with this policy, please do not use the Darlean Services."
+          },
+          {
+            "type": "p",
+            "html": "Please be aware that this Privacy Policy does not govern all the information Darlean may process."
+          },
+          {
+            "type": "p",
+            "html": "Any capitalized words we use in this Privacy Policy that we haven't defined here will have the same meaning that they're given in our Terms o Our commitments to employees are governed by our internal employment policies."
+          },
+          {
+            "type": "p",
+            "html": "In all instances we are committed to transparency with our customers, employees, and to protecting your data privacy."
+          },
+          {
+            "type": "p",
+            "html": "What Information do we Collect?"
+          },
+          {
+            "type": "p",
+            "html": "Personally Identifiable Information Non-Personally Identifiable Information Why do we Need your Personal Data?"
+          },
+          {
+            "type": "p",
+            "html": "Information we collect automatically when you use the Services:"
+          },
+          {
+            "type": "p",
+            "html": "You will be required to establish an account in order to take advantage of certain features of the Darlean Service. If you wish to establish an a be required to provide us with information (including personally identifiable information and non-personally identifiable information). In addit obtain your personally identifiable information from you if you identify yourself to us by sending us an e-mail with questions or comments."
+          },
+          {
+            "type": "p",
+            "html": "Depending on your use of the Darlean Service, we collect two types of information:"
+          },
+          {
+            "type": "p",
+            "html": "personally identifiable information and non-personally identifiable information."
+          },
+          {
+            "type": "p",
+            "html": "Personally identifiable information identifies you or can be used to identify or contact you. Examples of personally identifiable information ma name, IP address, company name, job title, address, e-mail address, telephone number, and billing and credit card information."
+          },
+          {
+            "type": "p",
+            "html": "Non-personally identifiable information is information, any single item of which, by itself, cannot be used to identify or contact you, which ma demographic information (such as age, profession, company industry, gender, current location, or zip code), IP addresses, browser types, do statistical data involving the use of the Darlean Service. Certain non-personally identifiable information may be considered a part of your per identifiable information if it were combined with other identifiers (for example, combining your zip code with your street address) in a way tha be identified. But the same pieces of information may be considered non-personally identifiable information when they are taken alone or co other non-personally identifiable information (for example, your account preferences)."
+          },
+          {
+            "type": "p",
+            "html": "We do not sell any data, including your personal data. We will only collect and process your personal data in accordance with applicable dat privacy laws. We need to collect and process certain personal data in order to provide you with access to Darlean. If you registered with us, y asked to check a tick box indicating your agreement to provide this data in order to access our services. This consent provides us with the le require under applicable law to process your data. You maintain the right to withdraw such consent at any time."
+          },
+          {
+            "type": "p",
+            "html": "Information we collect automatically when you use the Services:"
+          },
+          {
+            "type": "p",
+            "html": "We collect information about you when you use our Services, such as browsing our websites and taking certain actions within the Services, Information we collect automatically when you use the Services:"
+          },
+          {
+            "type": "p",
+            "html": "We collect information about you when you use our Services, such as browsing our websites and taking certain actions within the Services, Darvis AI Additional Terms Your use of the Services: We keep track of certain information about you when you visit and interact with any of our Services. This informatio features you use; the tasks, projects, teams and other links you click on; the type, size and filenames of attachments you upload to the Servic used search terms; and how you interact with others on the Darlean. We also collect information about the teams and people you work with interact with them, like who you collaborate and communicate with most frequently."
+          },
+          {
+            "type": "p",
+            "html": "Device and Connection Information: We collect information about your computer, phone, tablet, or other devices you use to access the Se information includes your connection type and settings when you install, access, update, or use our Services. We also collect information thr about your operating system, browser type, IP address, URLs of referring/exit pages, device identifiers, and crash data. We use your IP addre country preference in order to approximate your location to provide you with a better Service experience. How much of this information we c on the type and settings of the device you use to access the Services."
+          },
+          {
+            "type": "p",
+            "html": "Log files: We collect non-personally identifiable information through our Internet log files, which record data such as user IP addresses, brow domain names, and other anonymous statistical data involving the use of the Darlean Service. This information may be used to analyze trend the Darlean, to monitor the use of the Darlean Service, and to gather general demographic information. We may link this information to perso information for these and other purposes, such as personalizing your experience on the Darlean Service, and evaluating the Darlean Service Information we receive from other sources We receive information about you from other Service users, from third party services, and from our business and channel partners."
+          },
+          {
+            "type": "p",
+            "html": "Other users of the Services: Other users of our Services may provide information about you when they submit content through the Servic you may be mentioned by someone else on a task, or a team member may upload content about you to Darlean. We also receive your em other Service users when they provide it in order to invite you to the Services. Similarly, an administrator may provide your contact informa designate you as another administrator for a task, team or an Enterprise or Unlimited Account."
+          },
+          {
+            "type": "p",
+            "html": "Other services you link to your account: We receive information about you when you or your administrator enable third-party apps or int third-party service with our Services. For example, you or your administrator may also integrate our Services with other services you use, s you to access, store, share and edit certain content from a third-party through our Services. For example, you may authorize our Services display files from a third-party document-sharing service within the Services interface. The information we receive when you link or integr with a third-party service depends on the settings, permissions and privacy policy controlled by that third-party service. You should alway privacy settings and notices in these third-party services to understand what data may be disclosed to us or shared with our Services."
+          },
+          {
+            "type": "p",
+            "html": "Other partners: We may receive information about you and your activities on and off the Services from third-party partners, such as adve research partners who provide us with information about your interest in, and engagement with, our Services and online advertisements, you give such third parties permission to share information with us or where the information is publicly available online or through your de data These Darvis AI apply to your access and use of any Darvis AI feature(s), and form a part of the Terms Of Use or the Master Services Agreeme between you and Darvis (the “Agreement”). Any capitalized terms used but not otherwise defined herein have the meaning set forth in the Ag References to “Customer Data” in these Darvis AI Terms shall also mean User Content for purposes of the Terms of Use. If you do not want to disagree with these Darvis AI Terms, you may also disable Darvis AI in your Workspace."
+          },
+          {
+            "type": "p",
+            "html": "“Darvis AI” means any tools, features or functionality made available to you via the Darvis AI DarleanApp or Darlean platform (e.g., AI authorsh features) that utilize data models trained by machine learning and artificial intelligence, including but not limited to, tools for generating shor form content through prompting, editing of or extraction of information from existing content via prompting, and translation of existing or new content."
+          },
+          {
+            "type": "p",
+            "html": "Improving Darvis AI. Your access to or use of Darvis AI does not grant Darvis any right or license to use or share your Customer Data in a man inconsistent with the Agreement unless otherwise agreed to by you."
+          },
+          {
+            "type": "p",
+            "html": "Input and Output. You may provide input to be processed by Darvis AI (“Input”), and receive output generated by Darvis AI based on any Inp When using Darvis AI, Input and Output are your Customer Data for purposes of the Agreement. You are solely responsible for the creation, d content, operation, maintenance, use, and dissemination of your Customer Data. You are solely responsible for ensuring that your Input, acce Darvis AI, and Output will not violate any applicable law or regulation; violate these Darvis AI Terms, the Agreement, or any content and use implement from time to time; or infringe upon, violate, or misappropriate any of Darvis rights or the rights of any third party. You acknowledg nature of machine learning and Darvis AI more generally, Output may not be unique and Darvis AI may generate the same or similar output t third parties. You will not provide Input or attempt to generate Output through Darvis AI that consists of any sensitive or regulated informatio a separate agreement with us that expressly allows for your processing of such data through Darvis AI, including Protected Health Informatio HIPAA or similar statutes, or health, genetic, biometric record or data in general; government-issued identification numbers of any kind; or p or bank account information."
+          },
+          {
+            "type": "p",
+            "html": "Healthcare Use. You may not use Darvis AI in connection with any healthcare activities unless you have an active Business Associate Agreem and Darlean has confirmed that: (a) your account is set up for healthcare AI use and (b) Zero Data Retention or access to otherwise-HIPAA co workflows or endpoints are enabled for any PHI data you process through Darvis AI. To the extent that you use Darvis AI or use or disclose O Darvis AI or Output to be used or disclosed, in connection with any healthcare activities (including without limitation the practice of medicine claims processing, or clinical research), you will: (i) test the Input and Output for accuracy in your use cases; (ii) ensure that your employees, a contractors understand and comply with these terms, the BAA between you and Darlean, HIPAA, and all other applicable laws and regulatio providing appropriate training; (iii) ensure that only duly trained and qualified individuals who maintain licenses, certifications or other authori to perform such healthcare activities will use Darvis AI or use or disclose the Outputs in connection with such healthcare activities; (iv) not us Outputs to give medical advice, diagnose any medical condition, or create any treatment plans or programs; (v) not represent to any party, in that Darvis AI was performed by a human or that Output was human-generated; and (vi) only process PHI, submit PHI for Input, or retrieve Ou includes or is based on PHI, through a Zero Data Retention or otherwise HIPAA compliant workflow or AI endpoint. For the purposes of these “Zero Data Retention” refers to workflows or AI endpoints in which no Input is retained by the model or endpoint after processing."
+          },
+          {
+            "type": "p",
+            "html": "Darvis AI Use Restrictions. You may not use Darvis AI or any Output (i) to develop data sets, foundation models, or other large scale models compete with Darlean or Darvis AI; (ii) to mislead any person or imply that Output from generated using Darvis AI is unique or solely human g generate spam or misleading content; (iv) in a manner that violates any law, regulation, technical documentation, usage guidelines, policies, whether made available or communicated to you by Darvis or any other third party; (v) to modify or create derivative works of Darlean or Dar reverse assemble, reverse compile, decompile, translate, engage in model extraction or stealing attacks, or otherwise attempt to discover th underlying components of models, algorithms, and systems of Darlean or Darvis AI (except to the extent such restrictions are contrary to app to extract data from Darlean or Darvis AI other than as permitted through the API; or (viii) to buy, sell, or transfer API keys from, to, or with a th Darlean’s prior written consent. Additionally, your use of Darvis AI is subject to fair usage restrictions that we may determine in our sole discre acknowledge and agree that if you exceed what we determine to be fair usage: (a) you may be required to purchase additional usage rights Which models are you using and which version?"
+          },
+          {
+            "type": "p",
+            "html": "Is my data used to train any AI models?"
+          },
+          {
+            "type": "p",
+            "html": "What is in-context learning?"
+          },
+          {
+            "type": "p",
+            "html": "Do you detect and defend against prompt injection?"
+          },
+          {
+            "type": "p",
+            "html": "accessing and using Darvis AI; and (b) Darlean may disable or degrade performance of Darvis AI."
+          },
+          {
+            "type": "p",
+            "html": "Third Party Policies. Darvis AI incorporates AI models from third party providers, which are made available to you through the Darvis AI inter in its sole discretion, add, remove, limit, or otherwise modify the third party providers included in the Darvis AI services at any time. If you cho AI, you must do so in a manner that is fully compliant with the policies of any third party provider you use. These policies are not set or contro and it is your responsibility to familiarize yourself with them."
+          },
+          {
+            "type": "p",
+            "html": "Darvis AI is built with ChatGPT-4o. Our AI features use a combination of ChatGPT and Gemini models."
+          },
+          {
+            "type": "p",
+            "html": "For example:"
+          },
+          {
+            "type": "p",
+            "html": "Darvis chat use ChatGPT-4o."
+          },
+          {
+            "type": "p",
+            "html": "When generating and editing images, Gemini 2.5 Flash Image (Nano Banana) is used."
+          },
+          {
+            "type": "p",
+            "html": "The ChatGPT and Gemini models integrated with Darvis are the only models that can access your Workspace data using in-context learning For example, you open the external ChatGPT-4.0 model from Darvis and ask: \"Summarize the Accounting team's progress on the Q4 2026 a can't answer you because it can't access your Workspace data."
+          },
+          {
+            "type": "p",
+            "html": "Darvis is not trained on data from your Workspace. We've secured licensing with our partners to ensure they do not access your data for train also have zero data retention agreements with all of the large language model (LLM) organizations we partner with. The agreements require to retain any data from your Workspace after your data is input and processed through the LLM."
+          },
+          {
+            "type": "p",
+            "html": "Additionally, we use in-context learning (ICL) to ensure that our models are not learning from data."
+          },
+          {
+            "type": "p",
+            "html": "In-context learning (ICL) is a technique that allows large language models (LLMs) to generate appropriate responses when given context or prompt. This shows the model what to do without retraining or fine-tuning the model."
+          },
+          {
+            "type": "p",
+            "html": "For example, when asked a question like \"What is our PTO policy?\" Darvis understands that it should search for PTO-related content in your W analyzes the content and provides the most appropriate response."
+          },
+          {
+            "type": "p",
+            "html": "This allows Darvis to assist you while never storing information from your Workspace."
+          },
+          {
+            "type": "p",
+            "html": "Yes, we separate user inputs from system prompts to ensure the large language model (LLM) recognizes that system prompt data is not me Who owns the data input into Darvis?"
+          },
+          {
+            "type": "p",
+            "html": "instructions. We conduct regular internal and external vulnerability testing across the platform with a focus on AI, following Open Worldwide Security Project (OWASP) guidelines."
+          },
+          {
+            "type": "p",
+            "html": "Darvis customers retain any ownership they have of their data, regardless of whether it is processed through a large language model (LLM) o provided by a Darvis customer that is sent to Darvis AI providers is covered by Darvis contract with that AI provider. Darvis contracts with AI p Darvis customer data from being used to train any AI model or from being retained by that model after processing."
+          },
+          {
+            "type": "p",
+            "html": "Darvis AI undergoes regular internal and external penetration testing to ensure security. We have an automated eval testing framework to en of Darvis AI remains consistent."
+          },
+          {
+            "type": "p",
+            "html": "Darvis AI undergoes regular internal and external penetration testing to ensure security. We have an automated eval testing framework to en of Darvis AI remains consistent."
+          },
+          {
+            "type": "p",
+            "html": "Darvis AI has two main feature types:"
+          },
+          {
+            "type": "p",
+            "html": "Manual AI usage: For example, using our feature, Project report."
+          },
+          {
+            "type": "p",
+            "html": "Project Report has access to the same information as the person using it. AI can't reveal anything that person can't otherwise access."
+          },
+          {
+            "type": "p",
+            "html": "Automatic AI usage: This usage is configured by someone in your Workspace that happens automatically or autonomously. For example, Darvis Daily report respond based on their instructions and the knowledge they're given access to when configured. They respond in Cha How do you ensure Darvis AI is secure and consistent?"
+          },
+          {
+            "type": "p",
+            "html": "How do you ensure Darvis AI is secure and consistent?"
+          },
+          {
+            "type": "p",
+            "html": "Does Darvis AI respect the user's role and permissions when responding?"
+          }
+        ]
+      }
+    },
+    "cookiePolicy": {
+      "route": "/cookie-policy",
+      "navLabel": "Cookies policy",
+      "title": "Cookie policy — cookies Darlean sets and why",
+      "description": "Which cookies Darlean and its tools place on your device, what each one does, how long it lasts, and how to manage or block them.",
+      "document": {
+        "title": "Cookie Policy",
+        "blocks": [
+          {
+            "type": "p",
+            "html": "Cookie Policy for the use of the DAR Lean Platform of DARLEAN US Limited (“DARLEAN US”) · Valid from: December 1, 2024",
+            "lede": true
+          },
+          {
+            "type": "h2",
+            "text": "1. Introduction"
+          },
+          {
+            "type": "p",
+            "html": "This Cookie Policy applies to the use of the following websites and/or applications offered and operated by DARLEAN US CORP., 850 New Burton Road, Suite 201, Dover, DE 19904, USA (in short, “DARLEAN US”) via the following services:"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "the “DAR Lean” landing pages, accessible via the address <a href=\"https://www.darlean.com\">https://www.darlean.com</a>;",
+              "the “DAR Lean” web platform, accessible via the address <a href=\"https://app.darlean.com\">https://app.darlean.com</a>;",
+              "the application “DAR Lean”, which is available for download via the digital distribution platforms App Store (Apple) as well as Play Store (Google)."
+            ]
+          },
+          {
+            "type": "p",
+            "html": "This Cookie Policy complements the Privacy Statement of DARLEAN US, in which we explain in detail the purposes of processing and the different types of information gathered. The Privacy Statement of DARLEAN US can be accessed <a href=\"/privacy-policy\">here</a>."
+          },
+          {
+            "type": "h2",
+            "text": "2. What are Cookies?"
+          },
+          {
+            "type": "p",
+            "html": "Cookies can be used to collect information generated by a website and stored via an Internet user's browser. A cookie is a small file or text information (usually smaller than one Kbyte) placed by a website on the hard disk of a user’s computer or mobile device via the user's browser. A cookie allows the website to temporarily or permanently “remember” the user's actions or preferences. Most web browsers support cookies, but users can set their browsers to reject cookies. Users can also delete the cookies at any time. Many users configure the cookie settings in their browsers to automatically delete cookies by default when the browser window is closed. Websites use cookies to identify users, remember their customers' preferences, and allow users to complete tasks without having to re-enter information when they move to another page or revisit the website later."
+          },
+          {
+            "type": "p",
+            "html": "Cookies can also be used to collect information for targeted advertising and marketing based on online behaviour. For example, companies use cookies to track user behaviour and create personal profiles that allow them to show users advertisements tailored to their previous searches. There are different types of cookies. A classification can be made based on their lifetime:"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "<strong>Session Cookie:</strong> Session cookies are temporary cookies that are not permanently stored on the computer or mobile device used by the user. They are used as part of the login, authentication, and session management flows of the website. Certain session cookies are also used to understand, for example, if a user interacting with the website is a new visitor or a visitor returning as part of the same browsing session. These session cookies are erased when the user closes the browser, or after extended inactivity.",
+              "<strong>Persistent Cookie:</strong> Persistent cookies are those placed on the user’s computer or mobile device for a pre-determined length of time when a user visits a website. They are used on the website, for example, to understand (i.e. through Matomo services) what areas of the website are most popular, and how users engage with them."
+            ]
+          },
+          {
+            "type": "p",
+            "html": "Another classification can be made on the domain to which they belong:"
+          },
+          {
+            "type": "ul",
+            "items": [
+              "<strong>First-Party Cookie:</strong> A First-Party Cookie is a Cookie stored on a user's device by the website they are currently visiting. These cookies are created and managed by the website's domain and are typically used to enhance user experience, remember preferences, and track user behaviour on that specific site.",
+              "<strong>Third-Party Cookie:</strong> A Third-Party Cookie is a Cookie which is created and managed by a domain other than the one the user is currently visiting. These cookies are often used for cross-site tracking, advertising, and analytics purposes, enabling businesses to understand user behaviour across multiple websites and deliver targeted ads based on those behaviours."
+            ]
+          },
+          {
+            "type": "p",
+            "html": "If the web server that feeds the website stores cookies on the user's computer or mobile device, these are referred to as “HTTP header cookies”. Furthermore, cookies can be stored by means of JavaScript code that is located or referenced on the page."
+          },
+          {
+            "type": "p",
+            "html": "Example: A website is offered in five different language versions. When you call up the website for the first time, you select the language version “English”. A text file (a “persistent cookie”) including the information that you want to use the website in the English language is now stored on your device. If you do not delete the cookies and call up the website again with the same browser, the website will know from the stored cookie that the website is to be displayed in English."
+          },
+          {
+            "type": "p",
+            "html": "More information on cookies can be found here: <a href=\"https://allaboutcookies.org\">https://allaboutcookies.org</a>."
+          },
+          {
+            "type": "h2",
+            "text": "3. Cookies set by Web Tools used by DARLEAN US"
+          },
+          {
+            "type": "p",
+            "html": "For an individual information about each tool on data protection, please see the <a href=\"/privacy-policy\">Privacy Statement of DARLEAN US</a>."
+          },
+          {
+            "type": "h3",
+            "text": "3.1 Hubspot"
+          },
+          {
+            "type": "p",
+            "html": "Hubspot sets the following cookies on app.darlean.com / darlean.com (all Third-Party Cookies):"
+          },
+          {
+            "type": "table",
+            "columns": [
+              "Cookie name",
+              "Category and purpose",
+              "Storage duration"
+            ],
+            "mono": 0,
+            "rows": [
+              [
+                "__hs_opt_out",
+                "This cookie is set when you give visitors the choice to opt out of cookies.",
+                "6 months"
+              ],
+              [
+                "__hs_do_not_track",
+                "This cookie can be set to prevent the tracking code from sending any information to HubSpot.",
+                "6 months"
+              ],
+              [
+                "__hs_initial_opt_in",
+                "This cookie is used to prevent the banner from always displaying when visitors are browsing in strict mode.",
+                "7 days"
+              ],
+              [
+                "__hs_cookie_cat_pref",
+                "This cookie is used to record the categories a visitor consented to.",
+                "6 months"
+              ],
+              [
+                "__hs_gpc_banner_dismiss",
+                "This cookie is used when the Global Privacy Control banner is dismissed.",
+                "180 days"
+              ],
+              [
+                "__hs_notify_banner_dismiss",
+                "This cookie is used when the website uses a Notify consent banner type.",
+                "180 days"
+              ],
+              [
+                "hs_ab_test",
+                "This cookie is used to consistently serve visitors the same version of an A/B test page they’ve seen before.",
+                "Expires at the end of the session"
+              ],
+              [
+                "[id]_key",
+                "When visiting a password-protected page, this cookie is set so future visits to the page from the same browser do not require login again.",
+                "14 days"
+              ],
+              [
+                "hs-messages-hide-welcome-message",
+                "This cookie is used to prevent the chat widget welcome message from appearing again for one day after it is dismissed.",
+                "1 day"
+              ],
+              [
+                "__hsmem",
+                "This cookie is set when visitors log in to a HubSpot-hosted site.",
+                "7 days"
+              ],
+              [
+                "hs-membership-csrf",
+                "This cookie is used to ensure that content membership logins cannot be forged.",
+                "Expires at the end of the session"
+              ],
+              [
+                "hublytics_events_53",
+                "This browser storage entry is used by HubSpot Product to temporarily store tracking events created by HubSpot Product until they get dispatched over the network.",
+                "Persistent"
+              ],
+              [
+                "hs.superstore.laboratory.[id]",
+                "It contains an offline cache of cohorts that a user got assigned for HubSpot Product experiments.",
+                "Contents expire automatically upon specific dates determined by HubSpot Product, often 48 hours"
+              ],
+              [
+                "__cfruid",
+                "This cookie is set by HubSpot’s CDN provider because of their rate limiting policies.",
+                "Expires at the end of the session"
+              ],
+              [
+                "__cfuvid",
+                "This cookie is set by HubSpot’s CDN provider because of their rate limiting policies.",
+                "Expires at the end of the session"
+              ],
+              [
+                "__cf_bm",
+                "This cookie is set by HubSpot’s CDN provider and is a necessary cookie for bot protection.",
+                "30 minutes"
+              ],
+              [
+                "__hstc",
+                "The main cookie for tracking visitors.",
+                "6 months"
+              ],
+              [
+                "hubspotutk",
+                "This cookie keeps track of a visitor’s identity. It is passed to HubSpot on form submission and used when deduplicating contacts.",
+                "6 months"
+              ],
+              [
+                "__hssc",
+                "This cookie keeps track of sessions.",
+                "30 minutes"
+              ],
+              [
+                "__hssrc",
+                "Whenever HubSpot changes the session cookie, this cookie is also set to determine if the visitor has restarted their browser.",
+                "Expires at the end of the session"
+              ]
+            ]
+          },
+          {
+            "type": "h3",
+            "text": "3.2 Matomo"
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US sets the following cookies (Third-Party Cookies, Marketing and Performance Tracking, Persistent):"
+          },
+          {
+            "type": "table",
+            "columns": [
+              "Domain",
+              "Cookie name"
+            ],
+            "mono": 1,
+            "rows": [
+              [
+                "app.darlean.com",
+                "_pk_id"
+              ],
+              [
+                "darlean.com",
+                "_pk_ses"
+              ],
+              [
+                "darlean.eu",
+                "_pk_ses"
+              ]
+            ]
+          },
+          {
+            "type": "h2",
+            "text": "4. How to manage cookies?"
+          },
+          {
+            "type": "h3",
+            "text": "4.1 Use DARLEAN US’s Cookie Tool"
+          },
+          {
+            "type": "p",
+            "html": "The link to the Consent Tool (including cookies) of DARLEAN US can be found here: Cookie Banner. Using this tool the User may, at their own discretion, exercise control over the services used and cookies set by DARLEAN US."
+          },
+          {
+            "type": "h3",
+            "text": "4.2 Removing Cookies from the device"
+          },
+          {
+            "type": "p",
+            "html": "The User may delete all cookies already on his device by clearing the browsing history. This removes all cookies from all websites the User has visited."
+          },
+          {
+            "type": "h3",
+            "text": "4.3 Blocking Cookies"
+          },
+          {
+            "type": "p",
+            "html": "All modern browsers can be set up to prevent any kind of cookies placed on the device. Certain functionalities may not work properly or at all (e.g. the log-in to a service)."
+          },
+          {
+            "type": "h2",
+            "text": "5. Contact details of DARLEAN US"
+          },
+          {
+            "type": "p",
+            "html": "For inquiries regarding data protection or the exercise of Data Subject rights, please contact exclusively:"
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US CORP.<br>850 New Burton Road, Suite 201<br>Dover, DE 19904<br>UNITED STATES OF AMERICA<br>E-mail: <a href=\"mailto:support@darlean.com\">support@darlean.com</a>",
+            "address": true
+          },
+          {
+            "type": "h2",
+            "text": "6. Changes to the Cookie Policy"
+          },
+          {
+            "type": "p",
+            "html": "DARLEAN US keeps this Cookie Policy under regular review. This version was last updated on December 1, 2024. Historic versions can be obtained by contacting DARLEAN US using the contact details in Section 5. DARLEAN US reserves the right to change and/or amend this Cookie Policy from time to time."
+          }
+        ]
+      }
+    }
   }
 }

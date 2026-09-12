@@ -1,0 +1,121 @@
+---
+/**
+ * Renders a legal document from the block model in src/i18n/en.json.
+ *
+ * The documents are long prose, so they come through as data rather than
+ * markup: headings, paragraphs, lists and tables. Inline HTML is limited to
+ * links, bold runs and line breaks — the importer strips everything else,
+ * including the colours and sizes the design comp hardcoded.
+ *
+ * One link in the cookie policy reads "here", which tells a screen reader
+ * nothing. An aria-label cannot fix it: a name that omits the visible word
+ * fails WCAG 2.5.3, so the wording itself has to change — and that is legal
+ * copy, not ours to edit.
+ */
+interface TableBlock {
+  type: 'table';
+  columns: string[];
+  rows: string[][];
+  /** Index of the column holding cookie names, set in a monospaced face. */
+  mono?: number;
+}
+
+type Block =
+  | { type: 'h2' | 'h3'; text: string }
+  | { type: 'p'; html: string; lede?: boolean; address?: boolean }
+  | { type: 'ul'; items: string[] }
+  | TableBlock;
+
+interface Props {
+  document: { title: string; blocks: Block[] };
+}
+
+const { document } = Astro.props;
+---
+
+<article class="mx-auto max-w-legal">
+  <h1
+    class="m-0 text-[clamp(32px,3.6vw,44px)] font-semibold leading-[1.1] tracking-[-0.03em] text-white"
+  >
+    {document.title}
+  </h1>
+
+  {
+    document.blocks.map((block) => {
+      if (block.type === 'h2') {
+        return (
+          <h2 class="mb-3.5 mt-12 text-legal-heading font-semibold text-white">
+            {block.text}
+          </h2>
+        );
+      }
+
+      if (block.type === 'h3') {
+        return (
+          <h3 class="mb-3 mt-8 text-legal-subheading font-semibold text-white">
+            {block.text}
+          </h3>
+        );
+      }
+
+      if (block.type === 'ul') {
+        return (
+          <ul class="mb-3.5 list-disc break-words pl-6 text-legal text-secondary">
+            {block.items.map((item) => (
+              <li class="mb-1.5 [&>strong]:font-semibold [&>strong]:text-primary" set:html={item} />
+            ))}
+          </ul>
+        );
+      }
+
+      if (block.type === 'table') {
+        return (
+          <div class="mb-3.5 overflow-x-auto rounded-field border border-hairline">
+            <table class="w-full min-w-[640px] border-collapse text-left">
+              <thead>
+                <tr class="bg-card">
+                  {block.columns.map((column) => (
+                    <th class="px-4 py-3 text-[12px] font-semibold uppercase tracking-[0.04em] text-secondary">
+                      {column}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {block.rows.map((row) => (
+                  <tr class="border-t border-hairline">
+                    {row.map((cell, i) => (
+                      <td
+                        class:list={[
+                          'px-4 py-3 align-top text-caption',
+                          i === block.mono ? 'break-all font-mono text-primary' : 'text-secondary',
+                        ]}
+                      >
+                        {cell}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        );
+      }
+
+      return (
+        <p
+          class:list={[
+            'mb-3.5 break-words',
+            block.lede
+              ? 'mt-4 text-caption text-secondary'
+              : 'text-legal text-secondary',
+            block.address && 'text-primary',
+            '[&>a]:text-accent [&>a]:underline [&>a]:decoration-accent/40 [&>a]:underline-offset-2 [&>a:hover]:text-accent-light',
+            '[&>strong]:font-semibold [&>strong]:text-primary',
+          ]}
+          set:html={block.html}
+        />
+      );
+    })
+  }
+</article>

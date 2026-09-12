@@ -34,6 +34,14 @@
 --accent-bar:rgba(3,155,230,0.24);
 --accent-bar-strong:rgba(3,155,230,0.50);
 
+/* Long-form legal prose. The design system stops at 17px body for marketing
+   copy; a document read end to end wants a narrower column and looser lines. */
+--width-legal:760px;
+--text-legal-size:16px;
+--text-legal-lh:1.7;
+--text-legal-heading:22px;
+--text-legal-subheading:17px;
+
 /* The comp's own content widths, wider than the DS bleed rules. */
 --width-site:1280px;
 --width-plans:1180px;

@@ -109,6 +109,9 @@ export default {
         body: ['var(--text-body-size)', { lineHeight: 'var(--text-body-lh)' }],
         caption: ['var(--text-caption-size)', { lineHeight: 'var(--text-caption-lh)' }],
         price: ['var(--text-price-size)', { lineHeight: '1', letterSpacing: 'var(--text-h1-track)' }],
+        legal: ['var(--text-legal-size)', { lineHeight: 'var(--text-legal-lh)' }],
+        'legal-heading': ['var(--text-legal-heading)', { lineHeight: '1.3', letterSpacing: 'var(--text-h3-track)' }],
+        'legal-subheading': ['var(--text-legal-subheading)', { lineHeight: '1.4' }],
       },
 
       spacing: {
@@ -136,6 +139,7 @@ export default {
         measure: 'var(--measure-body)',
         site: 'var(--width-site)',
         plans: 'var(--width-plans)',
+        legal: 'var(--width-legal)',
         prose: 'var(--width-prose)',
       },
 

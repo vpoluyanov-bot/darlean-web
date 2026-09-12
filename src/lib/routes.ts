@@ -12,6 +12,13 @@ const PAGES = import.meta.glob('../pages/**/*.astro', { eager: false });
 /** Pages that are internal tooling, not part of the public site. */
 export const INTERNAL = ['/styleguide'];
 
+/**
+ * Public, indexable, but deliberately absent from the sitemap: the legal
+ * pages are there for people who go looking, not pages we ask search engines
+ * to rank. They keep their canonical tags like every other page.
+ */
+export const UNLISTED = ['/user-agreement', '/privacy-policy', '/cookie-policy'];
+
 /** Turns `../pages/pricing.astro` into `/pricing`, and `index.astro` into `/`. */
 function toRoute(file: string): string {
   const path = file
@@ -29,7 +36,7 @@ export function publicRoutes(): string[] {
     // A dynamic route would need its params resolved; there are none yet, and
     // silently emitting `/[slug]` into a sitemap would be worse than failing.
     .filter((route) => !route.includes('['))
-    .filter((route) => !INTERNAL.includes(route));
+    .filter((route) => !INTERNAL.includes(route) && !UNLISTED.includes(route));
 
   return [...new Set(routes)].sort((a, b) => a.length - b.length || a.localeCompare(b));
 }

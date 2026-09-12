@@ -130,6 +130,14 @@ homepage adds FAQPage, pricing adds Product.
 
 `/llms.txt` is generated the same way, from the copy and the route list.
 
+**Legal pages are data, not markup.** The three documents live as block models
+under `legal` in the copy file — headings, paragraphs, lists and tables —
+rendered by `src/components/LegalDocument.astro`. `scripts/import-legal.py`
+converts a page exported from Claude Design into that shape, dropping every
+inline style the comp hardcoded. They are indexable and carry canonical tags,
+but sit in `UNLISTED` in `src/lib/routes.ts` so they stay out of the sitemap:
+public for people who go looking, not pages we ask to have ranked.
+
 **Measure on a build, never on the dev server.** A stray `astro dev` on the
 same port once made Lighthouse report Performance 56 with an 8.9s first paint;
 the same commit measured 100 through `astro preview`. The dev server ships
