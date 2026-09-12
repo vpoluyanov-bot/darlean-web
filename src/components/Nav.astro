@@ -48,14 +48,20 @@ const linkClass =
     </div>
 
     {
-      /* The design system's Navbar puts links straight after the logo and
-         lets them take the slack, with the CTA pinned right — `mr-auto` does
-         that here. On a phone four things will not share 327px, so the links
-         take a line of their own rather than hiding behind a menu: with two
-         of them, a menu would cost a tap to reveal what already fits. */
+      /* Links group with the CTA on the right rather than trailing the logo,
+         which is where the design system's own Navbar puts them — a deliberate
+         departure. `ml-auto` swallows the space after the logo so the three
+         right-hand items travel together.
+
+         Spacing is on the scale: --space-6 between the links, --space-8 before
+         the button, so the button reads as separate from them.
+
+         On a phone four things will not share 327px, so the links take a line
+         of their own rather than hiding behind a menu: with two of them, a
+         menu would cost a tap to reveal what already fits. */
     }
     <ul
-      class="flex list-none items-center gap-6 p-0 sm:order-2 sm:mr-auto"
+      class="flex list-none items-center gap-6 p-0 sm:order-2 sm:ml-auto"
     >
       {
         copy.links.map((link) => (

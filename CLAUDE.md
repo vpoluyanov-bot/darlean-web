@@ -95,6 +95,11 @@ desktop row with no collapse, and there is no drawer or menu component. Below
 a hamburger: with two of them, a menu would cost a tap to reveal what already
 fits on screen.
 
+**The header links sit with the CTA, not with the logo.** The design system's
+Navbar trails them off the logo; ours groups them right, which is a deliberate
+departure. Gaps are on the scale — `--space-6` between links, `--space-8`
+before the button — so the button stays visibly apart from them.
+
 **The two pinned sequences are desktop-only.** Above `md` the AI section and the
 by-role deck pin their contents and let scroll position play them. Below it
 there is no pinning: the AI section is a plain vertical story and the deck is a
