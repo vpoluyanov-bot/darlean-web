@@ -10,7 +10,17 @@
   },
   "nav": {
     "logoAlt": "Darlean",
-    "cta": "Start for free"
+    "cta": "Start for free",
+    "links": [
+      {
+        "label": "Plans",
+        "href": "/pricing"
+      },
+      {
+        "label": "Knowledge base",
+        "external": true
+      }
+    ]
   },
   "hero": {
     "titleLine1": "GPT for business.",

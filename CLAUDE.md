@@ -80,6 +80,21 @@ PNG frames — 3.1 MB gzipped for a 160px decoration — so it is re-encoded as 
 ten-second loop it actually is (84 KB) by `npm run media`. No player is
 vendored. Do not reintroduce the JSON.
 
+**The header hides on the way down and returns on the way up.** State lives in
+two attributes on the `<nav>`: `data-stuck` turns the glass on once the bar
+overlaps content, `data-hidden` slides it away. Both are set by the script in
+`Nav.astro`, which ignores scroll movements under 8px and never hides the bar
+before 160px, so it does not twitch. Under reduced motion it stays put. It is
+`position: sticky`, not `fixed`, which is why the two pinned sections still pin
+at the top of the viewport underneath it — verified, do not switch it to fixed
+without rechecking them.
+
+**The design system defines no mobile navigation.** Its Navbar is a single
+desktop row with no collapse, and there is no drawer or menu component. Below
+`sm` the links take a second line inside the same bar rather than hiding behind
+a hamburger: with two of them, a menu would cost a tap to reveal what already
+fits on screen.
+
 **The two pinned sequences are desktop-only.** Above `md` the AI section and the
 by-role deck pin their contents and let scroll position play them. Below it
 there is no pinning: the AI section is a plain vertical story and the deck is a

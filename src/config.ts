@@ -9,6 +9,16 @@
 
 export const SIGNUP_URL = 'https://app.darlean.com/signup';
 
+/**
+ * The knowledge base, which lives in the app rather than on this site.
+ *
+ * It shares SIGNUP_HOST, so the attribution script decorates it with the
+ * campaign parameters exactly as it does a signup link. It carries no `cta`:
+ * that parameter names the button that started a signup, and reading the docs
+ * is not one.
+ */
+export const KNOWLEDGE_BASE_URL = 'https://app.darlean.com/knowledge-base/';
+
 /** The host the attribution script decorates. Derived, never typed twice. */
 export const SIGNUP_HOST = new URL(SIGNUP_URL).hostname;
 

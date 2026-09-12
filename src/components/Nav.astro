@@ -1,6 +1,6 @@
 ---
 import Button from './Button.astro';
-import { signupHref } from '../config';
+import { signupHref, KNOWLEDGE_BASE_URL } from '../config';
 import { t, defaultLocale, type Locale } from '../i18n';
 
 interface Props {
@@ -9,26 +9,127 @@ interface Props {
 
 const { locale = defaultLocale } = Astro.props;
 const copy = t(locale).nav;
+
+/* Link styling follows the design system's Navbar: 14px, secondary, stepping
+   to primary on hover across --duration-fast. */
+const linkClass =
+  'whitespace-nowrap text-caption text-secondary transition-colors duration-fast ease-brand hover:text-primary';
 ---
 
 <nav
-  class="sticky top-0 z-50 border-b border-nav bg-glass backdrop-blur-glass backdrop-saturate-[1.8]"
+  data-nav
+  class="sticky top-0 z-50 border-b border-transparent transition-[transform,background-color,border-color,backdrop-filter] duration-base ease-brand motion-reduce:transition-none data-[stuck]:border-nav data-[stuck]:bg-glass data-[stuck]:backdrop-blur-glass data-[stuck]:backdrop-saturate-[1.8] data-[hidden]:-translate-y-full"
 >
   <div
-    class="mx-auto flex h-nav max-w-site items-center justify-between gap-8 px-6"
+    class="mx-auto flex max-w-site flex-col gap-3 px-6 py-3 sm:h-nav sm:flex-row sm:items-center sm:gap-8 sm:py-0"
   >
-    <a href="/" class="flex items-center">
-      <img
-        src="/assets/logo-full-dark.svg"
-        width="102"
-        height="20"
-        alt={copy.logoAlt}
-        class="block"
-      />
-    </a>
+    {
+      /* One row on a phone: the brand and the thing we want pressed. Above sm
+         this wrapper dissolves (`contents`) and its two children join the bar's
+         own row, so the desktop bar is a single flex line. */
+    }
+    <div class="flex items-center justify-between gap-8 sm:contents">
+      <a href="/" class="flex items-center sm:order-1">
+        <img
+          src="/assets/logo-full-dark.svg"
+          width="102"
+          height="20"
+          alt={copy.logoAlt}
+          class="block"
+        />
+      </a>
 
-    <Button href={signupHref('header')} variant="secondary" class="px-5 py-2 text-caption">
-      {copy.cta}
-    </Button>
+      <Button
+        href={signupHref('header')}
+        class="shrink-0 px-5 py-2 text-caption sm:order-3"
+      >
+        {copy.cta}
+      </Button>
+    </div>
+
+    {
+      /* The design system's Navbar puts links straight after the logo and
+         lets them take the slack, with the CTA pinned right — `mr-auto` does
+         that here. On a phone four things will not share 327px, so the links
+         take a line of their own rather than hiding behind a menu: with two
+         of them, a menu would cost a tap to reveal what already fits. */
+    }
+    <ul
+      class="flex list-none items-center gap-6 p-0 sm:order-2 sm:mr-auto"
+    >
+      {
+        copy.links.map((link) => (
+          <li>
+            <a
+              href={link.external ? KNOWLEDGE_BASE_URL : link.href}
+              target={link.external ? '_blank' : undefined}
+              rel={link.external ? 'noopener' : undefined}
+              class={linkClass}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
   </div>
 </nav>
+
+<script>
+  /**
+   * The bar gets out of the way when you scroll down and comes back the moment
+   * you scroll up. At the very top it is always visible and fully transparent,
+   * so the hero meets the page edge with nothing over it.
+   *
+   * Two thresholds keep it from twitching: it only reacts to movements past
+   * NUDGE, and it never hides until you are well past the fold.
+   */
+  const nav = document.querySelector<HTMLElement>('[data-nav]');
+
+  if (nav) {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    /** Below this the bar is transparent — it is sitting over the page top. */
+    const TOP = 8;
+    /** Scrolling less than this is a hand resting on a trackpad, not intent. */
+    const NUDGE = 8;
+    /** Nothing hides until the reader is past roughly one screen of content. */
+    const HIDE_AFTER = 160;
+
+    let previous = window.scrollY;
+    let queued = false;
+
+    const apply = () => {
+      queued = false;
+      const y = window.scrollY;
+
+      // Glass only once the bar actually overlaps content.
+      nav.toggleAttribute('data-stuck', y > TOP);
+
+      // Someone who asked for less motion keeps the bar where it is.
+      if (reduced.matches) {
+        nav.removeAttribute('data-hidden');
+        previous = y;
+        return;
+      }
+
+      const delta = y - previous;
+      if (Math.abs(delta) < NUDGE) return;
+
+      const goingDown = delta > 0;
+      nav.toggleAttribute('data-hidden', goingDown && y > HIDE_AFTER);
+
+      previous = y;
+    };
+
+    const onScroll = () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(apply);
+    };
+
+    apply();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    reduced.addEventListener('change', apply);
+  }
+</script>
