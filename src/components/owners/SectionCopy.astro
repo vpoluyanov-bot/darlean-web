@@ -1,0 +1,61 @@
+---
+import TimeStamp from './TimeStamp.astro';
+
+/**
+ * The heading stack every section opens with.
+ *
+ * Kept in one place because the home page keeps its own in one order —
+ * eyebrow, heading, lead — and the point of this rework is that a section has
+ * a single alignment and a single rhythm instead of four.
+ */
+interface Props {
+  eyebrow?: string;
+  time?: string;
+  period?: string;
+  headline?: string;
+  sub?: string;
+  /** Titles run larger and centred; everything else is a section heading. */
+  large?: boolean;
+}
+
+const { eyebrow, time, period, headline, sub, large = false } = Astro.props;
+---
+
+{
+  eyebrow && (
+    <p class="m-0 text-[13px] font-semibold uppercase tracking-[0.26em] text-accent">
+      {eyebrow}
+    </p>
+  )
+}
+
+{time && <TimeStamp time={time} period={period} />}
+
+{
+  headline && (
+    <h2
+      class:list={[
+        'm-0 text-balance font-semibold tracking-[-0.03em] text-white',
+        large
+          ? 'mt-5 text-[clamp(36px,6vw,72px)] leading-[1.06]'
+          : 'text-[clamp(28px,3.5vw,44px)] leading-[1.1] max-w-[20em]',
+        !large && (eyebrow || time) && 'mt-5',
+      ]}
+    >
+      {headline}
+    </h2>
+  )
+}
+
+{
+  sub && (
+    <p
+      class:list={[
+        'mt-5 max-w-[38em] text-balance font-rounded text-[clamp(17px,1.4vw,21px)] leading-[1.55] text-secondary',
+        large && 'mx-auto',
+      ]}
+    >
+      {sub}
+    </p>
+  )
+}

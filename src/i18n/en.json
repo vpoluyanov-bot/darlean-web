@@ -3036,6 +3036,7 @@
       {
         "id": "opening",
         "kind": "opening",
+        "layout": "title",
         "eyebrow": "Darlean",
         "headline": "Meet Your Future Workday.",
         "body": "This is one working day, hour by hour, from the first notification to the last. Everything below already runs inside Darlean — the briefing, the meeting notes, the reports, the follow-up. Nothing here asks you to check a dashboard."
@@ -3043,6 +3044,7 @@
       {
         "id": "morning",
         "kind": "moment",
+        "layout": "b",
         "time": "6:59",
         "period": "Morning",
         "headline": "Every day begins with the same question.",
@@ -3052,6 +3054,7 @@
       {
         "id": "answer",
         "kind": "scene",
+        "layout": "a",
         "time": "7:01",
         "headline": "Darlean already has the answer.",
         "body": "Darvis reads the day before you do and sends one message: how loaded the day is, what needs a decision, what can wait. You start from a conclusion instead of assembling one.",
@@ -3067,6 +3070,7 @@
       {
         "id": "briefing",
         "kind": "scene",
+        "layout": "a",
         "time": "7:01",
         "headline": "Your morning, in one screen.",
         "sub": "Meetings, tasks and risks — laid out the moment you wake up.",
@@ -3083,6 +3087,7 @@
       {
         "id": "midday",
         "kind": "moment",
+        "layout": "b",
         "time": "11:49",
         "period": "Midday",
         "headline": "Walk into every meeting prepared.",
@@ -3100,6 +3105,7 @@
       {
         "id": "meeting",
         "kind": "scene",
+        "layout": "b",
         "headline": "Focus on decisions. We'll handle everything else.",
         "sub": "Every discussion is transcribed, summarized and structured in real time.",
         "body": "Nobody takes notes. The transcript, the summary and the list of what was agreed are built while the meeting runs, so the room can argue about the decision instead of about what was said.",
@@ -3115,6 +3121,7 @@
       {
         "id": "execution",
         "kind": "scene",
+        "layout": "a",
         "headline": "Every meeting ends with execution. Nothing gets forgotten.",
         "sub": "Minutes are generated automatically. Action items are assigned, deadlines are created and progress starts being tracked immediately.",
         "body": "Agreements become assigned tasks with owners and dates before anyone leaves the call. The gap between deciding something and someone starting it closes to nothing.",
@@ -3130,6 +3137,7 @@
       {
         "id": "afternoon",
         "kind": "divider",
+        "layout": "divider",
         "time": "14:59",
         "period": "Afternoon",
         "body": "The afternoon is where the day usually slips: documents arrive, numbers need checking, and the decisions pile up behind them."
@@ -3137,6 +3145,7 @@
       {
         "id": "report",
         "kind": "scene",
+        "layout": "a",
         "headline": "Every report, already reviewed.",
         "sub": "Darlean reviews every incoming report, highlights material changes and prepares an executive summary before you open the document.",
         "body": "The report arrives read. What changed, what it was driven by and what held steady are marked up before you open it, so the question becomes what to do about the numbers rather than what the numbers say.",
@@ -3152,6 +3161,7 @@
       {
         "id": "evening",
         "kind": "moment",
+        "layout": "a",
         "time": "17:59",
         "period": "Evening",
         "headline": "A great day ends with nothing left to remember.",
@@ -3169,6 +3179,7 @@
       {
         "id": "night",
         "kind": "moment",
+        "layout": "a",
         "time": "20:00",
         "period": "Night",
         "headline": "Leadership doesn't stop at the office. Neither does Darlean.",
@@ -3186,6 +3197,7 @@
       {
         "id": "closing",
         "kind": "closing",
+        "layout": "title",
         "eyebrow": "Darlean",
         "headline": "Business, reimagined.",
         "body": "One day, one system: the briefing, the meetings, the reports and the follow-up. The free plan takes ten minutes to set up."

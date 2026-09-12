@@ -4,8 +4,11 @@
  *
  * The presentation drew each device in markup with its own colours and
  * dimensions. Those are not ported: the slot keeps the original proportions
- * and says what used to be there, so the page reads as a real sequence and the
- * replacement drops straight in.
+ * and width and says what used to be there, so the page reads as a real
+ * sequence and the replacement drops straight in.
+ *
+ * The caption is a note to us, not copy for the reader, so it sits quieter
+ * than body text and is marked off by a rule rather than running on from it.
  */
 interface Props {
   caption: string;
@@ -20,12 +23,7 @@ interface Props {
 const { caption, alt, ratio, width, format } = Astro.props;
 ---
 
-<figure
-  class="m-0 w-full"
-  style={`max-width:${width}px`}
-  role="img"
-  aria-label={alt}
->
+<figure class="m-0 w-full" style={`max-width:${width}px`} role="img" aria-label={alt}>
   <div
     class="flex w-full items-center justify-center rounded-panel border border-hairline bg-card"
     style={`aspect-ratio:${ratio}`}
@@ -38,7 +36,9 @@ const { caption, alt, ratio, width, format } = Astro.props;
     </span>
   </div>
 
-  <figcaption class="mt-4 text-balance text-caption text-secondary">
+  <figcaption
+    class="mt-3 border-l border-hairline pl-3 text-[13px] leading-[1.45] text-tertiary"
+  >
     {caption}
   </figcaption>
 </figure>
