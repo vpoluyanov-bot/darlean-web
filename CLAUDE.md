@@ -195,6 +195,22 @@ entities for different markets — but a visitor cannot tell who the controller
 is, which is exactly what a European visitor is entitled to know. Needs to be
 reconciled with legal before EU traffic.
 
+**4. The footer's right-hand block is removed, temporarily.** It held the
+LinkedIn icon, "DAR TECH CY ©2024" and "All rights reserved.", along with the
+`linkedin`, `copyright` and `rights` keys under `footer` in the copy file — all
+taken out of `Footer.astro` in the same commit, so restoring means putting the
+copy back too.
+
+It comes back once legal confirm the entity and the copyright year, which is
+the same reconciliation as (3), and once there is a LinkedIn page worth linking:
+the current one is `darlean-erp`, and the positioning has moved on.
+
+While deciding, note that `ORG.linkedin` in `src/lib/routes.ts` still feeds
+`sameAs` in the Organization schema on every page, so the site keeps
+advertising a LinkedIn profile in its structured data even with the footer icon
+gone. That was left alone deliberately rather than changed on the way past —
+it should be settled together with the footer, not separately.
+
 ## Commands
 
 - `npm run dev` — local server
