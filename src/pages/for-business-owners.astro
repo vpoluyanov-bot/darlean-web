@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import Section from '../components/owners/Section.astro';
+import Reveal from '../components/owners/Reveal.astro';
+import { signupHref } from '../config';
+import { t, defaultLocale } from '../i18n';
+
+/* The presentation this came from has no navigation of its own, and none is
+   added here: the only way in is the "For business owners" card on the home
+   page. The layout still supplies the head — analytics, canonical, Open Graph
+   — exactly as it does for every other page. */
+
+const copy = t(defaultLocale).owners;
+---
+
+<BaseLayout title={copy.title} description={copy.description}>
+  <main>
+    <h1 class="sr-only">{copy.title}</h1>
+
+    {
+      copy.sections.map((section) => (
+        <Section {...section}>
+          {section.kind === 'closing' && (
+            <Reveal delay={260}>
+              <Button href={signupHref('role_owner')} class="px-8 py-4 font-semibold">
+                {copy.cta}
+              </Button>
+            </Reveal>
+          )}
+        </Section>
+      ))
+    }
+  </main>
+</BaseLayout>
+
+<script>
+  /**
+   * Shows each block once it reaches the screen, then leaves it alone —
+   * revealing on the way back up would turn a page into a toy.
+   */
+  const blocks = document.querySelectorAll('[data-reveal]');
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    blocks.forEach((block) => block.setAttribute('data-shown', ''));
+  } else {
+    const watcher = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.setAttribute('data-shown', '');
+          watcher.unobserve(entry.target);
+        }
+      },
+      { rootMargin: '0px 0px -12% 0px' }
+    );
+
+    blocks.forEach((block) => watcher.observe(block));
+  }
+</script>

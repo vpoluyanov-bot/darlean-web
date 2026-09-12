@@ -1,0 +1,28 @@
+---
+/**
+ * The hour that opens a chapter of the day.
+ *
+ * The presentation set these as a flip-clock filling the screen. Here they are
+ * a quiet marker: they carry the rhythm without pretending to be a headline,
+ * so the real headline underneath keeps the page's heading order intact.
+ */
+interface Props {
+  time: string;
+  period?: string;
+}
+
+const { time, period } = Astro.props;
+---
+
+<p class="m-0 flex items-baseline gap-4">
+  <span
+    class="text-[clamp(40px,6vw,72px)] font-semibold leading-none tracking-[-0.03em] text-white"
+  >
+    {time}
+  </span>
+  {
+    period && (
+      <span class="text-caption uppercase tracking-[0.26em] text-accent">{period}</span>
+    )
+  }
+</p>

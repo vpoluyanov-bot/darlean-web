@@ -1,0 +1,48 @@
+---
+/**
+ * Fades its contents in when the section reaches the screen.
+ *
+ * The presentation choreographed each slide with a chain of timers; that is
+ * not ported. This is the one thing that survives: content arrives as you get
+ * to it, and holds still afterwards. With reduced motion it is simply visible.
+ */
+interface Props {
+  class?: string;
+  /** Milliseconds of stagger, for the second and third block in a section. */
+  delay?: number;
+}
+
+const { class: className = '', delay = 0 } = Astro.props;
+---
+
+<div
+  data-reveal
+  class:list={['reveal', className]}
+  style={delay ? `--reveal-delay:${delay}ms` : undefined}
+>
+  <slot />
+</div>
+
+<style is:global>
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity var(--duration-slow) var(--ease) var(--reveal-delay, 0ms),
+      transform var(--duration-slow) var(--ease) var(--reveal-delay, 0ms);
+  }
+
+  .reveal[data-shown] {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Without JavaScript, or with motion turned down, nothing is ever hidden. */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>

@@ -342,7 +342,8 @@
           "Analytics and dashboards",
           "E-signing",
           "Team communication"
-        ]
+        ],
+        "href": "/for-business-owners"
       },
       {
         "title": "For COOs",
@@ -3024,5 +3025,171 @@
         ]
       }
     }
+  },
+  "owners": {
+    "route": "/for-business-owners",
+    "title": "A day with Darlean — for business owners",
+    "description": "One working day with Darlean: the morning briefing, meetings that write their own minutes, and reports read before you open them.",
+    "ogAlt": "A day with Darlean, hour by hour",
+    "cta": "Start for free",
+    "sections": [
+      {
+        "id": "opening",
+        "kind": "opening",
+        "eyebrow": "Darlean",
+        "headline": "Meet Your Future Workday.",
+        "body": "This is one working day, hour by hour, from the first notification to the last. Everything below already runs inside Darlean — the briefing, the meeting notes, the reports, the follow-up. Nothing here asks you to check a dashboard."
+      },
+      {
+        "id": "morning",
+        "kind": "moment",
+        "time": "6:59",
+        "period": "Morning",
+        "headline": "Every day begins with the same question.",
+        "sub": "Where should I focus today?",
+        "body": "Most mornings start with reconstruction: opening the calendar, the inbox and three chats to work out what actually matters. That reconstruction is the expensive part, and it happens before any work gets done."
+      },
+      {
+        "id": "answer",
+        "kind": "scene",
+        "time": "7:01",
+        "headline": "Darlean already has the answer.",
+        "body": "Darvis reads the day before you do and sends one message: how loaded the day is, what needs a decision, what can wait. You start from a conclusion instead of assembling one.",
+        "feature": "Darvis, the AI assistant",
+        "mock": {
+          "caption": "Phone lock screen, 7:01 — Darvis notification with the day overview",
+          "alt": "Placeholder for the phone lock screen showing the 7:01 Darvis notification",
+          "ratio": "9 / 19",
+          "format": "video",
+          "width": 260
+        }
+      },
+      {
+        "id": "briefing",
+        "kind": "scene",
+        "time": "7:01",
+        "headline": "Your morning, in one screen.",
+        "sub": "Meetings, tasks and risks — laid out the moment you wake up.",
+        "body": "The briefing puts the whole day on one screen: how many hours meetings will take, which tasks you assigned and have not heard back on, and what needs your attention before lunch. It replaces the twenty minutes usually spent finding that out.",
+        "feature": "Daily Briefing",
+        "mock": {
+          "caption": "Daily Briefing, 7:01 — meeting load, assigned tasks and items needing attention",
+          "alt": "Placeholder for the Daily Briefing screen showing the day at a glance",
+          "ratio": "399 / 836",
+          "format": "video",
+          "width": 399
+        }
+      },
+      {
+        "id": "midday",
+        "kind": "moment",
+        "time": "11:49",
+        "period": "Midday",
+        "headline": "Walk into every meeting prepared.",
+        "sub": "Board meeting in 30 minutes. Last decisions, open actions and key risks — ready to review.",
+        "body": "Half an hour before a meeting, Darlean assembles what was decided last time, what was promised and what has not moved. Preparation stops being something you do at the last minute or skip.",
+        "feature": "Meeting preparation",
+        "mock": {
+          "caption": "Pre-meeting card, 11:50 — last decisions, open actions and key risks",
+          "alt": "Placeholder for the pre-meeting card shown half an hour before the board meeting",
+          "ratio": "16 / 9",
+          "format": "video",
+          "width": 720
+        }
+      },
+      {
+        "id": "meeting",
+        "kind": "scene",
+        "headline": "Focus on decisions. We'll handle everything else.",
+        "sub": "Every discussion is transcribed, summarized and structured in real time.",
+        "body": "Nobody takes notes. The transcript, the summary and the list of what was agreed are built while the meeting runs, so the room can argue about the decision instead of about what was said.",
+        "feature": "AI Secretary",
+        "mock": {
+          "caption": "Meeting window — live transcript with the AI Secretary and two agents",
+          "alt": "Placeholder for the meeting window with a live transcript",
+          "ratio": "1040 / 640",
+          "format": "video",
+          "width": 760
+        }
+      },
+      {
+        "id": "execution",
+        "kind": "scene",
+        "headline": "Every meeting ends with execution. Nothing gets forgotten.",
+        "sub": "Minutes are generated automatically. Action items are assigned, deadlines are created and progress starts being tracked immediately.",
+        "body": "Agreements become assigned tasks with owners and dates before anyone leaves the call. The gap between deciding something and someone starting it closes to nothing.",
+        "feature": "Workflows and task management",
+        "mock": {
+          "caption": "Action items screen — minutes, owners and deadlines created from the meeting",
+          "alt": "Placeholder for the screen where meeting agreements become assigned tasks",
+          "ratio": "470 / 700",
+          "format": "video",
+          "width": 470
+        }
+      },
+      {
+        "id": "afternoon",
+        "kind": "divider",
+        "time": "14:59",
+        "period": "Afternoon",
+        "body": "The afternoon is where the day usually slips: documents arrive, numbers need checking, and the decisions pile up behind them."
+      },
+      {
+        "id": "report",
+        "kind": "scene",
+        "headline": "Every report, already reviewed.",
+        "sub": "Darlean reviews every incoming report, highlights material changes and prepares an executive summary before you open the document.",
+        "body": "The report arrives read. What changed, what it was driven by and what held steady are marked up before you open it, so the question becomes what to do about the numbers rather than what the numbers say.",
+        "feature": "Report agent",
+        "mock": {
+          "caption": "Report view, Kar-Tel Q3 2026 — material changes and executive summary",
+          "alt": "Placeholder for the quarterly report with its changes already highlighted",
+          "ratio": "340 / 712",
+          "format": "video",
+          "width": 340
+        }
+      },
+      {
+        "id": "evening",
+        "kind": "moment",
+        "time": "17:59",
+        "period": "Evening",
+        "headline": "A great day ends with nothing left to remember.",
+        "sub": "18 meetings summarized · 43 action items created",
+        "body": "The day closes itself: every meeting has a summary, every agreement has an owner, and nothing is waiting in your head to be written down later.",
+        "feature": "Dashboards",
+        "mock": {
+          "caption": "Phone, 18:00 — day complete, 18 meetings summarized and 43 action items created",
+          "alt": "Placeholder for the end-of-day summary on the phone",
+          "ratio": "300 / 648",
+          "format": "video",
+          "width": 300
+        }
+      },
+      {
+        "id": "night",
+        "kind": "moment",
+        "time": "20:00",
+        "period": "Night",
+        "headline": "Leadership doesn't stop at the office. Neither does Darlean.",
+        "sub": "08 Aug 2026 · Beijing",
+        "body": "Approvals, signatures and escalations reach you wherever you are, in the same form they take at your desk. Being away stops meaning being a bottleneck.",
+        "feature": "Mobile app and approval routes",
+        "mock": {
+          "caption": "Phone lock screen, 20:00 — an approval arriving outside the office",
+          "alt": "Placeholder for an approval notification arriving in the evening",
+          "ratio": "9 / 19",
+          "format": "video",
+          "width": 260
+        }
+      },
+      {
+        "id": "closing",
+        "kind": "closing",
+        "eyebrow": "Darlean",
+        "headline": "Business, reimagined.",
+        "body": "One day, one system: the briefing, the meetings, the reports and the follow-up. The free plan takes ten minutes to set up."
+      }
+    ]
   }
 }

@@ -54,7 +54,16 @@ const bars = [34, 58, 42, 76, 100];
         copy.roles.map((role) => (
           <article class="flex h-[min(72vh,640px)] w-[min(560px,84vw)] flex-none snap-center flex-col rounded-panel border border-hairline bg-card p-[clamp(28px,3vw,44px)]">
             <h3 class="m-0 text-balance text-[clamp(26px,2.4vw,34px)] font-semibold leading-[1.15] tracking-[-0.025em] text-white">
-              {role.title}
+              {role.href ? (
+                <a
+                  href={role.href}
+                  class="transition-colors duration-fast ease-brand hover:text-accent-light"
+                >
+                  {role.title}
+                </a>
+              ) : (
+                role.title
+              )}
             </h3>
 
             <div class="mt-6 flex items-center gap-5 rounded-field border border-hairline bg-elevated px-5 py-5">

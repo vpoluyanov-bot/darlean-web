@@ -1,0 +1,44 @@
+---
+/**
+ * Stands in for a product mockup that has not been rebuilt yet.
+ *
+ * The presentation drew each device in markup with its own colours and
+ * dimensions. Those are not ported: the slot keeps the original proportions
+ * and says what used to be there, so the page reads as a real sequence and the
+ * replacement drops straight in.
+ */
+interface Props {
+  caption: string;
+  alt: string;
+  /** The mockup's original aspect ratio, kept so the layout does not move. */
+  ratio: string;
+  /** Its original width too, so a phone stays phone-sized on a wide screen. */
+  width: number;
+  format: string;
+}
+
+const { caption, alt, ratio, width, format } = Astro.props;
+---
+
+<figure
+  class="m-0 w-full"
+  style={`max-width:${width}px`}
+  role="img"
+  aria-label={alt}
+>
+  <div
+    class="flex w-full items-center justify-center rounded-panel border border-hairline bg-card"
+    style={`aspect-ratio:${ratio}`}
+  >
+    <span
+      class="rounded-pill border border-control px-4 py-2 text-caption uppercase tracking-[0.08em] text-secondary"
+      aria-hidden="true"
+    >
+      {format}
+    </span>
+  </div>
+
+  <figcaption class="mt-4 text-balance text-caption text-secondary">
+    {caption}
+  </figcaption>
+</figure>

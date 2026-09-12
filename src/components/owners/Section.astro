@@ -1,0 +1,119 @@
+---
+import MockPlaceholder from './MockPlaceholder.astro';
+import Reveal from './Reveal.astro';
+import TimeStamp from './TimeStamp.astro';
+
+/**
+ * One chapter of the day.
+ *
+ * Four shapes share this component because they differ only in what they
+ * contain: the opening and closing titles, the moments that carry a time and a
+ * mockup, and the bare dividers between them.
+ */
+interface Mock {
+  caption: string;
+  alt: string;
+  ratio: string;
+  width: number;
+  format: string;
+}
+
+interface Props {
+  kind: 'opening' | 'moment' | 'scene' | 'divider' | 'closing';
+  eyebrow?: string;
+  time?: string;
+  period?: string;
+  headline?: string;
+  sub?: string;
+  body: string;
+  feature?: string;
+  mock?: Mock;
+}
+
+const { kind, eyebrow, time, period, headline, sub, body, feature, mock } = Astro.props;
+
+const isTitle = kind === 'opening' || kind === 'closing';
+---
+
+<section
+  class:list={[
+    'px-6',
+    isTitle ? 'py-section-sm md:py-section' : 'py-24 md:py-30',
+    kind === 'divider' && 'py-20 md:py-24',
+  ]}
+>
+  <div
+    class:list={[
+      'mx-auto flex max-w-content flex-col gap-8',
+      isTitle && 'items-center text-center',
+    ]}
+  >
+    <Reveal>
+      {
+        eyebrow && (
+          <p class="m-0 mb-5 text-caption font-semibold uppercase tracking-[0.26em] text-accent">
+            {eyebrow}
+          </p>
+        )
+      }
+
+      {time && <TimeStamp time={time} period={period} />}
+
+      {
+        headline &&
+          (isTitle ? (
+            <h2 class="m-0 mt-5 text-balance text-[clamp(36px,6vw,72px)] font-semibold leading-[1.06] tracking-[-0.03em] text-white">
+              {headline}
+            </h2>
+          ) : (
+            <h2
+              class:list={[
+                'm-0 text-balance text-[clamp(28px,4vw,48px)] font-semibold leading-[1.1] tracking-[-0.03em] text-white',
+                time && 'mt-6',
+              ]}
+            >
+              {headline}
+            </h2>
+          ))}
+
+      {
+        sub && (
+          <p class="m-0 mt-5 max-w-measure text-balance font-rounded text-lead text-secondary">
+            {sub}
+          </p>
+        )
+      }
+    </Reveal>
+
+    {
+      mock && (
+        <Reveal delay={120} class="w-full">
+          <div class="flex w-full justify-center">
+            <MockPlaceholder {...mock} />
+          </div>
+        </Reveal>
+      )
+    }
+
+    <Reveal delay={mock ? 200 : 120}>
+      <p
+        class:list={[
+          'm-0 max-w-measure text-balance text-body text-secondary',
+          isTitle && 'mx-auto',
+        ]}
+      >
+        {body}
+      </p>
+
+      {
+        feature && (
+          <p class="m-0 mt-4 text-caption text-tertiary">
+            <span class="text-secondary">{feature}</span>
+          </p>
+        )
+      }
+    </Reveal>
+
+    <slot />
+  </div>
+</section>

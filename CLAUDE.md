@@ -115,6 +115,17 @@ it after any layout change. The desktop layout is the baseline: mobile fixes go
 in as the unprefixed value with `md:` restoring the desktop behaviour, never by
 editing the desktop rule.
 
+**`/for-business-owners` is a ported presentation, not a site page.** It has no
+`Nav` and no `Footer` by choice: the only way in is the "For business owners"
+card in the roles carousel on the home page. The original deck's scroll-snap
+slides and its chain of timers are not ported — sections are sized by content
+and fade in once, on arrival, through `src/components/owners/Reveal.astro`.
+
+Its mockups ship as placeholders: `MockPlaceholder.astro` keeps each one's
+original aspect ratio and width and says what belonged there. The source
+material sits unused in `public/media/owners/` — see the README there before
+putting any of it on a page.
+
 ## Hosting
 
 Vercel, connected to this repository. **A push to `main` is a deployment** —
