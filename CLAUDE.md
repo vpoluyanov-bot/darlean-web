@@ -158,6 +158,38 @@ same port once made Lighthouse report Performance 56 with an 8.9s first paint;
 the same commit measured 100 through `astro preview`. The dev server ships
 unminified modules and the Astro toolbar, so its numbers mean nothing.
 
+## Open questions
+
+Not bugs to fix in passing — each needs a decision or a lawyer before the code
+changes. Recorded so they are not rediscovered from scratch.
+
+**1. A link in the cookie policy reads "here".** In section 1: "The Privacy
+Statement of DARLEAN US can be accessed here." It should read "can be accessed
+in the Privacy Statement", which makes the link text describe its target. This
+is the one thing keeping `/cookie-policy` at SEO 92 rather than 100. An
+`aria-label` was tried and reverted: an accessible name that omits the visible
+word fails WCAG 2.5.3, so the wording itself has to change — and it is legal
+copy. The text lives under `legal.cookiePolicy.document` in the copy file.
+
+**2. The cookie policy describes tools the site does not use. Blocks European
+traffic.** It lists HubSpot and Matomo; the site actually runs Google Analytics
+4 and Google Tag Manager, which the document never mentions. The privacy policy
+names Google Tag Manager in 8.4 but not GA4. So the document does not describe
+the processing that actually happens, and both tags fire unconditionally with
+no consent banner and no Consent Mode. Legal need to supply: which analytics
+run, which cookies each sets, who the processor is, retention periods and the
+legal basis. Until then the site should not be pointed at EU or UK visitors.
+
+**3. Three different legal entities and two support addresses. Blocks European
+traffic.** The user agreement is issued by DAR TECH Limited (Nicosia, Cyprus);
+the privacy and cookie policies by DARLEAN US CORP. (Dover, Delaware); the
+footer says DAR TECH CY. Data-protection enquiries go to `support@darlean.com`
+in the documents, while the site's own buttons write to `info@darlean.com`
+(`CONTACT_EMAIL` in `src/config.ts`). This may be deliberate — different
+entities for different markets — but a visitor cannot tell who the controller
+is, which is exactly what a European visitor is entitled to know. Needs to be
+reconciled with legal before EU traffic.
+
 ## Commands
 
 - `npm run dev` — local server
