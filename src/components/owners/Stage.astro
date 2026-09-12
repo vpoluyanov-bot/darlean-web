@@ -1,0 +1,117 @@
+---
+/**
+ * The frame a product shot sits in.
+ *
+ * These are placeholders until the real captures land, and a plain grey box
+ * would read as a hole in the page. So the frame is the design: an accent glow
+ * pooling behind it, a lit top edge, a hairline body. When the video arrives it
+ * drops inside and the frame still earns its place.
+ *
+ * Every colour is derived from a design-system token with color-mix, so there
+ * is no second palette hiding in here.
+ */
+interface Props {
+  caption: string;
+  alt: string;
+  /** The mockup's original aspect ratio, kept so the layout does not move. */
+  ratio: string;
+  /** Its original width too, so a phone stays phone-sized on a wide screen. */
+  width: number;
+  format: string;
+  /** Portrait frames get a tighter radius, the way a phone does. */
+  device?: boolean;
+  class?: string;
+}
+
+const {
+  caption,
+  alt,
+  ratio,
+  width,
+  format,
+  device = false,
+  class: className = '',
+} = Astro.props;
+---
+
+<figure
+  class:list={['stage group relative m-0 w-full', className]}
+  style={`max-width:${width}px`}
+>
+  <div class="stage-glow" aria-hidden="true"></div>
+
+  <div
+    class:list={[
+      'stage-frame relative w-full overflow-hidden',
+      device ? 'rounded-[2.2rem]' : 'rounded-panel',
+    ]}
+    style={`aspect-ratio:${ratio}`}
+    role="img"
+    aria-label={alt}
+  >
+    <div class="stage-grid" aria-hidden="true"></div>
+
+    <span
+      class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-pill border border-control bg-glass px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-secondary backdrop-blur-sm"
+      aria-hidden="true"
+    >
+      {format}
+    </span>
+  </div>
+
+  <figcaption
+    class="mt-4 border-l border-hairline pl-3 text-[12px] leading-[1.5] text-tertiary"
+  >
+    {caption}
+  </figcaption>
+</figure>
+
+<style>
+  .stage-frame {
+    /* Surface steps up from the page, with a lit top edge where the glow
+       catches it — one gradient doing the job of a border and a highlight. */
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--accent) 7%, var(--surface-elevated)),
+        var(--surface-card) 45%
+      );
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--accent-light) 22%, transparent),
+      inset 0 0 0 1px var(--border-hairline);
+  }
+
+  .stage-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border-hairline) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border-hairline) 1px, transparent 1px);
+    background-size: 44px 44px;
+    /* A mask reads alpha, not colour — #000 here means "keep", the same way
+       the logo marquee on the home page fades its ends. */
+    mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 72%);
+    opacity: 0.5;
+  }
+
+  .stage-glow {
+    position: absolute;
+    inset: -14% -18%;
+    z-index: -1;
+    border-radius: 50%;
+    background: radial-gradient(
+      ellipse at 50% 40%,
+      color-mix(in srgb, var(--accent) 26%, transparent),
+      transparent 68%
+    );
+    filter: blur(52px);
+    opacity: 0.75;
+    transition: opacity var(--duration-slow) var(--ease);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stage-glow {
+      transition: none;
+    }
+  }
+</style>

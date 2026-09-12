@@ -1,0 +1,87 @@
+---
+/**
+ * The heading stack a scene opens with: a time or an eyebrow, the line itself,
+ * and the lead under it.
+ *
+ * Three sizes. `hero` is the page's own title, `scene` heads a chapter,
+ * `panel` sits inside a column beside a visual and has to stay smaller than
+ * the thing it describes.
+ */
+interface Props {
+  size?: 'hero' | 'scene' | 'panel';
+  eyebrow?: string;
+  time?: string;
+  period?: string;
+  headline?: string;
+  /** Carries the gradient, always as a whole line — never a single word. */
+  headlineAccent?: string;
+  sub?: string;
+  centred?: boolean;
+}
+
+const {
+  size = 'scene',
+  eyebrow,
+  time,
+  period,
+  headline,
+  headlineAccent,
+  sub,
+  centred = false,
+} = Astro.props;
+
+const headingSize = {
+  hero: 'text-[clamp(40px,7.5vw,88px)] leading-[1.02] tracking-[-0.035em]',
+  scene: 'text-[clamp(30px,4.4vw,56px)] leading-[1.06] tracking-[-0.03em]',
+  panel: 'text-[clamp(26px,2.9vw,40px)] leading-[1.08] tracking-[-0.03em]',
+}[size];
+---
+
+{
+  (eyebrow || time) && (
+    <p class:list={['m-0 flex items-baseline gap-4', centred && 'justify-center']}>
+      {time && (
+        <span class="text-[clamp(22px,2.4vw,32px)] font-semibold leading-none tracking-[-0.02em] text-white">
+          {time}
+        </span>
+      )}
+      <span class="text-[12px] font-semibold uppercase tracking-[0.26em] text-accent">
+        {period ?? eyebrow}
+      </span>
+    </p>
+  )
+}
+
+{
+  headline && (
+    <h2
+      class:list={[
+        'm-0 text-balance font-semibold text-white',
+        headingSize,
+        (eyebrow || time) && 'mt-6',
+        size !== 'hero' && 'max-w-[18em]',
+        centred && 'mx-auto',
+      ]}
+    >
+      {headline}
+      {headlineAccent && (
+        <span class="mt-1 block bg-headline bg-clip-text text-transparent">
+          {headlineAccent}
+        </span>
+      )}
+    </h2>
+  )
+}
+
+{
+  sub && (
+    <p
+      class:list={[
+        'mt-6 max-w-[34em] text-balance font-rounded text-[clamp(17px,1.35vw,21px)] leading-[1.5] text-secondary',
+        centred && 'mx-auto',
+      ]}
+    >
+      {sub}
+    </p>
+  )
+}

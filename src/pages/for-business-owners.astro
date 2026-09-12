@@ -1,8 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
-import Section from '../components/owners/Section.astro';
-import Reveal from '../components/owners/Reveal.astro';
+import Scene from '../components/owners/Scene.astro';
 import { signupHref } from '../config';
 import { t, defaultLocale } from '../i18n';
 
@@ -15,20 +14,18 @@ const copy = t(defaultLocale).owners;
 ---
 
 <BaseLayout title={copy.title} description={copy.description}>
-  <main>
+  <main class="overflow-x-clip">
     <h1 class="sr-only">{copy.title}</h1>
 
     {
-      copy.sections.map((section) => (
-        <Section {...section}>
-          {section.kind === 'closing' && (
-            <Reveal delay={260}>
-              <Button href={signupHref('role_owner')} class="px-8 py-4 font-semibold">
-                {copy.cta}
-              </Button>
-            </Reveal>
+      copy.sections.map((section, i) => (
+        <Scene {...section} scrollCue={i === 0 ? copy.scrollCue : undefined}>
+          {section.variant === 'closing' && (
+            <Button href={signupHref('role_owner')} class="px-9 py-4 text-lead font-semibold">
+              {copy.cta}
+            </Button>
           )}
-        </Section>
+        </Scene>
       ))
     }
   </main>
@@ -36,13 +33,21 @@ const copy = t(defaultLocale).owners;
 
 <script>
   /**
-   * Shows each block once it reaches the screen, then leaves it alone —
-   * revealing on the way back up would turn a page into a toy.
+   * Two jobs, both cheap.
+   *
+   * Reveals are handed to an IntersectionObserver and unobserved once they
+   * fire — nothing keeps watching after the fact. The parallax on the giant
+   * hour runs off one scroll listener shared by every such element, throttled
+   * to a frame, and writes nothing but a transform.
+   *
+   * If the reader asked for less motion, neither runs: everything is shown at
+   * once and left where it is.
    */
-  const blocks = document.querySelectorAll('[data-reveal]');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveals = document.querySelectorAll<HTMLElement>('[data-reveal]');
 
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    blocks.forEach((block) => block.setAttribute('data-shown', ''));
+  if (reduced) {
+    reveals.forEach((el) => el.setAttribute('data-shown', ''));
   } else {
     const watcher = new IntersectionObserver(
       (entries) => {
@@ -52,9 +57,38 @@ const copy = t(defaultLocale).owners;
           watcher.unobserve(entry.target);
         }
       },
-      { rootMargin: '0px 0px -12% 0px' }
+      { rootMargin: '0px 0px -10% 0px' }
     );
 
-    blocks.forEach((block) => watcher.observe(block));
+    reveals.forEach((el) => watcher.observe(el));
+
+    const drifting = [...document.querySelectorAll<HTMLElement>('[data-parallax]')];
+
+    if (drifting.length) {
+      let queued = false;
+
+      const drift = () => {
+        queued = false;
+        const middle = window.innerHeight / 2;
+
+        for (const el of drifting) {
+          const box = el.getBoundingClientRect();
+          // Only while it is anywhere near the screen.
+          if (box.bottom < -200 || box.top > window.innerHeight + 200) continue;
+          const offset = (box.top + box.height / 2 - middle) * -0.08;
+          el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
+        }
+      };
+
+      const onScroll = () => {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(drift);
+      };
+
+      drift();
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+    }
   }
 </script>
