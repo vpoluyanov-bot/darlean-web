@@ -115,11 +115,28 @@ it after any layout change. The desktop layout is the baseline: mobile fixes go
 in as the unprefixed value with `md:` restoring the desktop behaviour, never by
 editing the desktop rule.
 
-**`/for-business-owners` is a ported presentation, not a site page.** It has no
-`Nav` and no `Footer` by choice: the only way in is the "For business owners"
-card in the roles carousel on the home page. The original deck's scroll-snap
-slides and its chain of timers are not ported — sections are sized by content
-and fade in once, on arrival, through `src/components/owners/Reveal.astro`.
+**`/for-business-owners` is a ported presentation, not a site page.** It wears
+the site's own `Nav` and `Footer`, unchanged, but it is deliberately absent
+from the header's links: the way in is the "For business owners" card in the
+roles carousel on the home page, and the header is there so a visitor can
+leave. The original deck's scroll-snap slides and its chain of timers are not
+ported — sections are sized by content and fade in once, on arrival, through
+`src/components/owners/Reveal.astro`.
+
+Every scene that happens at an hour carries that hour behind its copy, set
+enormous and clipped by the section: `src/components/owners/GhostHour.astro`,
+aligned to the copy it sits behind. It is the page's one recurring device, so
+it lives in one component rather than being reproduced per scene.
+
+The opening scene runs `owners-hero` behind it. The clip is decoration —
+silent, looping, no controls, hidden from assistive technology — and nothing is
+fetched for it until the page's own load event has fired, so it can never
+compete with the first screen. Under reduced motion it is never fetched at all
+and the poster frame is the backdrop. The scrim over it is sized by
+measurement, not taste: the footage peaks at rgb(39,83,134), which would drop
+the lead paragraph to 2.1:1, and 65% of `--surface-page` over it takes the
+worst text pixel on the scene back to 4.8:1. Lighten that number and the
+contrast goes with it.
 
 Its mockups ship as placeholders: `MockPlaceholder.astro` keeps each one's
 original aspect ratio and width and says what belonged there. The source

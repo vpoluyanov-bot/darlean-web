@@ -64,6 +64,12 @@ const CLIPS = [
   // cover: 608px at 1440. Twice that is more than the source holds, so it
   // ships at its native 1080.
   { out: 'hero-agent',          src: 'assets/hero-agent.mp4',                    width: 1080, displayed: 608 },
+  // The background of the /for-business-owners opening. It is full-bleed, so
+  // it has to cover 1440 CSS px; twice that is past the source, so it ships at
+  // its native 1080p. It did not come with the design export — it was handed
+  // over on its own, so it is rebuilt with --from:
+  //   npm run media -- "<export>" --only owners-hero --from "<dir>"
+  { out: 'owners-hero',         src: 'assets/owners-hero.mp4',                   width: 1920, displayed: 1440 },
   { out: 'feature-projects',    src: 'uploads/Раскрытие проекта (1).mp4',        width: 1152, displayed: 558 },
   { out: 'feature-requests',    src: 'uploads/Процесс заявки (1).mp4',           width: 1152, displayed: 558 },
   { out: 'feature-org-chart',   src: 'uploads/Оргструктура анимация (1).mp4',    width: 1152, displayed: 558 },

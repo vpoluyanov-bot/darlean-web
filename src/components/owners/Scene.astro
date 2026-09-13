@@ -1,5 +1,6 @@
 ---
 import GhostHour from './GhostHour.astro';
+import HeroBackdrop from './HeroBackdrop.astro';
 import Heading from './Heading.astro';
 import Reveal from './Reveal.astro';
 import Stage from './Stage.astro';
@@ -46,6 +47,8 @@ interface Props {
   mock?: Mock;
   stats?: Stat[];
   scrollCue?: string;
+  /** Base name of a clip in public/media to run behind the scene. */
+  backdrop?: string;
 }
 
 const {
@@ -62,13 +65,14 @@ const {
   mock,
   stats,
   scrollCue,
+  backdrop,
 } = Astro.props;
 
 /* Vertical rhythm is part of the composition, not a constant. The scenes that
    carry a single large object get room around them; the splits sit closer
    together so the page moves; the divider is deliberately cramped. */
 const padding = {
-  opening: 'min-h-[92vh] py-section-sm md:py-section',
+  opening: 'min-h-[88vh] pt-[13vh] pb-section-sm md:pt-[15vh] md:pb-section',
   question: 'py-16 md:py-28',
   split: 'py-20 md:py-24',
   stats: 'py-20 md:py-24',
@@ -89,10 +93,14 @@ const portrait = mock ? Number(mock.ratio.split('/')[0]) < Number(mock.ratio.spl
 ---
 
 <section class:list={['scene relative px-6', padding, variant === 'divider' && 'scene-divider']}>
+  {backdrop && <HeroBackdrop name={backdrop} />}
+
   {
     /* Ambient light behind the two title scenes, so the page opens and closes
-       on something warmer than flat black. */
-    (variant === 'opening' || variant === 'closing') && (
+       on something warmer than flat black. A scene with a backdrop needs none:
+       the footage is the ambience, and a second glow over it would only eat
+       into the contrast the scrim was sized to protect. */
+    !backdrop && (variant === 'opening' || variant === 'closing') && (
       <div class="scene-aura" aria-hidden="true" />
     )
   }
@@ -114,7 +122,9 @@ const portrait = mock ? Number(mock.ratio.split('/')[0]) < Number(mock.ratio.spl
       'relative z-10 mx-auto',
       variant === 'wide' ? 'max-w-bleed' : 'max-w-site',
       (variant === 'opening' || variant === 'closing') &&
-        'flex min-h-[inherit] flex-col items-center justify-center text-center',
+        'flex min-h-[inherit] flex-col items-center text-center',
+      variant === 'opening' && 'justify-start',
+      variant === 'closing' && 'justify-center',
     ]}
   >
     {
@@ -136,7 +146,7 @@ const portrait = mock ? Number(mock.ratio.split('/')[0]) < Number(mock.ratio.spl
 
           {scrollCue && (
             <Reveal delay={320} class="mt-16">
-              <span class="scroll-cue inline-flex flex-col items-center gap-3 text-[11px] uppercase tracking-[0.26em] text-tertiary">
+              <span class="scroll-cue inline-flex flex-col items-center gap-3 text-[11px] uppercase tracking-[0.26em] text-secondary">
                 {scrollCue}
                 <span class="scroll-line" aria-hidden="true" />
               </span>

@@ -1,25 +1,33 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 import Scene from '../components/owners/Scene.astro';
 import { signupHref } from '../config';
 import { t, defaultLocale } from '../i18n';
 
-/* The presentation this came from has no navigation of its own, and none is
-   added here: the only way in is the "For business owners" card on the home
-   page. The layout still supplies the head — analytics, canonical, Open Graph
-   — exactly as it does for every other page. */
+/* The presentation this came from carries no navigation of its own, so the
+   site's own header and footer are put around it — unchanged, the same
+   components every other page uses. The page is deliberately absent from the
+   header's links: the way in is still the "For business owners" card on the
+   home page, and the header is there to let a visitor leave. */
 
 const copy = t(defaultLocale).owners;
 ---
 
 <BaseLayout title={copy.title} description={copy.description}>
+  <Nav />
   <main class="overflow-x-clip">
     <h1 class="sr-only">{copy.title}</h1>
 
     {
       copy.sections.map((section, i) => (
-        <Scene {...section} scrollCue={i === 0 ? copy.scrollCue : undefined}>
+        <Scene
+          {...section}
+          scrollCue={i === 0 ? copy.scrollCue : undefined}
+          backdrop={i === 0 ? 'owners-hero' : undefined}
+        >
           {section.variant === 'closing' && (
             <Button href={signupHref('role_owner')} class="px-9 py-4 text-lead font-semibold">
               {copy.cta}
@@ -29,6 +37,7 @@ const copy = t(defaultLocale).owners;
       ))
     }
   </main>
+  <Footer />
 </BaseLayout>
 
 <script>
@@ -45,6 +54,39 @@ const copy = t(defaultLocale).owners;
    */
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const reveals = document.querySelectorAll<HTMLElement>('[data-reveal]');
+
+  /**
+   * The opening's backdrop clip is the last thing the page asks for. Its
+   * <source> elements ship with no src at all, so nothing is queued while the
+   * document, the fonts and the first screen are still arriving; only once the
+   * load event has fired — and then only in an idle moment — are the URLs put
+   * in place and the clip told to play. Under reduced motion it is never
+   * fetched, and the poster frame stays as the backdrop.
+   */
+  const backdrop = document.querySelector<HTMLVideoElement>('[data-hero-backdrop]');
+
+  if (backdrop && !reduced) {
+    const start = () => {
+      for (const source of backdrop.querySelectorAll<HTMLSourceElement>('source[data-src]')) {
+        source.src = source.dataset.src!;
+        source.removeAttribute('data-src');
+      }
+      backdrop.load();
+      // load() cancels a play() issued in the same tick, so wait for frames.
+      backdrop.addEventListener('loadeddata', () => {
+        backdrop.muted = true;
+        backdrop.play().catch(() => {});
+      });
+    };
+
+    const idle = () =>
+      'requestIdleCallback' in window
+        ? requestIdleCallback(start, { timeout: 2000 })
+        : setTimeout(start, 200);
+
+    if (document.readyState === 'complete') idle();
+    else window.addEventListener('load', idle, { once: true });
+  }
 
   if (reduced) {
     reveals.forEach((el) => el.setAttribute('data-shown', ''));

@@ -10,6 +10,14 @@ npm run media -- "/path/to/Darvis export"
 The sources could not be pulled through the design sync tool, which truncates
 any binary over 256 KB, so the export has to be on disk.
 
+`owners-hero` — the backdrop of the `/for-business-owners` opening — is the one
+clip that did not come from the export; it was handed over on its own. Rebuild
+it by putting the original somewhere as `owners-hero.mp4` and naming it:
+
+```sh
+npm run media -- "/path/to/Darvis export" --only owners-hero --from "/path/to/that folder"
+```
+
 ## What ships
 
 Each clip exists twice. The browser takes the first line it can decode:
@@ -30,6 +38,7 @@ None of it carries an audio track; the sources had none either.
 | Clip | Source | AV1 | H.264 |
 |---|---|---|---|
 | `hero-agent` | 4.66M | 0.94M | 1.28M |
+| `owners-hero` | 3.60M | 0.12M | 0.95M |
 | `feature-projects` | 3.45M | 0.36M | 0.67M |
 | `feature-requests` | 1.21M | 0.15M | 0.28M |
 | `feature-org-chart` | 0.85M | 0.10M | 0.20M |
@@ -49,6 +58,7 @@ downloads one encoding, so about 4.2M on AV1 or 9.4M on H.264 — and only
 | Output | Source in the design export |
 |---|---|
 | `hero-agent` | `assets/hero-agent.mp4` |
+| `owners-hero` | handed over on its own, not in the export — see below |
 | `feature-projects` | `uploads/Раскрытие проекта (1).mp4` |
 | `feature-requests` | `uploads/Процесс заявки (1).mp4` |
 | `feature-org-chart` | `uploads/Оргструктура анимация (1).mp4` |

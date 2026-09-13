@@ -20,7 +20,7 @@ import { chromium } from 'playwright';
 import { mkdir, writeFile } from 'node:fs/promises';
 
 const BASE = process.argv[2] ?? 'http://localhost:4321';
-const PAGES = ['/', '/pricing', '/styleguide'];
+const PAGES = ['/', '/pricing', '/for-business-owners', '/styleguide'];
 const WIDTHS = [375, 390, 430];
 const OUT = '.audit';
 
