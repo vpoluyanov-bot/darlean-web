@@ -73,7 +73,7 @@ const {
    together so the page moves; the divider is deliberately cramped. */
 const padding = {
   opening: 'scene-opening pt-[clamp(1rem,6svh,7vh)] pb-[clamp(0.75rem,3svh,4rem)]',
-  question: 'py-16 md:py-28',
+  question: 'pb-16 md:pb-28',
   split: 'py-20 md:py-24',
   stats: 'py-20 md:py-24',
   showcase: 'py-24 md:py-40',
@@ -164,7 +164,7 @@ const portrait = mock ? Number(mock.ratio.split('/')[0]) < Number(mock.ratio.spl
          and the label — so the scene reads as a single column rather than
          three alignments fighting. */
       variant === 'question' && (
-        <div class="flex flex-col items-center text-center">
+        <div class="question-copy flex flex-col items-center text-center">
           <Reveal>
             <Heading headline={headline} centred />
           </Reveal>
@@ -382,6 +382,22 @@ const portrait = mock ? Number(mock.ratio.split('/')[0]) < Number(mock.ratio.spl
       color-mix(in srgb, var(--accent) 16%, transparent),
       transparent 70%
     );
+  }
+
+  /*
+   * The copy starts a little past the middle of the hour behind it, so the top
+   * half of the number stands clear and it reads as a background rather than
+   * something with a lid on it. Everywhere else on the page the headline meets
+   * its number at around half its height; this is that same relationship,
+   * written out because this is the one scene where both are centred on the
+   * same axis and would otherwise land on top of each other.
+   *
+   * 0.42 is 0.8 — the number's line box — times the 0.52 of it the other scenes
+   * leave clear. The 26px is where the number itself starts: GhostHour's --edge
+   * plus the room it reserves for the parallax.
+   */
+  .question-copy {
+    padding-top: calc(26px + 0.42 * clamp(150px, 27vw, 400px));
   }
 
   /* Not a subheading — the question the rest of the page is answering. */
