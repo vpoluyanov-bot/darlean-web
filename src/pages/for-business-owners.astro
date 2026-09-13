@@ -63,6 +63,26 @@ const copy = t(defaultLocale).owners;
    * in place and the clip told to play. Under reduced motion it is never
    * fetched, and the poster frame stays as the backdrop.
    */
+  /**
+   * The opening scene is the first screen exactly: whatever is left of the
+   * viewport once the header above it has taken its share. The header is one
+   * row on most windows and two on a narrow phone, so its height is measured
+   * rather than assumed, and measured again whenever the window changes.
+   */
+  const firstScreen = document.querySelector<HTMLElement>('[data-first-screen]');
+  const header = document.querySelector('nav');
+
+  if (firstScreen && header) {
+    const fit = () => {
+      const left = window.innerHeight - header.getBoundingClientRect().height;
+      firstScreen.style.setProperty('--first-screen', `${Math.round(left)}px`);
+    };
+
+    fit();
+    window.addEventListener('resize', fit, { passive: true });
+    window.addEventListener('orientationchange', fit);
+  }
+
   const backdrop = document.querySelector<HTMLVideoElement>('[data-hero-backdrop]');
 
   if (backdrop && !reduced) {

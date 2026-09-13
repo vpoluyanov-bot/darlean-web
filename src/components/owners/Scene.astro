@@ -72,7 +72,7 @@ const {
    carry a single large object get room around them; the splits sit closer
    together so the page moves; the divider is deliberately cramped. */
 const padding = {
-  opening: 'min-h-[88vh] pt-[13vh] pb-section-sm md:pt-[15vh] md:pb-section',
+  opening: 'scene-opening pt-[clamp(1rem,6svh,7vh)] pb-[clamp(0.75rem,3svh,4rem)]',
   question: 'py-16 md:py-28',
   split: 'py-20 md:py-24',
   stats: 'py-20 md:py-24',
@@ -92,7 +92,10 @@ const ghostAlign = isCentred ? 'center' : isSplit && side === 'start' ? 'end' : 
 const portrait = mock ? Number(mock.ratio.split('/')[0]) < Number(mock.ratio.split('/')[1]) : false;
 ---
 
-<section class:list={['scene relative px-6', padding, variant === 'divider' && 'scene-divider']}>
+<section
+  class:list={['scene relative px-6', padding, variant === 'divider' && 'scene-divider']}
+  data-first-screen={variant === 'opening' ? '' : undefined}
+>
   {backdrop && <HeroBackdrop name={backdrop} />}
 
   {
@@ -122,9 +125,9 @@ const portrait = mock ? Number(mock.ratio.split('/')[0]) < Number(mock.ratio.spl
       'relative z-10 mx-auto',
       variant === 'wide' ? 'max-w-bleed' : 'max-w-site',
       (variant === 'opening' || variant === 'closing') &&
-        'flex min-h-[inherit] flex-col items-center text-center',
-      variant === 'opening' && 'justify-start',
-      variant === 'closing' && 'justify-center',
+        'flex flex-col items-center text-center',
+      variant === 'opening' && 'w-full flex-1 justify-start',
+      variant === 'closing' && 'min-h-[inherit] justify-center',
     ]}
   >
     {
@@ -140,12 +143,12 @@ const portrait = mock ? Number(mock.ratio.split('/')[0]) < Number(mock.ratio.spl
             />
           </Reveal>
 
-          <Reveal delay={140} class="mt-10 max-w-[46em]">
+          <Reveal delay={140} class="mt-[clamp(1.25rem,3svh,2.5rem)] max-w-[46em]">
             <p class="m-0 text-balance text-lead leading-[1.5] text-secondary">{body}</p>
           </Reveal>
 
           {scrollCue && (
-            <Reveal delay={320} class="mt-16">
+            <Reveal delay={320} class="mt-[clamp(1.5rem,5svh,4rem)]">
               <span class="scroll-cue inline-flex flex-col items-center gap-3 text-[11px] uppercase tracking-[0.26em] text-secondary">
                 {scrollCue}
                 <span class="scroll-line" aria-hidden="true" />
@@ -348,6 +351,23 @@ const portrait = mock ? Number(mock.ratio.split('/')[0]) < Number(mock.ratio.spl
 </section>
 
 <style>
+  /*
+   * The opening is exactly the first screen and no more: the viewport less the
+   * header standing above it, so the scene ends where the fold does and the
+   * backdrop inside it is never cut off below. --first-screen is measured by
+   * the page's script, because the header is two rows tall on a narrow phone
+   * and one on everything else; until it has run, and if it never does, svh
+   * alone is close enough and still fits.
+   *
+   * min-height rather than height: on a very short window the copy is allowed
+   * to push the scene past one screen rather than be clipped by it.
+   */
+  .scene-opening {
+    display: flex;
+    flex-direction: column;
+    min-height: var(--first-screen, 100svh);
+  }
+
   /* A hairline above and below, so the beat reads as a band rather than a gap. */
   .scene-divider {
     border-block: 1px solid var(--border-hairline);
@@ -381,7 +401,7 @@ const portrait = mock ? Number(mock.ratio.split('/')[0]) < Number(mock.ratio.spl
   .scroll-line {
     display: block;
     width: 1px;
-    height: 56px;
+    height: clamp(28px, 4svh, 56px);
     background: linear-gradient(180deg, var(--accent), transparent);
   }
 

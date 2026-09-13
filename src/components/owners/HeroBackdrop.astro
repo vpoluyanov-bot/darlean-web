@@ -12,6 +12,21 @@
  * for-business-owners.astro moves them across then. If the reader asked for
  * less motion, they are never moved at all and the poster is the backdrop.
  *
+ * The whole height of the frame is always on screen — nothing is ever cut off
+ * the bottom. How it gets there depends on the shape of the scene, which is
+ * why the scene is a size container:
+ *
+ *   taller than 16:9 (every phone, most laptops)  fill it, and the sides of
+ *       the frame run off the edges. Height is the dimension that fits exactly,
+ *       so there is nothing to cut off the bottom.
+ *   wider than 16:9 (ultrawide monitors, short windows)  fit the whole frame
+ *       and let the scene keep the room left over at the sides. Every edge of
+ *       the footage is pure black in every frame — measured, not assumed — and
+ *       the page is #000, so that room cannot be seen.
+ *
+ * A browser without container queries gets the fitted case everywhere, which is
+ * the safe half of the pair: correct, just narrower than it needs to be.
+ *
  * Over it sits a scrim built from --surface-page, which is what keeps the copy
  * legible: the footage peaks at a luminance that would drop the lead paragraph
  * to 2.1:1 unaided. See the note on .hero-scrim below for the arithmetic.
@@ -37,7 +52,7 @@ const mp4 = `/media/${name}.mp4`;
     preload="none"
     poster={poster}
     tabindex="-1"
-    class="h-full w-full object-cover"
+    class="hero-video"
   >
     <source data-src={webm} type="video/webm" />
     <source data-src={mp4} type="video/mp4" />
@@ -53,6 +68,21 @@ const mp4 = `/media/${name}.mp4`;
     z-index: 0;
     overflow: hidden;
     pointer-events: none;
+    container-type: size;
+  }
+
+  .hero-video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  @container (aspect-ratio < 16 / 9) {
+    .hero-video {
+      object-fit: cover;
+    }
   }
 
   /*
