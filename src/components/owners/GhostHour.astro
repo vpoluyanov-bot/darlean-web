@@ -1,6 +1,6 @@
 ---
 /**
- * The hour, set enormous and sunk behind the scene it belongs to.
+ * The hour, set large and sunk behind the scene it belongs to.
  *
  * This is the page's one recurring device: every moment of the day announces
  * itself as a number behind the words rather than as a caption above them. It
@@ -8,20 +8,40 @@
  * centred where the scene is centred — so it reads as that scene's marker and
  * not as decoration floating loose on the page.
  *
- * It is clipped to the section, which is what lets a short band show a slice of
- * a very large number instead of overflowing the page.
+ * It is held inside its own scene. The scene is a size container, and the
+ * number takes the smallest of three ceilings: the size the design asks for,
+ * the height the scene can spare, and the width the string needs. So a tall
+ * scene shows the number at full size and a short band shows a smaller one —
+ * neither is ever cut by the edge, and neither reaches the scene next door.
+ *
+ * The width ceiling needs to know how wide this particular string is, which is
+ * why the advances below exist: 11:49 is far narrower than 20:00, and sizing
+ * every hour for the widest one would shrink most of them for nothing.
  */
 interface Props {
   hour: string;
   /** Follows the alignment of the copy it sits behind. */
   align?: 'start' | 'center' | 'end';
-  /** A compressed band gets a smaller number so a legible part of it shows. */
-  size?: 'lg' | 'sm';
   /** Vertical anchor: scenes that lead with a heading want it near the top. */
   anchor?: 'top' | 'middle';
 }
 
-const { hour, align = 'start', size = 'lg', anchor = 'top' } = Astro.props;
+const { hour, align = 'start', anchor = 'top' } = Astro.props;
+
+/**
+ * Advance of each character in ems, measured from the self-hosted Inter at
+ * weight 600 — the weight this is always set in. A character that is not in the
+ * table falls back to the widest digit, so an unexpected string is sized too
+ * small rather than too wide.
+ */
+const ADVANCE: Record<string, number> = {
+  '0': 0.66, '1': 0.424, '2': 0.623, '3': 0.637, '4': 0.667,
+  '5': 0.613, '6': 0.64, '7': 0.577, '8': 0.641, '9': 0.64,
+  ':': 0.319,
+};
+const TRACKING = 0.06; // the letter-spacing below, taken off every character
+
+const emWidth = [...hour].reduce((total, ch) => total + (ADVANCE[ch] ?? 0.667) - TRACKING, 0);
 
 const justify = {
   start: 'justify-start',
@@ -33,30 +53,44 @@ const items = anchor === 'top' ? 'items-start' : 'items-center';
 ---
 
 <div class:list={['ghost-clip', justify, items]} aria-hidden="true">
-  <span class:list={['ghost-hour', size === 'sm' && 'ghost-hour--sm']} data-parallax>
+  <span class="ghost-hour" style={`--em-width:${emWidth.toFixed(3)}`} data-parallax>
     {hour}
   </span>
 </div>
 
 <style>
   .ghost-clip {
+    /*
+     * --edge is the breathing room between the number and the scene's own
+     * edge; --drift is how far the parallax is allowed to carry it, which the
+     * script reads back off this element so the two can never disagree. Both
+     * are taken out of the height the number is allowed to fill, which is what
+     * keeps it inside the scene at the ends of its travel as well as at rest.
+     */
+    --edge: 10px;
+    --drift: 16px;
+
     position: absolute;
     inset: 0;
     z-index: 0;
     display: flex;
     overflow: hidden;
+    padding: var(--edge);
     pointer-events: none;
     user-select: none;
+    container-type: size;
   }
 
   .ghost-hour {
-    /* Pulled up so the number is cut by the top of the section rather than
-       sitting politely inside it. On a narrow screen it is barely pulled at
-       all: the number is small there, and cropping it hard would leave only a
-       faint middle band where the bright top of the glyph should be. */
-    margin-top: -0.08em;
-    margin-inline: -0.05em;
-    font-size: clamp(150px, 27vw, 400px);
+    margin-block: var(--drift);
+    font-size: min(
+      /* what the design asks for */
+      clamp(150px, 27cqw, 400px),
+      /* what the scene's height can hold: the line box is 0.8em tall */
+      calc((100cqh - 2 * var(--drift)) / 0.8),
+      /* what the string's own width allows */
+      calc(100cqw / var(--em-width))
+    );
     font-weight: 600;
     line-height: 0.8;
     letter-spacing: -0.06em;
@@ -65,22 +99,11 @@ const items = anchor === 'top' ? 'items-start' : 'items-center';
     background: linear-gradient(
       180deg,
       color-mix(in srgb, var(--text-primary) 15%, transparent),
-      transparent 76%
+      transparent 88%
     );
     background-clip: text;
     -webkit-background-clip: text;
     will-change: transform;
-  }
-
-  @media (min-width: 768px) {
-    .ghost-hour {
-      margin-top: -0.22em;
-    }
-  }
-
-  .ghost-hour--sm {
-    margin-top: -0.3em;
-    font-size: clamp(96px, 13vw, 190px);
   }
 
   @media (prefers-reduced-motion: reduce) {

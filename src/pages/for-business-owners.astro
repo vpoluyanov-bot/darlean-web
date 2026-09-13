@@ -129,6 +129,13 @@ const copy = t(defaultLocale).owners;
     if (drifting.length) {
       let queued = false;
 
+      /* Each element says how far it may travel, in --drift, and its own
+         layout has that much room reserved at each end — so the drift can
+         never carry it out of the scene it belongs to. */
+      const travel = new Map(
+        drifting.map((el) => [el, parseFloat(getComputedStyle(el).getPropertyValue('--drift')) || 0])
+      );
+
       const drift = () => {
         queued = false;
         const middle = window.innerHeight / 2;
@@ -137,7 +144,9 @@ const copy = t(defaultLocale).owners;
           const box = el.getBoundingClientRect();
           // Only while it is anywhere near the screen.
           if (box.bottom < -200 || box.top > window.innerHeight + 200) continue;
-          const offset = (box.top + box.height / 2 - middle) * -0.08;
+          const limit = travel.get(el)!;
+          const raw = (box.top + box.height / 2 - middle) * -0.08;
+          const offset = Math.max(-limit, Math.min(limit, raw));
           el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
         }
       };
