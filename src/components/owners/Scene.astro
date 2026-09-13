@@ -1,4 +1,5 @@
 ---
+import GhostHour from './GhostHour.astro';
 import Heading from './Heading.astro';
 import Reveal from './Reveal.astro';
 import Stage from './Stage.astro';
@@ -68,7 +69,7 @@ const {
    together so the page moves; the divider is deliberately cramped. */
 const padding = {
   opening: 'min-h-[92vh] py-section-sm md:py-section',
-  question: 'py-20 md:py-30',
+  question: 'py-16 md:py-28',
   split: 'py-20 md:py-24',
   stats: 'py-20 md:py-24',
   showcase: 'py-24 md:py-40',
@@ -78,6 +79,12 @@ const padding = {
 }[variant];
 
 const isSplit = variant === 'split' || variant === 'stats';
+const isCentred = variant === 'question' || variant === 'showcase';
+
+/* The hour goes behind the copy it belongs to, so it follows that copy's
+   alignment: centred scenes get it centred, a split gets it on whichever side
+   the words are. */
+const ghostAlign = isCentred ? 'center' : isSplit && side === 'start' ? 'end' : 'start';
 const portrait = mock ? Number(mock.ratio.split('/')[0]) < Number(mock.ratio.split('/')[1]) : false;
 ---
 
@@ -90,9 +97,21 @@ const portrait = mock ? Number(mock.ratio.split('/')[0]) < Number(mock.ratio.spl
     )
   }
 
+  {
+    /* Every scene that happens at an hour carries that hour behind it. */
+    time && (
+      <GhostHour
+        hour={time}
+        align={ghostAlign}
+        size={variant === 'divider' ? 'sm' : 'lg'}
+        anchor={variant === 'divider' ? 'middle' : 'top'}
+      />
+    )
+  }
+
   <div
     class:list={[
-      'relative mx-auto',
+      'relative z-10 mx-auto',
       variant === 'wide' ? 'max-w-bleed' : 'max-w-site',
       (variant === 'opening' || variant === 'closing') &&
         'flex min-h-[inherit] flex-col items-center justify-center text-center',
@@ -128,31 +147,33 @@ const portrait = mock ? Number(mock.ratio.split('/')[0]) < Number(mock.ratio.spl
     }
 
     {
-      /* The hour is the picture here: set enormous, sunk behind the words,
-         and drifting a little as the page moves. */
+      /* The question the whole product answers. Everything here is centred on
+         one axis — the hour behind it, the line, the question, the paragraph
+         and the label — so the scene reads as a single column rather than
+         three alignments fighting. */
       variant === 'question' && (
-        <div class="relative py-10 md:py-20">
-          <span class="ghost-hour" data-parallax aria-hidden="true">
-            {time}
-          </span>
+        <div class="flex flex-col items-center text-center">
+          <Reveal>
+            <Heading headline={headline} centred />
+          </Reveal>
 
-          <div class="relative">
-            <Reveal>
-              <Heading headline={headline} sub={sub} />
+          {sub && (
+            <Reveal delay={120} class="mt-8">
+              <p class="key-line m-0 text-balance">{sub}</p>
             </Reveal>
+          )}
 
-            <Reveal delay={140} class="mt-10 max-w-[38em]">
-              <p class="m-0 text-balance text-body leading-[1.6] text-secondary">{body}</p>
+          <Reveal delay={220} class="mt-10 max-w-[38em]">
+            <p class="m-0 text-balance text-body leading-[1.6] text-secondary">{body}</p>
+          </Reveal>
+
+          {period && (
+            <Reveal delay={300} class="mt-10">
+              <span class="inline-flex items-center gap-3 rounded-pill border border-hairline px-4 py-2 text-[11px] uppercase tracking-[0.26em] text-accent">
+                {period}
+              </span>
             </Reveal>
-
-            {period && (
-              <Reveal delay={240} class="mt-10">
-                <span class="inline-flex items-center gap-3 rounded-pill border border-hairline px-4 py-2 text-[11px] uppercase tracking-[0.26em] text-accent">
-                  {period}
-                </span>
-              </Reveal>
-            )}
-          </div>
+          )}
         </div>
       )
     }
@@ -163,7 +184,6 @@ const portrait = mock ? Number(mock.ratio.split('/')[0]) < Number(mock.ratio.spl
           <Reveal class:list={[side === 'start' && 'md:order-2']}>
             <Heading
               size="panel"
-              time={time}
               period={period}
               eyebrow={eyebrow}
               headline={headline}
@@ -220,7 +240,7 @@ const portrait = mock ? Number(mock.ratio.split('/')[0]) < Number(mock.ratio.spl
       variant === 'showcase' && (
         <div class="flex flex-col items-center text-center">
           <Reveal>
-            <Heading time={time} period={period} headline={headline} sub={sub} centred />
+            <Heading period={period} headline={headline} sub={sub} centred />
           </Reveal>
 
           {mock && (
@@ -250,7 +270,7 @@ const portrait = mock ? Number(mock.ratio.split('/')[0]) < Number(mock.ratio.spl
         <Fragment>
           <div class="mx-auto max-w-site">
             <Reveal>
-              <Heading time={time} period={period} headline={headline} sub={sub} />
+              <Heading period={period} headline={headline} sub={sub} />
             </Reveal>
           </div>
 
@@ -281,10 +301,7 @@ const portrait = mock ? Number(mock.ratio.split('/')[0]) < Number(mock.ratio.spl
     {
       variant === 'divider' && (
         <Reveal class="flex flex-col gap-6 md:flex-row md:items-baseline md:justify-between md:gap-16">
-          <p class="m-0 flex items-baseline gap-4">
-            <span class="text-[clamp(30px,3.4vw,44px)] font-semibold leading-none tracking-[-0.03em] text-white">
-              {time}
-            </span>
+          <p class="m-0">
             <span class="text-[12px] font-semibold uppercase tracking-[0.26em] text-accent">
               {period}
             </span>
@@ -338,26 +355,17 @@ const portrait = mock ? Number(mock.ratio.split('/')[0]) < Number(mock.ratio.spl
     );
   }
 
-  .ghost-hour {
-    position: absolute;
-    top: -0.28em;
-    left: -0.06em;
-    z-index: 0;
-    font-size: clamp(140px, 30vw, 400px);
+  /* Not a subheading — the question the rest of the page is answering. */
+  .key-line {
+    max-width: 16em;
+    font-size: clamp(24px, 3.4vw, 40px);
     font-weight: 600;
-    line-height: 0.8;
-    letter-spacing: -0.06em;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
     color: transparent;
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--text-primary) 16%, transparent),
-      transparent 78%
-    );
+    background: var(--gradient-headline);
     background-clip: text;
     -webkit-background-clip: text;
-    pointer-events: none;
-    user-select: none;
-    will-change: transform;
   }
 
   .scroll-line {
@@ -388,8 +396,5 @@ const portrait = mock ? Number(mock.ratio.split('/')[0]) < Number(mock.ratio.spl
       animation: none;
     }
 
-    .ghost-hour {
-      will-change: auto;
-    }
   }
 </style>
