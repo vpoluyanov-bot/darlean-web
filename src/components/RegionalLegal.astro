@@ -1,0 +1,76 @@
+---
+/**
+ * A legal document that exists in one version per region, at the address the
+ * old Tilda site used: /en/terms?region=eu.
+ *
+ * Every version is in the markup; the default one is visible and the rest are
+ * `hidden`. The inline script below picks the region the way Tilda did — the
+ * `region` query parameter, else the `region` cookie Tilda left behind, else
+ * the default — and swaps which version shows. Without JavaScript the reader
+ * gets the default version and the region links still work, since each is a
+ * plain link with its own query string.
+ *
+ * Tilda also linked `?region=kz` and `?region=id`, for which these pages had
+ * no version at all; they fall back to the default here.
+ */
+import LegalDocument from './LegalDocument.astro';
+import { t, defaultLocale } from '../i18n';
+
+interface Props {
+  doc: 'terms' | 'policy' | 'cookies';
+}
+
+const copy = t(defaultLocale).legalRegional;
+const { versions } = copy[Astro.props.doc];
+const regions = Object.keys(versions) as (keyof typeof versions)[];
+---
+
+<div data-legal-regions={regions.join(',')} data-default-region={copy.defaultRegion}>
+  <nav
+    aria-label={copy.regionLabel}
+    class="mx-auto mb-10 flex max-w-legal flex-wrap gap-x-4 gap-y-1 text-caption text-secondary"
+  >
+    <span>{copy.regionLabel}:</span>
+    {
+      regions.map((region) => (
+        <a
+          href={`?region=${region}`}
+          data-region-link={region}
+          aria-current={region === copy.defaultRegion ? 'page' : undefined}
+          class="underline decoration-accent/40 underline-offset-2 transition-colors duration-fast ease-brand hover:text-accent-light aria-[current=page]:text-primary aria-[current=page]:no-underline"
+        >{copy.regions[region]}</a>
+      ))
+    }
+  </nav>
+
+  {
+    regions.map((region) => (
+      <section data-region={region} hidden={region !== copy.defaultRegion}>
+        <LegalDocument document={versions[region].document} />
+      </section>
+    ))
+  }
+</div>
+
+<script is:inline>
+  (function () {
+    var root = document.querySelector('[data-legal-regions]');
+    var known = root.getAttribute('data-legal-regions').split(',');
+    var param = new URLSearchParams(location.search).get('region');
+    var cookie = (document.cookie.match(/(?:^|;\s*)region=([^;]*)/) || [])[1];
+    var region = known.indexOf(param) > -1 ? param
+      : known.indexOf(cookie) > -1 ? cookie
+      : root.getAttribute('data-default-region');
+
+    root.querySelectorAll('[data-region]').forEach(function (section) {
+      section.hidden = section.getAttribute('data-region') !== region;
+    });
+    root.querySelectorAll('[data-region-link]').forEach(function (link) {
+      if (link.getAttribute('data-region-link') === region) {
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  })();
+</script>

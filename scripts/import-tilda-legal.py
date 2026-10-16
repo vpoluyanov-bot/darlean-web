@@ -106,7 +106,8 @@ def inline(nodes, region: str) -> str:
 
 def text(node, region='') -> str:
     """Plain text, for headings and column names: Astro escapes these itself."""
-    return unescape(re.sub(r'<[^>]+>', '', inline([node], region))).strip()
+    plain = re.sub(r'<br>', ' ', inline([node], region))
+    return re.sub(r'\s+', ' ', unescape(re.sub(r'<[^>]+>', '', plain))).strip()
 
 
 class Emitter:
@@ -317,6 +318,7 @@ def convert(page: str, region: str) -> dict:
     title = unescape(re.search(r'<title>(.*?)</title>', page, re.S).group(1)).strip()
     emit = Emitter(region)
     lede = []
+    notice = f'This version only applies to Users within {REGION_NAMES.get(region, region.upper())}.'
     seen_region = False
 
     for rec_id, classes, rtype, html in records(page):
@@ -327,7 +329,13 @@ def convert(page: str, region: str) -> dict:
                 continue
 
         tree = parse_html(html)
-        if regions and rtype == '795':
+        if regions and rtype == '248':
+            # "This version only applies to Users within …" — minus the pointer
+            # to Tilda's dropdown. The cookie-banner notice has no banner here.
+            line = re.sub(r'\s*To adjust the region.*$', '', text(tree, region))
+            if line and 'Consent Tool' not in line:
+                notice = line
+        elif regions and rtype == '795':
             heading = find_class(tree, 't795__title')
             descr = find_class(tree, 't795__descr')
             line = re.sub(r'\s+', ' ', text(heading, region)) if heading else ''
@@ -350,16 +358,12 @@ def convert(page: str, region: str) -> dict:
             zero_block(html, region, emit)
 
     lede_blocks = [{'type': 'p', 'html': escape(line, quote=False), 'lede': True} for line in lede if line]
-    lede_blocks.append({
-        'type': 'p',
-        'html': f'This version only applies to Users within {REGION_NAMES.get(region, region.upper())}.',
-        'lede': True,
-    })
+    lede_blocks.append({'type': 'p', 'html': escape(notice, quote=False), 'lede': True})
     return {'title': title, 'blocks': lede_blocks + emit.blocks}
 
 
 if __name__ == '__main__':
-    # With a third argument — a dotted key such as legalRegional.us.terms —
+    # With a third argument — a dotted key such as legalRegional.terms.versions.us —
     # the document is written into the copy file instead of printed.
     source, region = sys.argv[1], sys.argv[2]
     document = convert(open(source, encoding='utf-8').read(), region)

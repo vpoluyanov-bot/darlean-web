@@ -188,11 +188,15 @@ public for people who go looking, not pages we ask to have ranked.
 
 **The old Tilda addresses carry regional copies.** `/en/terms`, `/en/policy`
 and `/en/cookies` keep the links the app and old emails point at, such as
-`/en/terms?region=us`. Their documents live under `legalRegional.<region>` in
-the copy file and come from the Tilda export, not the comp:
-`python3 scripts/import-tilda-legal.py <pageNNN.html> us legalRegional.us.terms`
-writes one region straight into it. Only `us` is imported, and the pages are
-static, so every `?region=` currently shows the US version.
+`/en/terms?region=us`. Each holds a US, EU and UK version under
+`legalRegional.<doc>.versions` in the copy file, imported from the Tilda export
+rather than the comp:
+`python3 scripts/import-tilda-legal.py <pageNNN.html> eu legalRegional.terms.versions.eu`
+writes one region straight into it. `src/components/RegionalLegal.astro` puts
+every version in the markup and an inline script shows one, choosing as Tilda
+did: `?region=`, else the `region` cookie Tilda set, else `us`. Tilda also
+linked `kz` and `id`, which never had a version on these pages; they get the
+default.
 
 **Measure on a build, never on the dev server.** A stray `astro dev` on the
 same port once made Lighthouse report Performance 56 with an 8.9s first paint;
