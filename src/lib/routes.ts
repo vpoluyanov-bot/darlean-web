@@ -17,7 +17,15 @@ export const INTERNAL = ['/styleguide'];
  * pages are there for people who go looking, not pages we ask search engines
  * to rank. They keep their canonical tags like every other page.
  */
-export const UNLISTED = ['/user-agreement', '/privacy-policy', '/cookie-policy'];
+export const UNLISTED = [
+  '/user-agreement',
+  '/privacy-policy',
+  '/cookie-policy',
+  // The regional copies, at the addresses the old Tilda site used.
+  '/en/terms',
+  '/en/policy',
+  '/en/cookies',
+];
 
 /** Turns `../pages/pricing.astro` into `/pricing`, and `index.astro` into `/`. */
 function toRoute(file: string): string {

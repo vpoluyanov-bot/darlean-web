@@ -186,6 +186,14 @@ inline style the comp hardcoded. They are indexable and carry canonical tags,
 but sit in `UNLISTED` in `src/lib/routes.ts` so they stay out of the sitemap:
 public for people who go looking, not pages we ask to have ranked.
 
+**The old Tilda addresses carry regional copies.** `/en/terms`, `/en/policy`
+and `/en/cookies` keep the links the app and old emails point at, such as
+`/en/terms?region=us`. Their documents live under `legalRegional.<region>` in
+the copy file and come from the Tilda export, not the comp:
+`python3 scripts/import-tilda-legal.py <pageNNN.html> us legalRegional.us.terms`
+writes one region straight into it. Only `us` is imported, and the pages are
+static, so every `?region=` currently shows the US version.
+
 **Measure on a build, never on the dev server.** A stray `astro dev` on the
 same port once made Lighthouse report Performance 56 with an 8.9s first paint;
 the same commit measured 100 through `astro preview`. The dev server ships
