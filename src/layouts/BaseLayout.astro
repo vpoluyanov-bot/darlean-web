@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { GA4_ID, GTM_ID } from '../config';
+import { AMPLITUDE_KEY, GA4_ID, GTM_ID } from '../config';
 import { canonical } from '../lib/routes';
 import { graph, organisation, website, softwareApplication } from '../lib/structured-data';
 import { t, defaultLocale, type Locale } from '../i18n';
@@ -85,6 +85,12 @@ gtag('config', '${GA4_ID}');`} />
       )
     }
 
+    {
+      /* Amplitude's SDK is fetched once the page is idle (src/scripts/
+         amplitude.js); resolving its host now saves that request a lookup. */
+    }
+    {AMPLITUDE_KEY && <link rel="dns-prefetch" href="https://cdn.amplitude.com" />}
+
     <title>{title}</title>
     <meta name="description" content={pageDescription} />
     <link rel="canonical" href={canonicalUrl} />
@@ -140,6 +146,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`}
 
     <script>
       import '../scripts/attribution.js';
+      import '../scripts/amplitude.js';
     </script>
   </body>
 </html>
