@@ -49,6 +49,14 @@ export function signupHref(cta: string): string {
 export const GA4_ID = import.meta.env.PUBLIC_GA4_ID ?? 'G-P04TEGPQQ1';
 export const GTM_ID = import.meta.env.PUBLIC_GTM_ID ?? 'GTM-5L6MW4QX';
 
+/**
+ * Amplitude project key — the US/.com project the Tasks landing reports to, so
+ * a visit here and the signup that follows it in the app land in one project.
+ * Same override rule as above: PUBLIC_AMPLITUDE_KEY, empty to leave it out.
+ */
+export const AMPLITUDE_KEY =
+  import.meta.env.PUBLIC_AMPLITUDE_KEY ?? '65b8b7dc9103003fb3136a14384de56e';
+
 /** Where enquiries go when a button opens a mail client instead of the app. */
 export const CONTACT_EMAIL = 'info@darlean.com';
 

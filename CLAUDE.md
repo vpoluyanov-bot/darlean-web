@@ -54,6 +54,16 @@ environment override; setting either to an empty string drops that tag from the
 build. The snippets are `is:inline` on purpose — Astro must not bundle them, or
 they stop being the code Google publishes.
 
+Amplitude is loaded by `src/scripts/amplitude.js`, imported from the same
+layout, with the key in `src/config.ts` (`PUBLIC_AMPLITUDE_KEY` overrides it the
+same way). It reports to the US/.com project the Tasks landing uses, and sends
+only the SDK's own page views and attribution — no custom events. The SDK is
+fetched when the browser is idle, never at first paint. To join the visit to
+the session in the app, its cookie goes on `.darlean.com` (only on that domain
+— previews and localhost keep it on their own host) and every signup link gets
+`ampDeviceId`, added after the SDK starts and never replacing a value already
+in the link.
+
 **The signup address lives in `src/config.ts` and nowhere else.** Components ask
 for a link with `signupHref('<page>_<block>')`; the `cta` value names the page
 and the block that was clicked, lowercase and underscored. `src/scripts/
@@ -218,9 +228,10 @@ copy. The text lives under `legal.cookiePolicy.document` in the copy file.
 
 **2. The cookie policy describes tools the site does not use. Blocks European
 traffic.** It lists HubSpot and Matomo; the site actually runs Google Analytics
-4 and Google Tag Manager, which the document never mentions. The privacy policy
-names Google Tag Manager in 8.4 but not GA4. So the document does not describe
-the processing that actually happens, and both tags fire unconditionally with
+4, Google Tag Manager and Amplitude, which the document never mentions. The
+privacy policy names Google Tag Manager in 8.4 but not GA4 or Amplitude. So the
+document does not describe the processing that actually happens, and all three
+fire unconditionally with
 no consent banner and no Consent Mode. Legal need to supply: which analytics
 run, which cookies each sets, who the processor is, retention periods and the
 legal basis. Until then the site should not be pointed at EU or UK visitors.
